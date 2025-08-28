@@ -1,0 +1,133 @@
+body {
+  overflow:hidden;
+}
+
+.view {
+  bottom:0;
+  left:0;
+  position:absolute;
+  right:0;
+  top:0;
+  transform:skew(-15deg);
+}
+
+.logo {
+  position:absolute;
+  top: 20px;
+  transform:skew(15deg);
+  color: #99CCFF;
+  font-size: 24pt;
+  display: flex;
+  z-index: 2;
+}
+
+.inverse-colors {
+  color: #003366;
+  z-index: 4;
+}
+
+.logoalt {
+  position:absolute;
+  top: 20px;
+  transform:skew(15deg);
+  color: #003366;
+  font-size: 24pt;
+  display: flex;
+  z-index: 3;
+}
+
+
+
+.left,
+.right {
+  bottom:0;
+  overflow:hidden;
+  position:absolute;
+  top:0;
+}
+
+.left { 
+  left:-15%;  
+  right:45%;  
+  transition: right 0.4s ease-in;
+}
+
+
+.right {
+  left:50%;
+  right:-15%;
+  transition: left 0.4s ease-in;
+}
+
+.leftbg,
+.rightbg {
+  bottom:-15%;
+  left:-15%;
+  position:absolute;
+  right:-5%;
+  top:-5%;
+  transform:skew(15deg);
+}
+
+.leftbg {
+  background: #003366;
+  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/sun.jpg); */
+  background-position:center center;
+  background-size:cover;
+  color: #99CCFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.leftbg a {
+  color: #99CCFF;
+}
+
+.rightbg {
+  background: #99CCFF;
+  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/moon.jpg); */
+  background-position:center center;
+  background-size:cover;
+  color: #003366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+}
+
+.rightbg a {
+  color: #003366;
+}
+
+.hidden {
+  display: none;
+}
+
+.leftexpanded {
+  right: -15%;
+}
+
+.rightexpanded {
+  left: -15%;
+}
+
+.front {
+  z-index: 1;
+}
+
+.title {
+  font-size: 24pt;
+  margin-top: -160px;
+  transition: top 2s ease-in;
+}
+
+.titleexpanded {
+  margin-top: -320px;
+}
+
+.description {
+  font-size: 16pt;
+}
