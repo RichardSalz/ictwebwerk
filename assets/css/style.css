@@ -7956,6 +7956,18 @@ header.header--sticky.sticky .nav-area ul li.main-nav {
   margin: auto;
 }
 
+.banner-four-area-main-wrapper .banner-own-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/banner/bg.jpg);
+
+  height: 824px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
 .banner-four-area-main-wrapper .banner-four-bg.two {
   background-image: url(../images/banner/25.webp);
 }
