@@ -7958,8 +7958,8 @@ header.header--sticky.sticky .nav-area ul li.main-nav {
 
 .banner-four-area-main-wrapper .banner-own-bg {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/banner/bg.jpg);
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url(../images/banner/businessbg.jpg);
 
   height: 824px;
   display: flex;
