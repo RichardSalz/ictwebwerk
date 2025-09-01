@@ -3,6 +3,15 @@ $color1: #FCFCFC;
 $color2: #2F2F2F;
 
 
+@font-face {
+  font-family: 'FuturaBQ-BoldOutline';
+  src: url('assets/fonts/FuturaBQ-BoldOutline.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 body {
   overflow:hidden;
 }
