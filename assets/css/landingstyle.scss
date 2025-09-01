@@ -1,105 +1,110 @@
+
+$color1: #FCFCFC;
+$color2: #2F2F2F;
+
+
 body {
-  overflow: hidden;
+  overflow:hidden;
 }
 
 .view {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: skew(-15deg);
+  bottom:0;
+  left:0;
+  position:absolute;
+  right:0;
+  top:0;
+  transform:skew(-15deg);
 }
 
 .logo {
-  position: absolute;
+  position:absolute;
   top: 20px;
-  transform: skew(15deg);
-  color: #FCFCFC;
+  transform:skew(15deg);
+  color: $color1;
   font-size: 24pt;
   display: flex;
   z-index: 2;
 }
 
 .inverse-colors {
-  color: #2F2F2F;
+  color: $color2;
   z-index: 4;
 }
 
 .logoalt {
-  position: absolute;
+  position:absolute;
   top: 20px;
-  transform: skew(15deg);
-  color: #2F2F2F;
+  transform:skew(15deg);
+  color: $color2;
   font-size: 24pt;
   display: flex;
   z-index: 3;
 }
 
+
+
 .left,
 .right {
-  bottom: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
+  bottom:0;
+  overflow:hidden;
+  position:absolute;
+  top:0;
 }
 
-.left {
-  left: -15%;
-  right: 45%;
+.left { 
+  left:-15%;  
+  right:45%;  
   transition: right 0.4s ease-in;
 }
 
+
 .right {
-  left: 50%;
-  right: -15%;
+  left:50%;
+  right:-15%;
   transition: left 0.4s ease-in;
 }
 
 .leftbg,
 .rightbg {
-  bottom: -15%;
-  left: -15%;
-  position: absolute;
-  right: -5%;
-  top: -5%;
-  transform: skew(15deg);
+  bottom:-15%;
+  left:-15%;
+  position:absolute;
+  right:-5%;
+  top:-5%;
+  transform:skew(15deg);
 }
 
 .leftbg {
-  background: #2F2F2F;
+  background: $color2;
   /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/sun.jpg); */
-  background-position: center center;
-  background-size: cover;
-  color: #FCFCFC;
+  background-position:center center;
+  background-size:cover;
+  color: $color1;
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .leftbg a {
-  color: #FCFCFC;
+  color: $color1;
 }
 
 .rightbg {
-  background: #FCFCFC;
+  background: $color1;
   /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/moon.jpg); */
-  background-position: center center;
-  background-size: cover;
-  color: #2F2F2F;
+  background-position:center center;
+  background-size:cover;
+  color: $color2;
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
+
 }
 
 .rightbg a {
-  color: #2F2F2F;
+  color: $color2;
 }
 
 .hidden {
@@ -130,4 +135,4 @@ body {
 
 .description {
   font-size: 16pt;
-}/*# sourceMappingURL=landingstyle.css.map */
+}
