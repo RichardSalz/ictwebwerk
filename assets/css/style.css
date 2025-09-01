@@ -24497,7 +24497,7 @@ header.header-transparent.in-full-screen .action-area .menu-btn {
 }
 
 .rts-section-gap {
-  padding: 120px 0;
+  padding: 20px 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .rts-section-gap {
