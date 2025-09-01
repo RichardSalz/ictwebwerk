@@ -8955,6 +8955,10 @@ header.header--sticky.sticky .nav-area ul li.main-nav {
   padding-top: 300px !important;
 }
 
+.padding-extend-200 {
+  padding-top: 200px !important;
+}
+
 .rts-banner-area-9 {
   background: #F2F2F2;
   height: 850px;
