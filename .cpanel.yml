@@ -1,6 +1,6 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/szallasw1/public_html/ictwebwerkteszt
+    - export DEPLOYPATH=/home/szallasw1/ictwebwerk.nl
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R en $DEPLOYPATH
     - /bin/cp -R hu $DEPLOYPATH
