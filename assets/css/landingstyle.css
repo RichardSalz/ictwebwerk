@@ -29,7 +29,7 @@ body {
 }
 
 .inverse-colors {
-  color: #2F2F2F;
+  color: hsl(0, 0%, 18%);
   z-index: 4;
 }
 
@@ -37,7 +37,7 @@ body {
   position: absolute;
   top: 20px;
   transform: skew(15deg);
-  color: #2F2F2F;
+  color: hsl(0, 0%, 18%);
   font-size: 24pt;
   display: flex;
   z-index: 3;
@@ -74,8 +74,7 @@ body {
 }
 
 .leftbg {
-  background: #2F2F2F;
-  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/sun.jpg); */
+  background: hsla(0, 0%, 18%, 0.5);
   background-position: center center;
   background-size: cover;
   color: #FCFCFC;
@@ -85,6 +84,7 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  flex-direction: column;
 }
 
 .leftbg a {
@@ -92,33 +92,21 @@ body {
 }
 
 .rightbg {
-  background: #FCFCFC;
-  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/moon.jpg); */
+  background: hsla(0, 0%, 99%, 0.5);
   background-position: center center;
   background-size: cover;
-  color: #2F2F2F;
+  color: hsl(0, 0%, 18%);
   display: flex;
   justify-content: center;
   align-items: center;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  flex-direction: column;
 }
 
 .rightbg a {
-  color: #2F2F2F;
-}
-
-.hidden {
-  display: none;
-}
-
-.leftexpanded {
-  right: -15%;
-}
-
-.rightexpanded {
-  left: -15%;
+  color: hsl(0, 0%, 18%);
 }
 
 .front {
@@ -127,14 +115,30 @@ body {
 
 .title {
   font-size: 24pt;
-  margin-top: -160px;
-  transition: top 2s ease-in;
+  border-bottom: 1px transparent solid;
+  transition: border 0.5s ease-in;
 }
 
-.titleexpanded {
-  margin-top: -320px;
+.title:hover {
+  border-bottom: 1px #FCFCFC solid;
+  cursor: pointer;
+}
+
+.righttitle:hover {
+  border-bottom: 1px hsl(0, 0%, 18%) solid;
+  cursor: pointer;
 }
 
 .description {
   font-size: 16pt;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.rightbg:hover .rightdesc {
+  opacity: 1;
+}
+
+.leftbg:hover .leftdesc {
+  opacity: 1;
 }/*# sourceMappingURL=landingstyle.css.map */

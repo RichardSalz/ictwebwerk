@@ -1,6 +1,8 @@
 
 $color1: #FCFCFC;
-$color2: #2F2F2F;
+$color2: hsl(0, 0%, 18%);
+$color1Transparent: hsla(0, 0%, 99%, 50%);
+$color2Transparent: hsla(0, 0%, 18%, 0.5);
 
 
 @font-face {
@@ -85,8 +87,7 @@ body {
 }
 
 .leftbg {
-  background: $color2;
-  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/sun.jpg); */
+  background: $color2Transparent;
   background-position:center center;
   background-size:cover;
   color: $color1;
@@ -94,6 +95,7 @@ body {
   justify-content: center;
   align-items: center;
   user-select: none;
+  flex-direction: column;
 }
 
 .leftbg a {
@@ -101,8 +103,7 @@ body {
 }
 
 .rightbg {
-  background: $color1;
-  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/71829/moon.jpg); */
+  background: $color1Transparent;
   background-position:center center;
   background-size:cover;
   color: $color2;
@@ -110,24 +111,25 @@ body {
   justify-content: center;
   align-items: center;
   user-select: none;
-
+  flex-direction: column;
 }
 
 .rightbg a {
   color: $color2;
 }
 
-.hidden {
-  display: none;
-}
+// .hidden {
+//   //display: none;
+//   opacity: 0;
+// }
 
-.leftexpanded {
-  right: -15%;
-}
+// .leftexpanded {
+//   right: -15%;
+// }
 
-.rightexpanded {
-  left: -15%;
-}
+// .rightexpanded {
+//   left: -15%;
+// }
 
 .front {
   z-index: 1;
@@ -135,14 +137,32 @@ body {
 
 .title {
   font-size: 24pt;
-  margin-top: -160px;
-  transition: top 2s ease-in;
+  border-bottom: 1px transparent solid;
+  transition: border 0.5s ease-in;
 }
 
-.titleexpanded {
-  margin-top: -320px;
+.title:hover {
+  border-bottom: 1px $color1 solid;
+  cursor: pointer;
 }
+
+.righttitle:hover {
+  border-bottom: 1px $color2 solid;
+  cursor: pointer;
+
+}
+
 
 .description {
   font-size: 16pt;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.rightbg:hover .rightdesc {
+  opacity: 1;
+}
+
+.leftbg:hover .leftdesc {
+  opacity: 1;
 }

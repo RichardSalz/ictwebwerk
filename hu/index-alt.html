@@ -3,48 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/landingstyle.css">
+    <!-- <link rel="stylesheet" href="../assets/css/landingstyle.css"> -->
+    <link rel="stylesheet" href="../assets/css/landingstyle-alt.css">
     <title>ICT Webwerk</title>
 </head>
 <body>
-    <div class="view" id="bg">
-        <div class="logo">
-            <div>ICTWEBWERK.NL</div>
-        </div>
-        <!-- <div class="logoalt hidden">
-            <div>Logo</div>
-        </div> -->
-        <div class="left">
-            <div class="leftbg">
-                <div class="title lefttitle">
-                    <h2>Nagyvállalatok</h2>
-                </div>
-                <div class="description leftdesc hidden">
-                    <p>Leírás</p>
-                    <a href="business.html">Részletek</a>
-                </div>
-            </div>
-            
-        </div>
-
-        
-        
-        <div class="right">
-            <div class="rightbg">
-                <div class="title righttitle">
-                    <h2>Kisvállalatok</h2>
-                </div>
-                <div class="description rightdesc hidden">
-                    <p>Leírás</p>
-                    <a href="development.html">Részletek</a>
-                </div>
-            </div>
-        </div>
-</div>
+     <div class="container" id="bg">
+    <div class="left">
+      Left Business Half<br />
+      <a href="subpageA.html">Go to Subpage A</a>
+    </div>
+    <div class="right">
+      Right Business Half<br />
+      <a href="subpageB.html">Go to Subpage B</a>
+    </div>
+  </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
 <script>
+
 const effect = VANTA.NET({
     el: '#bg',
     mouseControls: true,

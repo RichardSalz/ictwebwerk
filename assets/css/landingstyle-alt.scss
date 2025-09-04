@@ -1,0 +1,82 @@
+
+$color1: #FCFCFC;
+$color2: hsl(0, 0%, 18%);
+$color1Transparent: hsla(0, 0%, 99%, 50%);
+$color2Transparent: hsla(0, 0%, 18%, 0.5);
+
+
+@font-face {
+  font-family: 'FuturaBQ';
+  src: url('assets/fonts/FuturaBQ-BoldOutline.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+body {
+  overflow:hidden;
+  font-family: 'FuturaBQ', sans-serif;
+  box-sizing: border-box;
+}
+
+.logo {
+  position:absolute;
+  top: 20px;
+  color: $color2;
+  font-size: 24pt;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .left, .right {
+    position: relative;
+    height: 100vh;
+    width: 53vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    z-index: 1;
+  }
+
+  .left {
+    //background-color: $color2Transparent;
+    /* Clipped polygon to create diagonal on right side */
+    // clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    transform: translateX(7vw);
+    margin-left: -7vw;
+    color: $color2;
+
+  }
+
+  .right {
+    //background-color: $color2Transparent;
+    /* Clipped polygon to create diagonal on left side */
+    // clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    //transform: translateX(-3.5vw);
+    color: $color2;
+
+  }
+
+  /* Links appear on hover for example */
+  .left a, .right a {
+    color: white;
+    text-decoration: underline;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .left:hover a, .right:hover a {
+    opacity: 1;
+  }
+
+
+
