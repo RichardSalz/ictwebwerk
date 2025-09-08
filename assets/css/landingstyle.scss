@@ -34,8 +34,16 @@ body {
   @media (max-width: 1200px) {
     .view {
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
       margin-bottom: 10%;
+      padding-top: 20%;
+    }
+  }
+  @media (max-width: 800px) {
+    .view {
+      flex-direction: column;
+      justify-content: space-around;
+      margin-bottom: 20%;
       padding-top: 20%;
     }
   }
@@ -224,6 +232,16 @@ body {
   opacity: 1;
 }
 
+
 .leftbg:hover .leftdesc {
   opacity: 1;
 }
+
+@media (max-width: 800px) {
+    .leftdesc {
+      opacity: 1;
+    }
+    .rightdesc {
+      opacity: 1;
+    }
+  }
