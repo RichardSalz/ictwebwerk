@@ -37,15 +37,11 @@ body {
 
 .left {
   /* Clipped polygon to create diagonal on right side */
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-  transform: translateX(7vw);
-  margin-left: -7vw;
   color: hsl(0, 0%, 18%);
 }
 
 .right {
   /* Clipped polygon to create diagonal on left side */
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
   color: hsl(0, 0%, 18%);
 }
 

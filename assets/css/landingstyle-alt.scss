@@ -49,9 +49,9 @@ body {
     //background-color: $color2Transparent;
     /* Clipped polygon to create diagonal on right side */
     // clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-    transform: translateX(7vw);
-    margin-left: -7vw;
+    // clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    // transform: translateX(7vw);
+    // margin-left: -7vw;
     color: $color2;
 
   }
@@ -60,7 +60,7 @@ body {
     //background-color: $color2Transparent;
     /* Clipped polygon to create diagonal on left side */
     // clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    // clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
     //transform: translateX(-3.5vw);
     color: $color2;
 
