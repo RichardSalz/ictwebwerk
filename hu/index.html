@@ -22,24 +22,8 @@
             <div>Logo</div>
         </div> -->
         <div class="left">
-            <a href="business.html">
-                <div class="leftbg">
-                <div class="title lefttitle">
-                    <h2>Nagyvállalatok</h2>
-                </div>
-                <div class="description leftdesc hidden">
-                    <p>Nagyvállalati megoldások </p>
-                    <a href="business.html">Részletek</a>
-                </div>
-            </div>
-            </a>
             
             
-        </div>
-
-        
-        
-        <div class="right">
             <a href="development.html">
                 <div class="rightbg">
                 <div class="title righttitle">
@@ -48,6 +32,22 @@
                 <div class="description rightdesc hidden">
                     <p>Webfejlesztés KKV-k és magánszemélyek számára</p>
                     <a href="development.html">Részletek</a>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        
+        
+        <div class="right">
+            <a href="business.html">
+                <div class="leftbg">
+                <div class="title lefttitle">
+                    <h2>Nagyvállalatok</h2>
+                </div>
+                <div class="description leftdesc hidden">
+                    <p>Nagyvállalati megoldások </p>
+                    <a href="business.html">Részletek</a>
                 </div>
             </div>
             </a>
@@ -76,8 +76,8 @@ const effect = VANTA.NET({
   // Store default color
   const defaultColor = 0x44477D;
   const bgDefaultColor = 0x20282D;
-  const bgLeftColor = 0x2E2E2E;
-  const bgRightColor = 0x2F2F2F;
+  const bgLeftColor = 0x20282D;
+  const bgRightColor = 0x20282D;
 
   left.addEventListener('mouseenter', () => {
     effect.setOptions({ color: 0x1E90FF, backgroundColor: bgLeftColor }); // Color for left hover
