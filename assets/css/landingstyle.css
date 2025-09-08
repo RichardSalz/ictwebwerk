@@ -25,6 +25,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 10%;
+    padding-top: 20%;
   }
 }
 .logo {
