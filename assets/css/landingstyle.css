@@ -40,7 +40,7 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  color: #FCFCFC;
+  color: #c93126;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   font-size: 24pt;
   display: flex;
@@ -51,19 +51,29 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  color: #FCFCFC;
+  color: #c93126;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   font-size: 24pt;
   display: flex;
   z-index: 2;
-  width: 10%;
+  width: 15%;
   justify-content: space-between;
+}
+
+.language > div {
+  margin-right: 15px;
 }
 
 @media (max-width: 1200px) {
   .language {
     flex-direction: column;
-    display: none;
+    width: 5%;
+  }
+}
+@media (max-width: 800px) {
+  .language {
+    flex-direction: column;
+    width: 10%;
   }
 }
 .language a {
@@ -72,7 +82,7 @@ body {
 }
 
 .language a:hover {
-  border-bottom: 1px solid #FCFCFC;
+  border-bottom: 1px solid #c93126;
   transition: border 0.5s ease-in;
 }
 
@@ -83,20 +93,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FCFCFC;
+  color: #c93126;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .left, a {
   text-decoration: none;
-  color: #FCFCFC;
+  color: #c93126;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   text-align: center;
 }
 
 .right, a {
   text-decoration: none;
-  color: #FCFCFC;
+  color: #c93126;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   text-align: center;
 }

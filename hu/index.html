@@ -12,11 +12,11 @@
             <div>ICTWEBWERK.NL</div>
         </div>
         <div class="language">
-            <div><a href="index.html">HU</a></div>
+            <div class="hu"><a href="index.html">HU</a></div>
             
-            <div><a href="../en">EN</a></div>
+            <div class="en"><a href="../en">EN</a></div>
             
-            <div><a href="../nl/">NL</a></div>
+            <div class="nl"><a href="../nl/">NL</a></div>
         </div>
         <!-- <div class="logoalt hidden">
             <div>Logo</div>
@@ -97,6 +97,32 @@ const effect = VANTA.NET({
   right.addEventListener('mouseleave', () => {
     effect.setOptions({ color: defaultColor, backgroundColor: bgDefaultColor }); // Reset to default
   });
+
+  const huDiv = document.querySelector('.hu');
+  const nlDiv = document.querySelector('.nl');
+  const enDiv = document.querySelector('.en');
+
+  huDiv.addEventListener('mouseenter', () => {
+    effect.setOptions({ color: 0xda5d55});
+  });
+  huDiv.addEventListener('mouseleave', () => {
+    effect.setOptions({ color: 0xFF837B});
+  });
+
+  enDiv.addEventListener('mouseenter', () => {
+    effect.setOptions({ color: 0xd1483f});
+  });
+  enDiv.addEventListener('mouseleave', () => {
+    effect.setOptions({ color: 0xFF837B});
+  });
+
+    nlDiv.addEventListener('mouseenter', () => {
+    effect.setOptions({ color: 0xc93126});
+  });
+  nlDiv.addEventListener('mouseleave', () => {
+    effect.setOptions({ color: 0xFF837B});
+  });
+
 </script>
 <script src="../js/landingmain.js"></script>
 </html>
