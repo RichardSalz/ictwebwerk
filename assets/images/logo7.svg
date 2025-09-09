@@ -28,9 +28,9 @@
      inkscape:document-units="px"
      showgrid="false"
      units="px"
-     inkscape:zoom="2.9647586"
-     inkscape:cx="117.4874"
-     inkscape:cy="18.432662"
+     inkscape:zoom="1.4823793"
+     inkscape:cx="-64.2737"
+     inkscape:cy="56.791412"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -90,11 +90,11 @@
     <color-profile
        name="sRGB-IEC61966-2.1"
        xlink:href="../../../../../../windows/system32/spool/drivers/color/sRGB%20Color%20Space%20Profile.icm"
-       id="color-profile17999" />
+       id="color-profile36181" />
     <color-profile
        name="Agfa-:-Swop-Standard"
        xlink:href="../../../../../../windows/system32/spool/drivers/color/RSWOP.icm"
-       id="color-profile18001" />
+       id="color-profile36183" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3768"
