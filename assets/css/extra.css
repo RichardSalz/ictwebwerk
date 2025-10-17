@@ -32,3 +32,38 @@
 .footerdesc {
     margin-left: 20px;
 }
+
+body {
+  margin: 0;
+}
+
+.logoview {
+  margin: 0;
+  display: flex;
+  align-items: center;       /* Vertical centering */
+  justify-content: center;   /* Horizontal centering */
+  height: 100vh;             /* Full viewport height for example */
+}
+.centered {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .inner-content-wrapper-four-banner .title span.in:hover {
+  opacity: 0.5;
+} */
+
+
+
+@media (max-width: 800px) {
+  .mobilehidden {
+    display: none; 
+  }
+}
+
+.increased {
+  font-size: 20pt;
+}
