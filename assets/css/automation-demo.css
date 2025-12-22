@@ -1,0 +1,492 @@
+/* ============================================
+   RESTAURANT AUTOMATION DEMO SECTION
+   Add this to your extra.css or create automation-demo.css
+   ============================================ */
+
+/* Dark section wrapper */
+.automation-demo-section {
+    background: linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.automation-demo-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.automation-demo-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+/* Demo section title styling */
+.automation-demo-section .title-style-four .pre {
+    color: #3b82f6;
+}
+
+.automation-demo-section .title-style-four .title {
+    color: #f1f5f9;
+}
+
+.automation-demo-section .title-style-four .title span {
+    color: #3b82f6;
+}
+
+.automation-demo-section .disc {
+    color: #94a3b8;
+}
+
+/* Demo container */
+.demo-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Demo panels grid */
+.demo-panels {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    align-items: center;
+    position: relative;
+}
+
+@media (max-width: 991px) {
+    .demo-panels {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .arrow-connector {
+        transform: rotate(90deg);
+    }
+}
+
+/* Browser mockup styling */
+.browser-mockup {
+    background: #12121a;
+    border-radius: 16px;
+    border: 1px solid #2a2a3a;
+    overflow: hidden;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.browser-mockup:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 35px 60px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.browser-header {
+    background: #1a1a25;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #2a2a3a;
+}
+
+.browser-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.browser-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.browser-dots span:nth-child(1) { background: #ff5f57; }
+.browser-dots span:nth-child(2) { background: #febc2e; }
+.browser-dots span:nth-child(3) { background: #28c840; }
+
+.browser-url {
+    flex: 1;
+    background: #0a0a0f;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.browser-url .lock {
+    color: #10b981;
+}
+
+.browser-content {
+    padding: 24px;
+    min-height: 320px;
+    position: relative;
+}
+
+/* Excel mockup */
+.excel-mockup {
+    background: #1e4620;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-header {
+    background: #165a1a;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.excel-icon {
+    width: 20px;
+    height: 20px;
+    background: #28c840;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 10px;
+    color: white;
+}
+
+.excel-grid {
+    display: grid;
+    grid-template-columns: 40px repeat(2, 1fr);
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.excel-cell {
+    padding: 6px 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: #f1f5f9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.excel-cell.header {
+    background: rgba(255,255,255,0.1);
+    font-weight: 600;
+    text-align: center;
+}
+
+.excel-cell.row-num {
+    background: rgba(255,255,255,0.08);
+    text-align: center;
+    color: #64748b;
+}
+
+.excel-cell.highlight {
+    background: rgba(59, 130, 246, 0.3);
+    animation: cellPulse 2s ease-in-out infinite;
+}
+
+@keyframes cellPulse {
+    0%, 100% { background: rgba(59, 130, 246, 0.2); }
+    50% { background: rgba(59, 130, 246, 0.4); }
+}
+
+/* Arrow connector */
+.arrow-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.arrow-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+    position: relative;
+    overflow: visible;
+}
+
+.arrow-line::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: #8b5cf6;
+}
+
+.arrow-icon {
+    font-size: 1.5rem;
+    animation: arrowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+    0%, 100% { opacity: 0.5; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(5px); }
+}
+
+.arrow-label {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Facebook mockup */
+.facebook-post {
+    background: #242526;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fb-header {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #3a3b3c;
+}
+
+.fb-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #dc2626);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.fb-meta {
+    flex: 1;
+}
+
+.fb-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #e4e6eb;
+}
+
+.fb-time {
+    font-size: 0.75rem;
+    color: #b0b3b8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.fb-content {
+    padding: 12px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e4e6eb;
+}
+
+.fb-content .line {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: typeIn 0.5s ease forwards;
+}
+
+.fb-content .line:nth-child(1) { animation-delay: 0.5s; }
+.fb-content .line:nth-child(2) { animation-delay: 1s; }
+.fb-content .line:nth-child(3) { animation-delay: 1.5s; }
+.fb-content .line:nth-child(4) { animation-delay: 2s; }
+.fb-content .line:nth-child(5) { animation-delay: 2.5s; }
+.fb-content .line:nth-child(6) { animation-delay: 3s; }
+.fb-content .line:nth-child(7) { animation-delay: 3.5s; }
+
+@keyframes typeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fb-actions {
+    padding: 8px 12px;
+    border-top: 1px solid #3a3b3c;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fb-action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #b0b3b8;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fb-action:hover {
+    background: #3a3b3c;
+}
+
+/* Status bar */
+.status-bar {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: #12121a;
+    border-radius: 100px;
+    border: 1px solid #2a2a3a;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+.status-dot.active {
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.status-text {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.status-text strong {
+    color: #f1f5f9;
+}
+
+/* Panel labels */
+.panel-label {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.left-panel, .right-panel {
+    position: relative;
+}
+
+/* Progress ring */
+.progress-ring {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.progress-ring circle {
+    fill: none;
+    stroke-width: 3;
+}
+
+.progress-ring .bg {
+    stroke: #2a2a3a;
+}
+
+.progress-ring .progress {
+    stroke: #10b981;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: progressFill 4s ease-out forwards infinite;
+}
+
+@keyframes progressFill {
+    0% { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* CTA Button in dark section */
+.automation-demo-section .rts-btn.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    margin-top: 30px;
+}
+
+.automation-demo-section .rts-btn.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Replay button */
+.replay-btn {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.replay-btn button {
+    background: #1a1a25;
+    border: 1px solid #2a2a3a;
+    color: #94a3b8;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.replay-btn button:hover {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* Add JetBrains Mono font for code elements */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
