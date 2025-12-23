@@ -18442,7 +18442,7 @@ section.main-wrapper-sticky .sticky-statement.narrow .left-side img {
   margin-right: -50px;
 }
 .faq-main-wrapper-content-inner-four .title-style-four * {
-  color: #fff;
+  /* color: #fff; */
 }
 .faq-main-wrapper-content-inner-four .accordion .accordion-item {
   margin-bottom: 30px;
