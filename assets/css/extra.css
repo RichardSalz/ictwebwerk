@@ -67,3 +67,7 @@ body {
 .increased {
   font-size: 20pt;
 }
+
+.disabled {
+  pointer-events: none;
+}
