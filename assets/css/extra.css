@@ -71,3 +71,7 @@ body {
 .disabled {
   pointer-events: none;
 }
+
+div.services {
+  padding-top: 50px;
+}
