@@ -1,0 +1,874 @@
+<!-- ============================================
+     GOOGLE TAG MANAGER + COOKIE CONSENT SYSTEM
+     Complete implementation for ICT Webwerk
+     ============================================ -->
+
+<!-- 
+     STEP 1: Add this in the <head> section, as early as possible
+     Replace GTM-XXXXXXX with your actual GTM container ID
+-->
+
+<!-- Google Tag Manager -->
+<script>
+// Initialize dataLayer with default consent (denied)
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Set default consent state (before GTM loads)
+gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'functionality_storage': 'granted',
+    'security_storage': 'granted',
+    'wait_for_update': 500
+});
+
+// Push initial pageview event
+dataLayer.push({
+    'event': 'default_consent'
+});
+
+// Google Tag Manager
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NFBT3TDH');
+</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- 
+     STEP 2: Add this immediately after opening <body> tag
+-->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFBT3TDH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- 
+     STEP 3: Add this CSS (can be in dark-theme.css or inline)
+-->
+
+<style>
+/* ============================================
+   COOKIE CONSENT STYLES - DARK THEME
+   ============================================ */
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1e1e2a;
+    border-top: 1px solid #2a2a3a;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    padding: 24px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+}
+
+.cookie-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.cookie-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cookie-title .cookie-icon {
+    font-size: 24px;
+}
+
+.cookie-text {
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+}
+
+.cookie-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.cookie-link:hover {
+    color: #8b5cf6;
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.cookie-btn-accept-all {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: #fff;
+}
+
+.cookie-btn-accept-all:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.cookie-btn-essential {
+    background: #2a2a3a;
+    color: #f1f5f9;
+}
+
+.cookie-btn-essential:hover {
+    background: #3a3a4a;
+}
+
+.cookie-btn-settings {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-btn-settings:hover {
+    background: #2a2a3a;
+    color: #f1f5f9;
+}
+
+/* Cookie Settings Modal */
+.cookie-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cookie-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cookie-modal-content {
+    background: #1e1e2a;
+    border-radius: 16px;
+    max-width: 550px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-modal-header {
+    padding: 24px;
+    border-bottom: 1px solid #2a2a3a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-modal-title {
+    margin: 0;
+    font-size: 22px;
+    color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cookie-modal-close {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.cookie-modal-close:hover {
+    color: #f1f5f9;
+}
+
+.cookie-modal-body {
+    padding: 24px;
+}
+
+.cookie-category {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #12121a;
+    border-radius: 12px;
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-category:last-child {
+    margin-bottom: 0;
+}
+
+.cookie-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cookie-category-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0;
+}
+
+.cookie-category-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #2a2a3a;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cookie-category-badge.required {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+/* Toggle Switch */
+.cookie-toggle {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+}
+
+.cookie-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cookie-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2a2a3a;
+    transition: 0.3s;
+    border-radius: 28px;
+}
+
+.cookie-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #64748b;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.cookie-toggle input:checked + .cookie-toggle-slider {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+.cookie-toggle input:checked + .cookie-toggle-slider:before {
+    transform: translateX(24px);
+    background-color: #fff;
+}
+
+.cookie-toggle input:disabled + .cookie-toggle-slider {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cookie-toggle input:disabled:checked + .cookie-toggle-slider {
+    background: #10b981;
+}
+
+.cookie-category-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-modal-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #2a2a3a;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Floating Cookie Button */
+.cookie-settings-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #1e1e2a;
+    border: 1px solid #2a2a3a;
+    color: #94a3b8;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+.cookie-settings-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.cookie-settings-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: #fff;
+    border-color: transparent;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.cookie-settings-btn .tooltip {
+    position: absolute;
+    left: 60px;
+    background: #1e1e2a;
+    color: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-settings-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cookie-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cookie-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .cookie-settings-btn {
+        bottom: 15px;
+        left: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+    
+    .cookie-settings-btn .tooltip {
+        display: none;
+    }
+}
+</style>
+
+
+<!-- 
+     STEP 4: Add this HTML before closing </body> tag
+-->
+
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <span class="cookie-icon">🍪</span>
+                Cookie beállítások
+            </h3>
+            <p class="cookie-text">
+                Weboldalunk sütiket használ a felhasználói élmény javítása és a forgalom elemzése érdekében. 
+                Válassza ki, mely sütiket szeretné engedélyezni.
+            </p>
+            <a href="/privacy-policy" class="cookie-link" target="_blank">Adatvédelmi irányelvek →</a>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-settings" onclick="CookieConsent.showSettings()">
+                Beállítások
+            </button>
+            <button class="cookie-btn cookie-btn-essential" onclick="CookieConsent.acceptEssential()">
+                Csak szükségesek
+            </button>
+            <button class="cookie-btn cookie-btn-accept-all" onclick="CookieConsent.acceptAll()">
+                Összes elfogadása
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookieModal" class="cookie-modal">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h2 class="cookie-modal-title">
+                <span>🍪</span>
+                Cookie beállítások
+            </h2>
+            <button class="cookie-modal-close" onclick="CookieConsent.closeSettings()">&times;</button>
+        </div>
+        <div class="cookie-modal-body">
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div>
+                        <h3 class="cookie-category-title">Szükséges sütik</h3>
+                        <span class="cookie-category-badge required">Kötelező</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="essential-toggle" checked disabled>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-desc">
+                    Ezek a sütik elengedhetetlenek a weboldal működéséhez. Nélkülük az oldal nem működne megfelelően.
+                </p>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div>
+                        <h3 class="cookie-category-title">Analitikai sütik</h3>
+                        <span class="cookie-category-badge">Opcionális</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="analytics-toggle">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-desc">
+                    Segítenek megérteni, hogyan használják a látogatók a weboldalt. Az adatok névtelenek és összesítettek (Google Analytics).
+                </p>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div>
+                        <h3 class="cookie-category-title">Marketing sütik</h3>
+                        <span class="cookie-category-badge">Opcionális</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="marketing-toggle">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-desc">
+                    Releváns hirdetések megjelenítésére és az érdeklődési körök nyomon követésére szolgálnak (Facebook Pixel, Google Ads).
+                </p>
+            </div>
+        </div>
+        <div class="cookie-modal-footer">
+            <button class="cookie-btn cookie-btn-essential" onclick="CookieConsent.closeSettings()">
+                Mégse
+            </button>
+            <button class="cookie-btn cookie-btn-accept-all" onclick="CookieConsent.saveSettings()">
+                Mentés
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cookie Settings Button -->
+<button id="cookieSettingsBtn" class="cookie-settings-btn" onclick="CookieConsent.showSettings()">
+    🍪
+    <span class="tooltip">Cookie beállítások</span>
+</button>
+
+
+<!-- 
+     STEP 5: Add this JavaScript before closing </body> tag
+-->
+
+<script>
+/**
+ * Cookie Consent Manager with GTM Integration
+ * For ICT Webwerk - Hungarian language
+ */
+(function() {
+    'use strict';
+    
+    window.CookieConsent = {
+        // Configuration
+        COOKIE_NAME: 'cookie_consent_preferences',
+        COOKIE_EXPIRY_DAYS: 365,
+        
+        /**
+         * Get cookie value by name
+         */
+        getCookie: function(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        },
+        
+        /**
+         * Set cookie with expiry
+         */
+        setCookie: function(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax;Secure`;
+        },
+        
+        /**
+         * Delete cookie
+         */
+        deleteCookie: function(name) {
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        },
+        
+        /**
+         * Get stored consent preferences
+         */
+        getConsent: function() {
+            const consent = this.getCookie(this.COOKIE_NAME);
+            if (consent) {
+                try {
+                    return JSON.parse(decodeURIComponent(consent));
+                } catch (e) {
+                    console.error('Error parsing consent cookie:', e);
+                    return null;
+                }
+            }
+            return null;
+        },
+        
+        /**
+         * Save consent preferences and update GTM
+         */
+        saveConsent: function(consent) {
+            // Save to cookie
+            this.setCookie(
+                this.COOKIE_NAME, 
+                encodeURIComponent(JSON.stringify(consent)), 
+                this.COOKIE_EXPIRY_DAYS
+            );
+            
+            // Update Google Consent Mode
+            this.updateGTMConsent(consent);
+            
+            // Show floating button
+            this.showFloatingButton();
+            
+            console.log('Cookie consent saved:', consent);
+        },
+        
+        /**
+         * Update Google Tag Manager consent state
+         */
+        updateGTMConsent: function(consent) {
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'analytics_storage': consent.analytics ? 'granted' : 'denied',
+                    'ad_storage': consent.marketing ? 'granted' : 'denied',
+                    'ad_user_data': consent.marketing ? 'granted' : 'denied',
+                    'ad_personalization': consent.marketing ? 'granted' : 'denied'
+                });
+                
+                // Push consent update event to dataLayer
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'consent_update',
+                    'consent_analytics': consent.analytics,
+                    'consent_marketing': consent.marketing
+                });
+                
+                console.log('GTM consent updated');
+            }
+        },
+        
+        /**
+         * Delete tracking cookies when consent is withdrawn
+         */
+        deleteTrackingCookies: function() {
+            const trackingCookies = [
+                '_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', 
+                '__utmc', '__utmz', '__utmv', '_gcl_au', '_fbp', '_fbc'
+            ];
+            
+            const domain = window.location.hostname;
+            const domains = [domain, '.' + domain];
+            
+            trackingCookies.forEach(cookieName => {
+                domains.forEach(d => {
+                    document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${d}`;
+                });
+                // Also try without domain
+                document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+            });
+        },
+        
+        /**
+         * Accept all cookies
+         */
+        acceptAll: function() {
+            const consent = {
+                essential: true,
+                analytics: true,
+                marketing: true,
+                timestamp: new Date().toISOString()
+            };
+            this.saveConsent(consent);
+            this.hideBanner();
+        },
+        
+        /**
+         * Accept only essential cookies
+         */
+        acceptEssential: function() {
+            const consent = {
+                essential: true,
+                analytics: false,
+                marketing: false,
+                timestamp: new Date().toISOString()
+            };
+            this.saveConsent(consent);
+            this.deleteTrackingCookies();
+            this.hideBanner();
+        },
+        
+        /**
+         * Show settings modal
+         */
+        showSettings: function() {
+            const modal = document.getElementById('cookieModal');
+            const consent = this.getConsent() || { essential: true, analytics: false, marketing: false };
+            
+            // Set toggle states
+            document.getElementById('analytics-toggle').checked = consent.analytics;
+            document.getElementById('marketing-toggle').checked = consent.marketing;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        },
+        
+        /**
+         * Close settings modal
+         */
+        closeSettings: function() {
+            document.getElementById('cookieModal').classList.remove('show');
+            document.body.style.overflow = '';
+        },
+        
+        /**
+         * Save settings from modal
+         */
+        saveSettings: function() {
+            const analyticsEnabled = document.getElementById('analytics-toggle').checked;
+            const marketingEnabled = document.getElementById('marketing-toggle').checked;
+            
+            const consent = {
+                essential: true,
+                analytics: analyticsEnabled,
+                marketing: marketingEnabled,
+                timestamp: new Date().toISOString()
+            };
+            
+            // If tracking was disabled, delete tracking cookies
+            if (!analyticsEnabled || !marketingEnabled) {
+                this.deleteTrackingCookies();
+            }
+            
+            this.saveConsent(consent);
+            this.closeSettings();
+            this.hideBanner();
+        },
+        
+        /**
+         * Show cookie banner
+         */
+        showBanner: function() {
+            const banner = document.getElementById('cookieBanner');
+            if (banner) {
+                setTimeout(function() {
+                    banner.classList.add('show');
+                }, 500);
+            }
+        },
+        
+        /**
+         * Hide cookie banner
+         */
+        hideBanner: function() {
+            const banner = document.getElementById('cookieBanner');
+            if (banner) {
+                banner.classList.remove('show');
+            }
+        },
+        
+        /**
+         * Show floating settings button
+         */
+        showFloatingButton: function() {
+            const btn = document.getElementById('cookieSettingsBtn');
+            if (btn) {
+                btn.classList.add('show');
+            }
+        },
+        
+        /**
+         * Hide floating settings button
+         */
+        hideFloatingButton: function() {
+            const btn = document.getElementById('cookieSettingsBtn');
+            if (btn) {
+                btn.classList.remove('show');
+            }
+        },
+        
+        /**
+         * Initialize the consent manager
+         */
+        init: function() {
+            const self = this;
+            const consent = this.getConsent();
+            
+            if (!consent) {
+                // No consent yet - show banner
+                this.showBanner();
+                this.hideFloatingButton();
+            } else {
+                // Has consent - apply it and show floating button
+                this.updateGTMConsent(consent);
+                this.showFloatingButton();
+            }
+            
+            // Close modal when clicking outside
+            const modal = document.getElementById('cookieModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        self.closeSettings();
+                    }
+                });
+            }
+            
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    self.closeSettings();
+                }
+            });
+            
+            console.log('Cookie Consent Manager initialized');
+        }
+    };
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            CookieConsent.init();
+        });
+    } else {
+        CookieConsent.init();
+    }
+})();
+</script>
+
+
+<!-- 
+     ============================================
+     GOOGLE TAG MANAGER SETUP INSTRUCTIONS
+     ============================================
+     
+     1. Go to https://tagmanager.google.com/
+     2. Create a new container or use existing one
+     3. Replace 'GTM-XXXXXXX' in both places above with your container ID
+     
+     4. In GTM, set up Consent Mode:
+        - Go to Admin > Container Settings
+        - Enable "Consent initialization - Ad storage" and "Consent initialization - Analytics storage"
+     
+     5. For Google Analytics 4:
+        - Create a GA4 Configuration tag
+        - Set trigger to "Consent Initialization - All Pages"
+        - In tag settings, check "Require opt-in consent for analytics_storage"
+     
+     6. For Facebook Pixel:
+        - Create a Custom HTML tag with your FB Pixel code
+        - Create a trigger: Custom Event = "consent_update", consent_marketing = true
+        - Or use built-in FB consent mode if available
+     
+     7. Test with GTM Preview mode and browser DevTools
+     
+     ============================================
+-->
