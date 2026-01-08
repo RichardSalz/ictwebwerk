@@ -66,19 +66,19 @@ process:
   steps:
     - title: "1. Consultatie"
       description: "Beoordeling van behoeften en bedrijfsdoelen, projectplan voorbereiding."
-      image: "/static/assets/images/faq/faq-01.webp"
+      image: "/assets/images/faq/faq-01.webp"
     - title: "2. Ontwerp"
       description: "Presentatie en verfijning van schetsen en voorbeeldpagina's op basis van klantfeedback."
-      image: "/static/assets/images/faq/faq-02.webp"
+      image: "/assets/images/faq/faq-02.webp"
     - title: "3. Ontwikkeling"
       description: "Implementatie van maatwerk design, front-end en back-end functie ontwikkeling."
-      image: "/static/assets/images/faq/faq-03.webp"
+      image: "/assets/images/faq/faq-03.webp"
     - title: "4. Testen & Oplevering"
       description: "Kwaliteitsborging, fijnafstemming en uitgebreide tests op verschillende apparaten en browsers. Lancering en persoonlijke training."
-      image: "/static/assets/images/faq/faq-04.webp"
+      image: "/assets/images/faq/faq-04.webp"
     - title: "5. Nazorg"
       description: "Behandeling van opkomende behoeften en ideeën, planning en implementatie van uitbreidingen met continue communicatie."
-      image: "/static/assets/images/faq/faq-05.webp"
+      image: "/assets/images/faq/faq-05.webp"
 
 # Pricing Section
 pricing:

@@ -66,19 +66,19 @@ process:
   steps:
     - title: "1. Consultation"
       description: "Assessment of needs and business goals, project plan preparation."
-      image: "/static/assets/images/faq/faq-01.webp"
+      image: "/assets/images/faq/faq-01.webp"
     - title: "2. Design"
       description: "Presentation and refinement of sketches and sample pages based on client feedback."
-      image: "/static/assets/images/faq/faq-02.webp"
+      image: "/assets/images/faq/faq-02.webp"
     - title: "3. Development"
       description: "Custom design implementation, front-end and back-end function development."
-      image: "/static/assets/images/faq/faq-03.webp"
+      image: "/assets/images/faq/faq-03.webp"
     - title: "4. Testing & Delivery"
       description: "Quality assurance, fine-tuning and comprehensive testing on various devices and browsers. Launch and personal training."
-      image: "/static/assets/images/faq/faq-04.webp"
+      image: "/assets/images/faq/faq-04.webp"
     - title: "5. Follow-up"
       description: "Handling emerging needs and ideas, scheduling and implementing extensions with continuous communication."
-      image: "/static/assets/images/faq/faq-05.webp"
+      image: "/assets/images/faq/faq-05.webp"
 
 # Pricing Section
 pricing:

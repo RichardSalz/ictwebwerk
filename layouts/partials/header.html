@@ -23,21 +23,12 @@
                                     {{/* Language Switcher */}}
                                     {{- if hugo.IsMultilingual }}
                                     <li class="main-nav has-dropdown project-a-after">
-                                        <a href="#">Language</a>
+                                        <a href="#">{{ $.Language.LanguageName }}</a>
                                         <ul class="submenu parent-nav">
-                                            {{- if .IsTranslated }}
-                                                {{- range .AllTranslations }}
-                                                {{- if ne .Language.Lang $.Language.Lang }}
-                                                <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
-                                                {{- end }}
-                                                {{- end }}
-                                            {{- else }}
-                                                {{/* Fallback to home pages if no translation exists */}}
-                                                {{- range .Site.Languages }}
-                                                {{- if ne .Lang $.Language.Lang }}
-                                                <li><a href="/{{ .Lang }}/">{{ .LanguageName }}</a></li>
-                                                {{- end }}
-                                                {{- end }}
+                                            {{- range .Site.Languages }}
+                                            {{- if ne .Lang $.Language.Lang }}
+                                            <li><a href="/{{ .Lang }}/">{{ .LanguageName }}</a></li>
+                                            {{- end }}
                                             {{- end }}
                                         </ul>
                                     </li>
