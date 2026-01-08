@@ -1,0 +1,70 @@
+# ICT Webwerk - Hugo Configuration
+# https://gohugo.io/getting-started/configuration/
+
+baseURL = "https://ictwebwerk.nl/"
+title = "ICT Webwerk"
+
+# Default language
+defaultContentLanguage = "hu"
+defaultContentLanguageInSubdir = true  # Creates /hu/ for Hungarian too
+
+# Build settings
+enableRobotsTXT = true
+enableEmoji = true
+
+# URL settings - keeps your current structure
+[permalinks]
+  [permalinks.page]
+    # This creates /hu/development/ instead of /hu/development.html
+    # If you want .html extension, use: '/:filename.html'
+    '*' = '/:filename/'
+
+# Markup settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allows raw HTML in markdown
+
+# Build options
+[build]
+  writeStats = true
+
+# Minification for production
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableSVG = false
+
+# Taxonomies (optional - for blog categories, tags)
+[taxonomies]
+  # Disable if not needed
+  # category = "categories"
+  # tag = "tags"
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+# Custom parameters available in templates as .Site.Params.xxx
+[params]
+  # Company info
+  companyName = "ICT Webwerk"
+  phone = "+36 XX XXX XXXX"
+  email = "info@ictwebwerk.nl"
+  
+  # Social media
+  facebook = ""
+  linkedin = ""
+  instagram = ""
+  
+  # SEO defaults
+  description = "Professional web development services"
+  author = "ICT Webwerk"
+  
+  # Feature flags
+  enableCookieConsent = true
+  enableAnalytics = false  # Set true in production
+  gtmId = "GTM-XXXXXXX"

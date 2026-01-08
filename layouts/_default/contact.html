@@ -1,0 +1,54 @@
+{{ define "main" }}
+
+<!-- breadcrumb area -->
+<div class="rts-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class=" center">
+                    <span id="contact" class="bg-title">{{ .Params.breadcrumb.bg_title }}</span>
+                    <h1 class="title rts-text-anime-style-1">
+                        {{ .Params.breadcrumb.title }}
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape-area">
+        <img src="{{ "assets/images/about/shape/01.png" | relURL }}" alt="shape" class="one">
+        <img src="{{ "assets/images/about/shape/02.png" | relURL }}" alt="shape" class="two">
+        <img src="{{ "assets/images/about/shape/03.png" | relURL }}" alt="shape" class="three">
+    </div>
+</div>
+
+<!-- contact areas main -->
+<div class="rts-contact-area-in-page" id="contact" data-animation="fadeInUp" data-delay="0.2">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="contact-info-area-wrapper-p">
+                    {{ range .Params.contacts }}
+                    <div class="single-contact-info">
+                        <div class="icon">
+                            <i class="fa-solid fa-phone-flip"></i>
+                        </div>
+                        <div class="info-wrapper">
+                            <span><b>{{ .role }} - {{ .name }}</b></span>
+                            <a href="tel:{{ .phone | replaceRE "[^0-9+]" "" }}">{{ .phone }}</a> <br>
+                            <a href="mailto:{{ .email }}">{{ .email }}</a>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="thumbnail-contact-form">
+                    <img src="{{ "assets/images/contact/01.webp" | relURL }}" alt="contact">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- contact areas main end -->
+
+{{ end }}

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#12121a"/>
+      <stop offset="100%" style="stop-color:#1a1a25"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2a"/>
+      <stop offset="100%" style="stop-color:#252532"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative grid dots -->
+  <g opacity="0.1">
+    <circle cx="30" cy="30" r="2" fill="#3b82f6"/>
+    <circle cx="60" cy="30" r="2" fill="#3b82f6"/>
+    <circle cx="90" cy="30" r="2" fill="#3b82f6"/>
+    <circle cx="30" cy="60" r="2" fill="#3b82f6"/>
+    <circle cx="60" cy="60" r="2" fill="#3b82f6"/>
+    <circle cx="90" cy="60" r="2" fill="#3b82f6"/>
+    <circle cx="310" cy="240" r="2" fill="#8b5cf6"/>
+    <circle cx="340" cy="240" r="2" fill="#8b5cf6"/>
+    <circle cx="370" cy="240" r="2" fill="#8b5cf6"/>
+    <circle cx="310" cy="270" r="2" fill="#8b5cf6"/>
+    <circle cx="340" cy="270" r="2" fill="#8b5cf6"/>
+    <circle cx="370" cy="270" r="2" fill="#8b5cf6"/>
+  </g>
+  
+  <!-- Browser window - main -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="40" width="220" height="160" rx="12" fill="url(#cardGrad)" stroke="#2a2a3a" stroke-width="1"/>
+    
+    <!-- Browser header -->
+    <rect x="50" y="40" width="220" height="30" rx="12" fill="#1a1a25"/>
+    <rect x="50" y="58" width="220" height="12" fill="#1a1a25"/>
+    
+    <!-- Browser dots -->
+    <circle cx="68" cy="55" r="5" fill="#ff5f57"/>
+    <circle cx="85" cy="55" r="5" fill="#febc2e"/>
+    <circle cx="102" cy="55" r="5" fill="#28c840"/>
+    
+    <!-- URL bar -->
+    <rect x="115" y="48" width="140" height="14" rx="4" fill="#12121a"/>
+    <rect x="122" y="53" width="60" height="4" rx="2" fill="#3a3a4a"/>
+    
+    <!-- Content area - code representation -->
+    <g transform="translate(60, 80)">
+      <!-- Code lines -->
+      <rect x="0" y="0" width="80" height="6" rx="2" fill="url(#blueGrad)" opacity="0.8"/>
+      <rect x="10" y="14" width="120" height="6" rx="2" fill="#3a3a4a"/>
+      <rect x="10" y="28" width="90" height="6" rx="2" fill="#3a3a4a"/>
+      <rect x="20" y="42" width="100" height="6" rx="2" fill="url(#greenGrad)" opacity="0.6"/>
+      <rect x="20" y="56" width="70" height="6" rx="2" fill="#3a3a4a"/>
+      <rect x="10" y="70" width="60" height="6" rx="2" fill="#3a3a4a"/>
+      <rect x="0" y="84" width="40" height="6" rx="2" fill="url(#blueGrad)" opacity="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Mobile device -->
+  <g filter="url(#shadow)" transform="translate(200, 90)">
+    <rect x="0" y="0" width="90" height="160" rx="12" fill="url(#cardGrad)" stroke="#2a2a3a" stroke-width="1"/>
+    
+    <!-- Screen -->
+    <rect x="6" y="20" width="78" height="120" rx="4" fill="#12121a"/>
+    
+    <!-- Status bar -->
+    <rect x="30" y="6" width="30" height="4" rx="2" fill="#3a3a4a"/>
+    
+    <!-- App content -->
+    <rect x="12" y="28" width="66" height="30" rx="4" fill="url(#blueGrad)" opacity="0.3"/>
+    <rect x="18" y="35" width="40" height="4" rx="1" fill="#f1f5f9"/>
+    <rect x="18" y="45" width="54" height="3" rx="1" fill="#64748b"/>
+    
+    <!-- Cards -->
+    <rect x="12" y="66" width="66" height="24" rx="4" fill="#1e1e2a" stroke="#2a2a3a" stroke-width="0.5"/>
+    <rect x="18" y="72" width="30" height="3" rx="1" fill="#64748b"/>
+    <rect x="18" y="80" width="20" height="3" rx="1" fill="#3a3a4a"/>
+    
+    <rect x="12" y="96" width="66" height="24" rx="4" fill="#1e1e2a" stroke="#2a2a3a" stroke-width="0.5"/>
+    <rect x="18" y="102" width="35" height="3" rx="1" fill="#64748b"/>
+    <rect x="18" y="110" width="25" height="3" rx="1" fill="#3a3a4a"/>
+    
+    <!-- Home indicator -->
+    <rect x="30" y="148" width="30" height="4" rx="2" fill="#3a3a4a"/>
+  </g>
+  
+  <!-- Connection lines with animation effect -->
+  <g filter="url(#glow)">
+    <path d="M270 120 Q310 100 300 160" stroke="url(#blueGrad)" stroke-width="2" fill="none" stroke-dasharray="4 4" opacity="0.6"/>
+    <circle cx="270" cy="120" r="4" fill="#3b82f6"/>
+    <circle cx="300" cy="160" r="4" fill="#8b5cf6"/>
+  </g>
+  
+  <!-- Floating elements -->
+  <g filter="url(#glow)">
+    <!-- Brackets -->
+    <text x="320" y="60" font-family="monospace" font-size="24" fill="#3b82f6" opacity="0.7">&lt;/&gt;</text>
+    
+    <!-- Responsive icon -->
+    <rect x="30" y="220" width="24" height="18" rx="3" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+    <rect x="38" y="242" width="8" height="14" rx="2" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- Badge -->
+  <g transform="translate(300, 220)">
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="url(#blueGrad)" opacity="0.2"/>
+    <rect x="2" y="2" width="76" height="24" rx="12" fill="none" stroke="url(#blueGrad)" stroke-width="1"/>
+    <text x="40" y="18" font-family="system-ui, sans-serif" font-size="10" fill="#f1f5f9" text-anchor="middle">Fullstack</text>
+  </g>
+</svg>

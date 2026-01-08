@@ -1,0 +1,19 @@
+# Hungarian Menu
+
+[[main]]
+  identifier = "development"
+  name = "KKV megoldások"
+  url = "/"
+  weight = 2
+
+[[main]]
+  identifier = "business"
+  name = "Nagyvállalati megoldások"
+  url = "/business/"
+  weight = 3
+
+[[main]]
+  identifier = "contact"
+  name = "Kapcsolat"
+  url = "/contact/"
+  weight = 4

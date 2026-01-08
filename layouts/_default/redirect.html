@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url={{ .Params.redirectTo }}">
+    <link rel="canonical" href="{{ .Params.redirectTo | absURL }}">
+    <title>Redirecting...</title>
+    <script>
+        window.location.href = "{{ .Params.redirectTo }}";
+    </script>
+</head>
+<body>
+    <p>Redirecting to <a href="{{ .Params.redirectTo }}">{{ .Params.redirectTo }}</a>...</p>
+</body>
+</html>

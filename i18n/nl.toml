@@ -1,0 +1,152 @@
+# Dutch UI Strings
+# Usage in templates: {{ i18n "key" }}
+
+# General
+[site_title]
+other = "ICT Webwerk"
+
+[read_more]
+other = "Lees meer"
+
+[learn_more]
+other = "Meer informatie"
+
+[contact_us]
+other = "Neem contact op"
+
+[get_started]
+other = "Aan de slag"
+
+[free_consultation]
+other = "Gratis consultatie"
+
+# Hero Section
+[hero_title]
+other = "Professionele Webontwikkeling"
+
+[hero_subtitle]
+other = "Moderne websites en applicaties"
+
+# Services / Why Choose Us
+[services_title]
+other = "Onze Diensten"
+
+[why_choose_us]
+other = "Waarom voor ons kiezen?"
+
+[fullstack_dev]
+other = "Full-stack Webontwikkeling"
+
+[fullstack_desc]
+other = "Frontend en backend ontwikkeling uit één bron"
+
+[seo_content]
+other = "SEO & Digitale Content"
+
+[seo_desc]
+other = "Zoekmachineoptimalisatie en contentcreatie"
+
+[ai_tech]
+other = "AI & Moderne Technologieën"
+
+[ai_desc]
+other = "Kunstmatige intelligentie integraties"
+
+# Process / FAQ Section
+[our_process]
+other = "Ons Proces"
+
+[step_consultation]
+other = "Consultatie"
+
+[step_design]
+other = "Ontwerp"
+
+[step_development]
+other = "Ontwikkeling"
+
+[step_testing]
+other = "Testen & Oplevering"
+
+[step_support]
+other = "Ondersteuning"
+
+# Pricing
+[pricing_title]
+other = "Prijzen"
+
+[pricing_subtitle]
+other = "Kies het juiste pakket voor u"
+
+[package_starter]
+other = "Starterpakket"
+
+[package_standard]
+other = "Standaardpakket"
+
+[package_premium]
+other = "Premiumpakket"
+
+[per_project]
+other = "/ project"
+
+[order_now]
+other = "Nu bestellen"
+
+[most_popular]
+other = "Meest populair"
+
+# Contact
+[contact_title]
+other = "Contact"
+
+[contact_subtitle]
+other = "Neem contact met ons op"
+
+[your_name]
+other = "Uw naam"
+
+[your_email]
+other = "Uw e-mail"
+
+[your_message]
+other = "Uw bericht"
+
+[send_message]
+other = "Versturen"
+
+# Footer
+[footer_description]
+other = "Professionele webontwikkelingsdiensten"
+
+[quick_links]
+other = "Snelle links"
+
+[follow_us]
+other = "Volg ons"
+
+[all_rights_reserved]
+other = "Alle rechten voorbehouden"
+
+# Cookie Consent
+[cookie_title]
+other = "Cookie-instellingen"
+
+[cookie_message]
+other = "Onze website gebruikt cookies om de gebruikerservaring te verbeteren en verkeer te analyseren."
+
+[cookie_accept_all]
+other = "Alles accepteren"
+
+[cookie_accept_essential]
+other = "Alleen noodzakelijke"
+
+[cookie_settings]
+other = "Instellingen"
+
+# Language switcher
+[language]
+other = "Taal"
+
+[switch_language]
+other = "Taal wisselen"

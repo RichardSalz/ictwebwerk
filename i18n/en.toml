@@ -1,0 +1,152 @@
+# English UI Strings
+# Usage in templates: {{ i18n "key" }}
+
+# General
+[site_title]
+other = "ICT Webwerk"
+
+[read_more]
+other = "Read more"
+
+[learn_more]
+other = "Learn more"
+
+[contact_us]
+other = "Contact us"
+
+[get_started]
+other = "Get started"
+
+[free_consultation]
+other = "Free consultation"
+
+# Hero Section
+[hero_title]
+other = "Professional Web Development"
+
+[hero_subtitle]
+other = "Modern websites and applications"
+
+# Services / Why Choose Us
+[services_title]
+other = "Our Services"
+
+[why_choose_us]
+other = "Why Choose Us?"
+
+[fullstack_dev]
+other = "Full-stack Web Development"
+
+[fullstack_desc]
+other = "Frontend and backend development from one source"
+
+[seo_content]
+other = "SEO & Digital Content"
+
+[seo_desc]
+other = "Search engine optimization and content creation"
+
+[ai_tech]
+other = "AI & Modern Technologies"
+
+[ai_desc]
+other = "Artificial intelligence integrations"
+
+# Process / FAQ Section
+[our_process]
+other = "Our Process"
+
+[step_consultation]
+other = "Consultation"
+
+[step_design]
+other = "Design"
+
+[step_development]
+other = "Development"
+
+[step_testing]
+other = "Testing & Delivery"
+
+[step_support]
+other = "Support"
+
+# Pricing
+[pricing_title]
+other = "Pricing"
+
+[pricing_subtitle]
+other = "Choose the right package for you"
+
+[package_starter]
+other = "Starter Package"
+
+[package_standard]
+other = "Standard Package"
+
+[package_premium]
+other = "Premium Package"
+
+[per_project]
+other = "/ project"
+
+[order_now]
+other = "Order now"
+
+[most_popular]
+other = "Most popular"
+
+# Contact
+[contact_title]
+other = "Contact"
+
+[contact_subtitle]
+other = "Get in touch with us"
+
+[your_name]
+other = "Your name"
+
+[your_email]
+other = "Your email"
+
+[your_message]
+other = "Your message"
+
+[send_message]
+other = "Send message"
+
+# Footer
+[footer_description]
+other = "Professional web development services"
+
+[quick_links]
+other = "Quick links"
+
+[follow_us]
+other = "Follow us"
+
+[all_rights_reserved]
+other = "All rights reserved"
+
+# Cookie Consent
+[cookie_title]
+other = "Cookie Settings"
+
+[cookie_message]
+other = "Our website uses cookies to improve user experience and analyze traffic."
+
+[cookie_accept_all]
+other = "Accept all"
+
+[cookie_accept_essential]
+other = "Essential only"
+
+[cookie_settings]
+other = "Settings"
+
+# Language switcher
+[language]
+other = "Language"
+
+[switch_language]
+other = "Switch language"

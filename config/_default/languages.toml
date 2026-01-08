@@ -1,0 +1,32 @@
+# Language Configuration
+# https://gohugo.io/content-management/multilingual/
+
+[hu]
+  contentDir = "content/hu"
+  languageCode = "hu-HU"
+  languageName = "Magyar"
+  weight = 1  # Primary language
+  
+  [hu.params]
+    dateFormat = "2006. január 2."
+    locale = "hu_HU"
+
+[en]
+  contentDir = "content/en"
+  languageCode = "en-GB"
+  languageName = "English"
+  weight = 2
+  
+  [en.params]
+    dateFormat = "January 2, 2006"
+    locale = "en_GB"
+
+[nl]
+  contentDir = "content/nl"
+  languageCode = "nl-NL"
+  languageName = "Nederlands"
+  weight = 3
+  
+  [nl.params]
+    dateFormat = "2 januari 2006"
+    locale = "nl_NL"

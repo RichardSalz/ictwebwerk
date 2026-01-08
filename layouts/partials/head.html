@@ -1,0 +1,97 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+{{/* Title */}}
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+{{/* SEO Meta */}}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="robots" content="index, follow">
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ .Language.Params.locale | default .Language.Lang }}">
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ .Language.Params.locale | default .Lang }}">
+{{- end }}
+
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Hreflang Tags for Multilingual SEO */}}
+{{- if .IsTranslated -}}
+    {{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{- end -}}
+
+{{/* Favicon */}}
+<link rel="shortcut icon" type="image/x-icon" href="{{ "assets/images/fav3.png" | relURL }}">
+
+{{/* CSS Files - matching your existing structure */}}
+<link rel="stylesheet preload" href="{{ "assets/css/plugins/fontawesome.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/plugins/swiper.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/plugins/metismenu.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/plugins/magnifying-popup.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/plugins/odometer.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/vendor/bootstrap.min.css" | relURL }}" as="style">
+
+{{/* Google Fonts */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet preload" as="style">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+{{/* Preload banner image */}}
+<link rel="preload" as="image" href="{{ "assets/images/banner/bg.jpg" | relURL }}" />
+
+{{/* Main Stylesheets */}}
+<link rel="stylesheet preload" href="{{ "assets/css/dark-theme.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/scss/style.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/extra.css" | relURL }}" as="style">
+
+
+{{/* Automation demo CSS - only on development page */}}
+{{- if or (eq .Layout "development") (eq .Layout "home") }}
+<link rel="stylesheet preload" href="{{ "assets/css/automation-demo.css" | relURL }}" as="style">
+{{- end }}
+
+{{/* Google Tag Manager - Only if enabled */}}
+{{- if .Site.Params.enableAnalytics }}
+<!-- Google Tag Manager -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Set default consent state (before GTM loads)
+gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'functionality_storage': 'granted',
+    'security_storage': 'granted',
+    'wait_for_update': 500
+});
+
+// Push initial pageview event
+dataLayer.push({
+    'event': 'default_consent'
+});
+
+// Google Tag Manager
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ .Site.Params.gtmId }}');
+</script>
+<!-- End Google Tag Manager -->
+{{- end }}

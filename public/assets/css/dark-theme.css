@@ -1,0 +1,1109 @@
+/* ============================================
+   LOGO - WHITE VARIANT FOR DARK MODE
+   ============================================ */
+.header-main-one-wrapper .thumbnail a img,
+.side-bar .rts-sidebar-menu-desktop .logo-1 img,
+.side-bar .rts-sidebar-menu-desktop a img,
+.rts-footer-area .footer-one-single-wized .wized-title img {
+    content: url('../images/logovariant-white-4.png') !important;
+}
+
+/* Logo sizing - smaller in nav */
+.header-main-one-wrapper .thumbnail a img {
+    max-height: 60px !important;
+    width: auto !important;
+}
+
+.side-bar .rts-sidebar-menu-desktop .logo-1 img,
+.side-bar .rts-sidebar-menu-desktop a img {
+    max-height: 50px !important;
+    width: auto !important;
+}
+
+/* ============================================
+   CSS VARIABLES OVERRIDE
+   ============================================ */
+:root {
+    /* Dark backgrounds */
+    --dark-bg-primary: #0a0a0f;
+    --dark-bg-secondary: #12121a;
+    --dark-bg-elevated: #1a1a25;
+    --dark-bg-card: #1e1e2a;
+    
+    /* Accent colors */
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #2563eb;
+    --accent-purple: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    
+    /* Text colors */
+    --dark-text-primary: #f1f5f9;
+    --dark-text-secondary: #94a3b8;
+    --dark-text-muted: #64748b;
+    
+    /* Borders */
+    --dark-border: #2a2a3a;
+    --dark-border-light: #3a3a4a;
+    
+    /* Glows */
+    --glow-blue: rgba(59, 130, 246, 0.3);
+    --glow-purple: rgba(139, 92, 246, 0.3);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+body {
+    background: var(--dark-bg-primary) !important;
+    color: var(--dark-text-secondary) !important;
+}
+
+body::before {
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    opacity: 1;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--dark-text-primary) !important;
+}
+
+p, .disc {
+    color: var(--dark-text-secondary) !important;
+}
+
+a {
+    color: var(--accent-blue);
+}
+
+a:hover {
+    color: var(--accent-purple);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header-one.style-four {
+    background: rgba(10, 10, 15, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.header-one.style-four.header--sticky {
+    background: rgba(10, 10, 15, 0.98) !important;
+}
+
+.header-main-one-wrapper .nav-area ul li a {
+    color: var(--dark-text-secondary) !important;
+}
+
+.header-main-one-wrapper .nav-area ul li a:hover,
+.header-main-one-wrapper .nav-area ul li.current a {
+    color: var(--accent-blue) !important;
+}
+
+/* Dropdown menu */
+.header-main-one-wrapper .nav-area ul li .submenu {
+    background: var(--dark-bg-elevated) !important;
+    border: 1px solid var(--dark-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.header-main-one-wrapper .nav-area ul li .submenu li a {
+    color: var(--dark-text-secondary) !important;
+}
+
+.header-main-one-wrapper .nav-area ul li .submenu li a:hover {
+    color: var(--accent-blue) !important;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.rts-btn.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+    border: none !important;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.rts-btn.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-blue-hover), #7c3aed) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--glow-blue);
+    color: white !important;
+}
+
+/* White outlined button */
+.rts-btn.btn-primary.btn-white {
+    background: transparent !important;
+    border: 2px solid var(--dark-text-primary) !important;
+    color: var(--dark-text-primary) !important;
+}
+
+.rts-btn.btn-primary.btn-white:hover {
+    background: var(--dark-text-primary) !important;
+    color: var(--dark-bg-primary) !important;
+    border-color: var(--dark-text-primary) !important;
+}
+
+/* Fix for any button with overlay - ensure proper text contrast */
+.rts-btn.btn-primary::before {
+    display: none !important;
+}
+
+/* Quote button in header */
+.header-one-btn.quote-btn {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+    color: white !important;
+}
+
+.header-one-btn.quote-btn:hover {
+    background: linear-gradient(135deg, var(--accent-blue-hover), #7c3aed) !important;
+    color: white !important;
+}
+
+/* ============================================
+   BANNER / HERO SECTION
+   ============================================ */
+.banner-four-area-main-wrapper {
+    background: var(--dark-bg-primary);
+}
+
+.banner-four-bg.bg_image {
+    position: relative;
+}
+
+/* Dark overlay on hero image for better text readability */
+.banner-four-bg.bg_image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.7) 0%, rgba(18, 18, 26, 0.6) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner-four-bg.bg_image .container {
+    position: relative;
+    z-index: 2;
+}
+
+.inner-content-wrapper-four-banner .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.inner-content-wrapper-four-banner .title span.in {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.inner-content-wrapper-four-banner .disc {
+    color: var(--dark-text-secondary) !important;
+}
+
+.inner-content-wrapper-four-banner .pre {
+    color: var(--accent-blue) !important;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.rts-about-area.about-bg-four {
+    background: var(--dark-bg-secondary) !important;
+}
+
+.about-content-four-left .title-style-four .pre {
+    color: var(--accent-blue) !important;
+}
+
+.about-content-four-left .title-style-four .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.about-content-four-left .title-style-four .title span {
+    color: var(--accent-blue) !important;
+}
+
+/* Progress bars */
+.progress-wrapper-about-4 .single-progress .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.progress-wrapper-about-4 .single-progress .progress {
+    background: var(--dark-border) !important;
+}
+
+.progress-wrapper-about-4 .single-progress .progress-bar {
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)) !important;
+}
+
+.progress-wrapper-about-4 .single-progress .progress-number {
+    color: var(--dark-text-primary) !important;
+}
+
+/* About images */
+.thumbnail-about-right-4 .large-iamge img {
+    border-radius: 16px;
+    border: 1px solid var(--dark-border);
+}
+
+/* ============================================
+   WHY CHOOSE US / SERVICE CARDS
+   ============================================ */
+.why-choose-us-area {
+    background: var(--dark-bg-primary) !important;
+}
+
+.title-style-four.center .pre {
+    color: var(--accent-blue) !important;
+}
+
+.title-style-four.center .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.title-style-four.center .title span {
+    color: var(--accent-blue) !important;
+}
+
+.single-why-choose-four {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.single-why-choose-four:hover {
+    border-color: var(--dark-border-light) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* ============================================
+   FAQ / PROCESS SECTION
+   ============================================ */
+.rts-faq-area.faq-bg-one {
+    background: var(--dark-bg-secondary) !important;
+}
+
+.faq-main-wrapper-content-inner-four .title-style-four .pre {
+    color: var(--accent-blue) !important;
+}
+
+.faq-main-wrapper-content-inner-four .title-style-four .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.faq-main-wrapper-content-inner-four .title-style-four .title span {
+    color: var(--accent-blue) !important;
+}
+
+/* Accordion */
+.accordion-item {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: var(--dark-bg-card) !important;
+    color: var(--dark-text-primary) !important;
+    border: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--dark-bg-elevated) !important;
+    color: var(--accent-blue) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 2px var(--glow-blue) !important;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+
+.accordion-body {
+    background: var(--dark-bg-elevated) !important;
+    color: var(--dark-text-secondary) !important;
+    border-top: 1px solid var(--dark-border);
+}
+
+/* FAQ images */
+.faq-one-thumbnail-wrapper-right .thumbnail img {
+    border-radius: 16px;
+    border: 1px solid var(--dark-border);
+}
+
+/* ============================================
+   PRICING SECTION
+   ============================================ */
+.rts-pricing-area-one {
+    background: var(--dark-bg-primary) !important;
+}
+
+.pricing-three-title-area .title-style-one .pre {
+    color: var(--accent-blue) !important;
+}
+
+.pricing-three-title-area .title-style-one .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.pricing-wrapper-one {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease;
+}
+
+.pricing-wrapper-one:hover {
+    border-color: var(--accent-blue) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-wrapper-one .plane-process .title {
+    color: var(--accent-blue) !important;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-wrapper-one .pricing-header-start .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.pricing-wrapper-one .pricing-body .single-pricing .icon i {
+    color: var(--accent-green) !important;
+}
+
+.pricing-wrapper-one .pricing-body .single-pricing .price-details {
+    color: var(--dark-text-secondary) !important;
+}
+
+/* ============================================
+   CONTACT / BUSINESS SOLUTION SECTION
+   ============================================ */
+.business-solution-area {
+    background: var(--dark-bg-secondary) !important;
+}
+
+.business-solution-area-right-content .title-style-four .pre {
+    color: var(--accent-blue) !important;
+}
+
+.business-solution-area-right-content .title-style-four .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.business-solution-area-right-content .title-style-four .title span {
+    color: var(--accent-blue) !important;
+}
+
+.business-solution-area-right-content .disc {
+    color: var(--dark-text-secondary) !important;
+}
+
+.featuremain-wrapper .single-feature-wrapper {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.featuremain-wrapper .single-feature-wrapper .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.featuremain-wrapper .single-feature-wrapper .disc {
+    color: var(--dark-text-secondary) !important;
+}
+
+.featuremain-wrapper .single-feature-wrapper ul li {
+    color: var(--dark-text-secondary) !important;
+}
+
+/* Success rate badge */
+.success-rate-area {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+}
+
+.success-rate-area .inner h2,
+.success-rate-area .inner span {
+    color: white !important;
+}
+
+/* Contact image */
+.business-solution-area-left-thumbnail .iamge-large img {
+    border-radius: 16px;
+    border: 1px solid var(--dark-border);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.rts-footer-area.footer-three {
+    background: var(--dark-bg-secondary) !important;
+    border-top: 1px solid var(--dark-border);
+}
+
+.rts-footer-area .footer-one-single-wized p,
+.rts-footer-area .footerdesc {
+    color: var(--dark-text-secondary) !important;
+}
+
+.rts-footer-area .social-three-wrapper li a {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    color: var(--dark-text-secondary) !important;
+}
+
+.rts-footer-area .social-three-wrapper li a:hover {
+    background: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+    color: white !important;
+}
+
+/* ============================================
+   SIDEBAR / MOBILE MENU
+   ============================================ */
+.side-bar {
+    background: var(--dark-bg-secondary) !important;
+}
+
+.side-bar .rts-sidebar-menu-desktop .body p {
+    color: var(--dark-text-secondary) !important;
+}
+
+.side-bar .get-in-touch .title {
+    color: var(--dark-text-primary) !important;
+}
+
+.side-bar .get-in-touch .wrapper .single a {
+    color: var(--dark-text-secondary) !important;
+}
+
+.side-bar .get-in-touch .wrapper .single i {
+    color: var(--accent-blue) !important;
+}
+
+.side-bar .social-wrapper-two a {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    color: var(--dark-text-secondary) !important;
+}
+
+.side-bar .social-wrapper-two a:hover {
+    background: var(--accent-blue) !important;
+    color: white !important;
+}
+
+/* Mobile menu */
+.mobile-menu .mainmenu li a {
+    color: var(--dark-text-secondary) !important;
+}
+
+.mobile-menu .mainmenu li a:hover {
+    color: var(--accent-blue) !important;
+}
+
+/* ============================================
+   SEARCH INPUT
+   ============================================ */
+.search-input-area {
+    background: rgba(10, 10, 15, 0.98) !important;
+}
+
+.search-input-area .search-input {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+    color: var(--dark-text-primary) !important;
+}
+
+/* ============================================
+   PROGRESS / BACK TO TOP
+   ============================================ */
+.progress-wrap {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+}
+
+.progress-wrap svg path {
+    stroke: var(--accent-blue) !important;
+}
+
+/* ============================================
+   COOKIE BANNER
+   ============================================ */
+.cookie-banner {
+    background: var(--dark-bg-card) !important;
+    border-top: 1px solid var(--dark-border) !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.cookie-title {
+    color: var(--dark-text-primary) !important;
+}
+
+.cookie-text {
+    color: var(--dark-text-secondary) !important;
+}
+
+.cookie-btn-accept-all {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+}
+
+.cookie-btn-essential {
+    background: var(--dark-bg-elevated) !important;
+    color: var(--dark-text-primary) !important;
+}
+
+.cookie-btn-settings {
+    border-color: var(--dark-border) !important;
+    color: var(--dark-text-secondary) !important;
+}
+
+.cookie-modal-content {
+    background: var(--dark-bg-card) !important;
+    border: 1px solid var(--dark-border) !important;
+}
+
+.cookie-modal-title,
+.cookie-category-title {
+    color: var(--dark-text-primary) !important;
+}
+
+.cookie-category-desc {
+    color: var(--dark-text-secondary) !important;
+}
+
+.cookie-modal-header,
+.cookie-modal-footer,
+.cookie-category {
+    border-color: var(--dark-border) !important;
+}
+
+/* ============================================
+   ANIMATIONS & EFFECTS
+   ============================================ */
+
+/* Subtle glow on interactive elements */
+.single-why-choose-four:hover,
+.pricing-wrapper-one:hover,
+.accordion-item:focus-within {
+    box-shadow: 0 0 30px var(--glow-blue);
+}
+
+/* Smooth transitions globally */
+* {
+    transition-property: background-color, border-color, color, box-shadow, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+/* Disable transitions on load to prevent flicker */
+.preload * {
+    transition: none !important;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-dark-section {
+    background: var(--dark-bg-secondary) !important;
+}
+
+.border-glow {
+    border: 1px solid var(--dark-border);
+    box-shadow: 0 0 20px var(--glow-blue);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE - HEADER/TITLE FONT SIZES
+   ============================================ */
+
+/* Tablets and smaller */
+@media (max-width: 991px) {
+    .inner-content-wrapper-four-banner .title {
+        font-size: 36px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .title-style-four .title,
+    .title-style-one .title {
+        font-size: 32px !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+    .inner-content-wrapper-four-banner .title {
+        font-size: 42px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .title-style-four .title,
+    .title-style-one .title {
+        font-size: 36px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .inner-content-wrapper-four-banner .disc {
+        font-size: 16px !important;
+    }
+}
+
+/* Small mobile devices (iPhone SE, etc.) */
+@media (max-width: 480px) {
+    .inner-content-wrapper-four-banner .title {
+        font-size: 32px !important;
+        line-height: 1.25 !important;
+    }
+    
+    .title-style-four .title,
+    .title-style-one .title {
+        font-size: 28px !important;
+        line-height: 1.25 !important;
+    }
+    
+    .inner-content-wrapper-four-banner .disc {
+        font-size: 15px !important;
+    }
+    
+    /* Section pre-titles */
+    .title-style-four .pre,
+    .title-style-one .pre {
+        font-size: 14px !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .inner-content-wrapper-four-banner .title {
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .title-style-four .title,
+    .title-style-one .title {
+        font-size: 22px !important;
+        line-height: 1.2 !important;
+    }
+}
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1e1e2a;
+    border-top: 1px solid #2a2a3a;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    padding: 24px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+}
+
+.cookie-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.cookie-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cookie-title .cookie-icon {
+    font-size: 24px;
+}
+
+.cookie-text {
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+}
+
+.cookie-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.cookie-link:hover {
+    color: #8b5cf6;
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.cookie-btn-accept-all {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: #fff;
+}
+
+.cookie-btn-accept-all:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.cookie-btn-essential {
+    background: #2a2a3a;
+    color: #f1f5f9;
+}
+
+.cookie-btn-essential:hover {
+    background: #3a3a4a;
+}
+
+.cookie-btn-settings {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-btn-settings:hover {
+    background: #2a2a3a;
+    color: #f1f5f9;
+}
+
+/* Cookie Settings Modal */
+.cookie-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cookie-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cookie-modal-content {
+    background: #1e1e2a;
+    border-radius: 16px;
+    max-width: 550px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-modal-header {
+    padding: 24px;
+    border-bottom: 1px solid #2a2a3a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-modal-title {
+    margin: 0;
+    font-size: 22px;
+    color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cookie-modal-close {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.cookie-modal-close:hover {
+    color: #f1f5f9;
+}
+
+.cookie-modal-body {
+    padding: 24px;
+}
+
+.cookie-category {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #12121a;
+    border-radius: 12px;
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-category:last-child {
+    margin-bottom: 0;
+}
+
+.cookie-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cookie-category-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0;
+}
+
+.cookie-category-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #2a2a3a;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cookie-category-badge.required {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+/* Toggle Switch */
+.cookie-toggle {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+}
+
+.cookie-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cookie-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2a2a3a;
+    transition: 0.3s;
+    border-radius: 28px;
+}
+
+.cookie-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #64748b;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.cookie-toggle input:checked + .cookie-toggle-slider {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+.cookie-toggle input:checked + .cookie-toggle-slider:before {
+    transform: translateX(24px);
+    background-color: #fff;
+}
+
+.cookie-toggle input:disabled + .cookie-toggle-slider {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cookie-toggle input:disabled:checked + .cookie-toggle-slider {
+    background: #10b981;
+}
+
+.cookie-category-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-modal-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #2a2a3a;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Floating Cookie Button */
+.cookie-settings-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #1e1e2a;
+    border: 1px solid #2a2a3a;
+    color: #94a3b8;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+.cookie-settings-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.cookie-settings-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: #fff;
+    border-color: transparent;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.cookie-settings-btn .tooltip {
+    position: absolute;
+    left: 60px;
+    background: #1e1e2a;
+    color: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    border: 1px solid #2a2a3a;
+}
+
+.cookie-settings-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cookie-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cookie-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .cookie-settings-btn {
+        bottom: 15px;
+        left: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+    
+    .cookie-settings-btn .tooltip {
+        display: none;
+    }
+}

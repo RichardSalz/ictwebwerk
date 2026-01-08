@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+<head>
+    {{- partial "head.html" . -}}
+</head>
+
+<body>
+    {{/* GTM noscript fallback - placed immediately after body tag */}}
+    {{- if .Site.Params.enableAnalytics }}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.gtmId }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {{- end }}
+    
+    {{- partial "header.html" . -}}
+    
+    {{- block "main" . }}{{- end }}
+    
+    {{- partial "footer.html" . -}}
+    
+    {{ partial "cookie-consent.html" . }}
+    
+    {{- partial "scripts.html" . -}}
+    
+</body>
+</html>

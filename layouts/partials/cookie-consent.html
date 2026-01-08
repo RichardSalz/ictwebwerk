@@ -1,0 +1,185 @@
+{{/* Cookie Consent Banner and Modal */}}
+
+<style>
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -2px 20px rgba(0,0,0,.1);z-index:9999;padding:20px;transform:translateY(100%);transition:transform .3s ease-in-out;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}.cookie-banner.show{transform:translateY(0)}.cookie-container{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:20px}.cookie-content{flex:1;min-width:300px}.cookie-title{font-size:18px;font-weight:600;margin:0 0 8px 0;color:#333}.cookie-text{font-size:14px;color:#666;margin:0 0 10px 0;line-height:1.5}.cookie-link{color:#0066cc;text-decoration:none;font-size:14px;display:inline-block;margin-top:5px}.cookie-link:hover{text-decoration:underline}.cookie-buttons{display:flex;gap:10px;flex-wrap:wrap}.cookie-btn{padding:10px 20px;border:none;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}.cookie-btn-accept-all{background:#0066cc;color:#fff}.cookie-btn-accept-all:hover{background:#0052a3}.cookie-btn-essential{background:#f0f0f0;color:#333}.cookie-btn-essential:hover{background:#e0e0e0}.cookie-btn-settings{background:transparent;color:#666;border:1px solid #ddd}.cookie-btn-settings:hover{background:#f9f9f9}.cookie-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:10000;overflow-y:auto}.cookie-modal.show{display:flex;align-items:center;justify-content:center;padding:20px}.cookie-modal-content{background:#fff;border-radius:8px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}.cookie-modal-header{padding:20px;border-bottom:1px solid #eee}.cookie-modal-title{margin:0;font-size:20px;color:#333}.cookie-modal-body{padding:20px}.cookie-category{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #eee}.cookie-category:last-child{border-bottom:none}.cookie-category-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.cookie-category-title{font-size:16px;font-weight:600;color:#333;margin:0}.cookie-toggle{position:relative;display:inline-block;width:48px;height:24px}.cookie-toggle input{opacity:0;width:0;height:0}.cookie-toggle-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:.3s;border-radius:24px}.cookie-toggle-slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background-color:#fff;transition:.3s;border-radius:50%}.cookie-toggle input:checked+.cookie-toggle-slider{background-color:#0066cc}.cookie-toggle input:checked+.cookie-toggle-slider:before{transform:translateX(24px)}.cookie-toggle input:disabled+.cookie-toggle-slider{background-color:#e0e0e0;cursor:not-allowed}.cookie-category-desc{font-size:14px;color:#666;line-height:1.5;margin:0}.cookie-modal-footer{padding:20px;border-top:1px solid #eee;display:flex;justify-content:flex-end;gap:10px}.cookie-settings-btn{position:fixed;bottom:20px;left:20px;width:50px;height:50px;border-radius:50%;background:#1e1e2a;border:none;font-size:24px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2);z-index:9998;display:none;align-items:center;justify-content:center;transition:transform .2s}.cookie-settings-btn:hover{transform:scale(1.1)}.cookie-settings-btn .tooltip{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:5px 10px;border-radius:4px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .2s;margin-bottom:5px}.cookie-settings-btn:hover .tooltip{opacity:1}@media (max-width:768px){.cookie-container{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}.cookie-btn{flex:1;min-width:120px}}
+</style>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <span class="cookie-icon">🍪</span>
+                {{ i18n "cookie_title" }}
+            </h3>
+            <p class="cookie-text">
+                {{ i18n "cookie_message" }}
+            </p>
+            <a href="/privacy-policy" class="cookie-link" target="_blank">{{ if eq .Language.Lang "hu" }}Adatvédelmi irányelvek{{ else if eq .Language.Lang "nl" }}Privacybeleid{{ else }}Privacy Policy{{ end }} →</a>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-settings" onclick="CookieConsent.showSettings()">
+                {{ i18n "cookie_settings" }}
+            </button>
+            <button class="cookie-btn cookie-btn-essential" onclick="CookieConsent.acceptEssential()">
+                {{ i18n "cookie_accept_essential" }}
+            </button>
+            <button class="cookie-btn cookie-btn-accept-all" onclick="CookieConsent.acceptAll()">
+                {{ i18n "cookie_accept_all" }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookieModal" class="cookie-modal">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h2 class="cookie-modal-title">
+                <span>🍪</span>
+                {{ i18n "cookie_title" }}
+            </h2>
+            <button class="cookie-modal-close" onclick="CookieConsent.closeSettings()">&times;</button>
+        </div>
+        <div class="cookie-modal-body">
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div>
+                        <h3 class="cookie-category-title">{{ if eq .Language.Lang "hu" }}Szükséges sütik{{ else if eq .Language.Lang "nl" }}Noodzakelijke cookies{{ else }}Essential cookies{{ end }}</h3>
+                        <span class="cookie-category-badge required">{{ if eq .Language.Lang "hu" }}Kötelező{{ else if eq .Language.Lang "nl" }}Vereist{{ else }}Required{{ end }}</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="essential-toggle" checked disabled>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-desc">
+                    {{ if eq .Language.Lang "hu" }}Ezek a sütik elengedhetetlenek a weboldal működéséhez.{{ else if eq .Language.Lang "nl" }}Deze cookies zijn essentieel voor de werking van de website.{{ else }}These cookies are essential for the website to function.{{ end }}
+                </p>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div>
+                        <h3 class="cookie-category-title">{{ if eq .Language.Lang "hu" }}Analitikai sütik{{ else if eq .Language.Lang "nl" }}Analytische cookies{{ else }}Analytics cookies{{ end }}</h3>
+                        <span class="cookie-category-badge">{{ if eq .Language.Lang "hu" }}Opcionális{{ else if eq .Language.Lang "nl" }}Optioneel{{ else }}Optional{{ end }}</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="analytics-toggle">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-desc">
+                    {{ if eq .Language.Lang "hu" }}Segítenek megérteni, hogyan használják a látogatók a weboldalt (Google Analytics).{{ else if eq .Language.Lang "nl" }}Helpen te begrijpen hoe bezoekers de website gebruiken (Google Analytics).{{ else }}Help understand how visitors use the website (Google Analytics).{{ end }}
+                </p>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <div>
+                        <h3 class="cookie-category-title">{{ if eq .Language.Lang "hu" }}Marketing sütik{{ else if eq .Language.Lang "nl" }}Marketing cookies{{ else }}Marketing cookies{{ end }}</h3>
+                        <span class="cookie-category-badge">{{ if eq .Language.Lang "hu" }}Opcionális{{ else if eq .Language.Lang "nl" }}Optioneel{{ else }}Optional{{ end }}</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="marketing-toggle">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-desc">
+                    {{ if eq .Language.Lang "hu" }}Releváns hirdetések megjelenítésére szolgálnak (Facebook Pixel, Google Ads).{{ else if eq .Language.Lang "nl" }}Worden gebruikt om relevante advertenties te tonen (Facebook Pixel, Google Ads).{{ else }}Used to display relevant advertisements (Facebook Pixel, Google Ads).{{ end }}
+                </p>
+            </div>
+        </div>
+        <div class="cookie-modal-footer">
+            <button class="cookie-btn cookie-btn-essential" onclick="CookieConsent.closeSettings()">
+                {{ if eq .Language.Lang "hu" }}Mégse{{ else if eq .Language.Lang "nl" }}Annuleren{{ else }}Cancel{{ end }}
+            </button>
+            <button class="cookie-btn cookie-btn-accept-all" onclick="CookieConsent.saveSettings()">
+                {{ if eq .Language.Lang "hu" }}Mentés{{ else if eq .Language.Lang "nl" }}Opslaan{{ else }}Save{{ end }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cookie Settings Button -->
+<button id="cookieSettingsBtn" class="cookie-settings-btn" onclick="CookieConsent.showSettings()">
+    🍪
+    <span class="tooltip">{{ i18n "cookie_settings" }}</span>
+</button>
+
+<script>
+console.log('Cookie script loaded');
+const CookieConsent = {
+    init() {
+        console.log('CookieConsent.init() called');
+        const consent = this.getConsent();
+        console.log(consent);
+        if (!consent) {
+            document.getElementById('cookieBanner').classList.add('show');
+        } else {
+            document.getElementById('cookieSettingsBtn').classList.add('show');
+            this.applyConsent(consent);
+        }
+    },
+    getConsent() {
+        const cookie = document.cookie.split('; ').find(row => row.startsWith('cookie_consent='));
+        return cookie ? JSON.parse(decodeURIComponent(cookie.split('=')[1])) : null;
+    },
+    setConsent(consent) {
+        const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `cookie_consent=${encodeURIComponent(JSON.stringify(consent))}; expires=${expires}; path=/; SameSite=Lax`;
+    },
+    applyConsent(consent) {
+        if (typeof gtag === 'function') {
+            gtag('consent', 'update', {
+                'analytics_storage': consent.analytics ? 'granted' : 'denied',
+                'ad_storage': consent.marketing ? 'granted' : 'denied',
+                'ad_user_data': consent.marketing ? 'granted' : 'denied',
+                'ad_personalization': consent.marketing ? 'granted' : 'denied'
+            });
+        }
+    },
+    acceptAll() {
+        const consent = { essential: true, analytics: true, marketing: true };
+        this.setConsent(consent);
+        this.applyConsent(consent);
+        document.getElementById('cookieBanner').classList.remove('show');
+        document.getElementById('cookieSettingsBtn').classList.add('show');
+    },
+    acceptEssential() {
+        const consent = { essential: true, analytics: false, marketing: false };
+        this.setConsent(consent);
+        this.applyConsent(consent);
+        document.getElementById('cookieBanner').classList.remove('show');
+        document.getElementById('cookieSettingsBtn').classList.add('show');
+    },
+    showSettings() {
+        const consent = this.getConsent() || { essential: true, analytics: false, marketing: false };
+        document.getElementById('analytics-toggle').checked = consent.analytics;
+        document.getElementById('marketing-toggle').checked = consent.marketing;
+        document.getElementById('cookieModal').classList.add('show');
+    },
+    closeSettings() {
+        document.getElementById('cookieModal').classList.remove('show');
+        document.getElementById('cookieSettingsBtn').classList.add('show');
+
+    },
+    saveSettings() {
+        const consent = {
+            essential: true,
+            analytics: document.getElementById('analytics-toggle').checked,
+            marketing: document.getElementById('marketing-toggle').checked
+        };
+        this.setConsent(consent);
+        this.applyConsent(consent);
+        document.getElementById('cookieBanner').classList.remove('show');
+        document.getElementById('cookieModal').classList.remove('show');
+        document.getElementById('cookieSettingsBtn').classList.add('show');
+    }
+};
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => CookieConsent.init());
+} else {
+    CookieConsent.init();
+}
+</script>

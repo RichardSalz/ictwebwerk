@@ -1,0 +1,152 @@
+# Hungarian UI Strings
+# Usage in templates: {{ i18n "key" }}
+
+# General
+[site_title]
+other = "ICT Webwerk"
+
+[read_more]
+other = "Tovább olvasom"
+
+[learn_more]
+other = "Tudj meg többet"
+
+[contact_us]
+other = "Kapcsolat"
+
+[get_started]
+other = "Kezdjük el"
+
+[free_consultation]
+other = "Ingyenes konzultáció"
+
+# Hero Section
+[hero_title]
+other = "Professzionális webfejlesztés"
+
+[hero_subtitle]
+other = "Modern weboldalak és alkalmazások készítése"
+
+# Services / Why Choose Us
+[services_title]
+other = "Szolgáltatásaink"
+
+[why_choose_us]
+other = "Miért minket válasszon?"
+
+[fullstack_dev]
+other = "Teljeskörű weboldalkészítés"
+
+[fullstack_desc]
+other = "Frontend és backend fejlesztés egy kézből"
+
+[seo_content]
+other = "SEO és digitális tartalom"
+
+[seo_desc]
+other = "Keresőoptimalizálás és tartalomkészítés"
+
+[ai_tech]
+other = "AI és modern technológiák"
+
+[ai_desc]
+other = "Mesterséges intelligencia integrációk"
+
+# Process / FAQ Section
+[our_process]
+other = "Hogyan dolgozunk?"
+
+[step_consultation]
+other = "Konzultáció"
+
+[step_design]
+other = "Dizájnterv"
+
+[step_development]
+other = "Fejlesztés"
+
+[step_testing]
+other = "Tesztelés & Átadás"
+
+[step_support]
+other = "Utókövetés"
+
+# Pricing
+[pricing_title]
+other = "Áraink"
+
+[pricing_subtitle]
+other = "Válaszd ki a megfelelő csomagot"
+
+[package_starter]
+other = "Kezdő csomag"
+
+[package_standard]
+other = "Standard csomag"
+
+[package_premium]
+other = "Prémium csomag"
+
+[per_project]
+other = "/ projekt"
+
+[order_now]
+other = "Megrendelem"
+
+[most_popular]
+other = "Legnépszerűbb"
+
+# Contact
+[contact_title]
+other = "Kapcsolat"
+
+[contact_subtitle]
+other = "Vedd fel velünk a kapcsolatot"
+
+[your_name]
+other = "Neved"
+
+[your_email]
+other = "E-mail címed"
+
+[your_message]
+other = "Üzeneted"
+
+[send_message]
+other = "Küldés"
+
+# Footer
+[footer_description]
+other = "Professzionális webfejlesztési szolgáltatások"
+
+[quick_links]
+other = "Gyors linkek"
+
+[follow_us]
+other = "Kövess minket"
+
+[all_rights_reserved]
+other = "Minden jog fenntartva"
+
+# Cookie Consent
+[cookie_title]
+other = "Cookie beállítások"
+
+[cookie_message]
+other = "Weboldalunk sütiket használ a felhasználói élmény javítása és a forgalom elemzése érdekében."
+
+[cookie_accept_all]
+other = "Összes elfogadása"
+
+[cookie_accept_essential]
+other = "Csak szükségesek"
+
+[cookie_settings]
+other = "Beállítások"
+
+# Language switcher
+[language]
+other = "Nyelv"
+
+[switch_language]
+other = "Nyelv váltás"

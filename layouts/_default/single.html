@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+{{/* 
+    Single Page Template
+    Content
+*/}}
+
+<article class="single-page">
+    
+    {{/* Hero Section - can be customized per page via front matter */}}
+    {{- if .Params.show_hero | default true }}
+    <section class="hero-area" {{ with .Params.hero_bg }}style="background-image: url('{{ . | relURL }}')"{{ end }}>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">{{ .Title }}</h1>
+                    {{- with .Params.subtitle }}
+                    <p class="hero-subtitle">{{ . }}</p>
+                    {{- end }}
+                    {{- with .Params.hero_cta }}
+                    <a href="{{ .url | relLangURL }}" class="btn btn-primary btn-lg mt-3">
+                        {{ .text }}
+                    </a>
+                    {{- end }}
+                </div>
+            </div>
+        </div>
+    </section>
+    {{- end }}
+    
+    {{/* Main Content */}}
+    <section class="content-area py-5">
+        <div class="container">
+            {{/* 
+                The .Content variable renders the markdown content.
+                You can also use shortcodes in your markdown files 
+                to include specific sections like pricing, testimonials, etc.
+            */}}
+            {{ .Content }}
+        </div>
+    </section>
+    
+</article>
+
+{{ end }}

@@ -1,0 +1,173 @@
+{{/* Header - matches your existing HTML structure */}}
+
+<header class="header-one style-four top-transparent-header header--sticky">
+    <div class="header-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-main-one-wrapper">
+                        <div class="thumbnail">
+                            <a href="{{ .Site.Home.RelPermalink }}">
+                                <img src="{{ "assets/images/logo7.svg" | relURL }}" alt="{{ .Site.Title }}">
+                            </a>
+                        </div>
+                        <div class="main-header">
+                            <div class="nav-area">
+                                <ul class="">
+                                    {{- range .Site.Menus.main }}
+                                    <li class="main-nav mega-menu{{ if $.IsMenuCurrent "main" . }} active{{ end }}">
+                                        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                                    </li>
+                                    {{- end }}
+                                    
+                                    {{/* Language Switcher */}}
+                                    {{- if hugo.IsMultilingual }}
+                                    <li class="main-nav has-dropdown project-a-after">
+                                        <a href="#">Language</a>
+                                        <ul class="submenu parent-nav">
+                                            {{- if .IsTranslated }}
+                                                {{- range .AllTranslations }}
+                                                {{- if ne .Language.Lang $.Language.Lang }}
+                                                <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+                                                {{- end }}
+                                                {{- end }}
+                                            {{- else }}
+                                                {{/* Fallback to home pages if no translation exists */}}
+                                                {{- range .Site.Languages }}
+                                                {{- if ne .Lang $.Language.Lang }}
+                                                <li><a href="/{{ .Lang }}/">{{ .LanguageName }}</a></li>
+                                                {{- end }}
+                                                {{- end }}
+                                            {{- end }}
+                                        </ul>
+                                    </li>
+                                    {{- end }}
+                                </ul>
+                            </div>
+
+                            <div class="loader-wrapper">
+                                <div class="loader"></div>
+                                <div class="loader-section section-left"></div>
+                                <div class="loader-section section-right"></div>
+                            </div>
+                            
+                            <div class="button-area">
+                                <a href="{{ "contact" | relLangURL }}" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">
+                                    {{ i18n "free_consultation" }}
+                                </a>
+                                <button id="menu-btn" class="menu menu-btn ml--20 ml_sm--5">
+                                    <img class="menu-light" src="{{ "assets/images/icons/01.svg" | relURL }}" alt="Menu-icon">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Side bar / Mobile menu -->
+<div id="side-bar" class="side-bar header-two">
+    <button class="close-icon-menu" title="Close menu"><i class="far fa-times"></i></button>
+    
+    <!-- Desktop sidebar -->
+    <div class="rts-sidebar-menu-desktop">
+        <a class="logo-1" href="{{ .Site.Home.RelPermalink }}">
+            <img src="{{ "assets/images/logo7.svg" | relURL }}" alt="{{ .Site.Title }}">
+        </a>
+        <div class="body d-none d-xl-block">
+            <p class="disc">
+                {{ if eq .Language.Lang "hu" }}
+                Cégünk hét éve foglalkozik weboldalak fejlesztésével, designjával és digitális tartalom létrehozásával. Egyszerre fejlesztő és tanácsadó, aki az ötlettől a kész weboldalig minden technikai lépést átlát és kezel. Nemzetközi és hazai projekteken egyaránt dolgozunk, így biztosítjuk a korszerű, stabil és könnyen bővíthető megoldásokat. 
+                {{ else if eq .Language.Lang "nl" }}
+                Ons bedrijf ontwikkelt al zeven jaar websites, ontwerpt en creëert digitale content. Wij zijn zowel ontwikkelaars als consultants die elke technische stap begrijpen en beheren.
+                {{ else }}
+                Our company has been developing websites, designing and creating digital content for seven years. We are both developers and consultants who understand and manage every technical step from idea to finished website.
+                {{ end }}
+            </p>
+            <div class="get-in-touch">
+                <div class="h6 title">{{ i18n "contact_us" }}</div>
+                <div class="wrapper">
+                    <div class="single">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+31611609985">+31-6-11609985</a>
+                    </div>
+                    <div class="single">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:zsolt.salzmann@ictwebwerk.nl">zsolt.salzmann@ictwebwerk.nl</a>
+                    </div>
+                    <div class="single">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.ictwebwerk.nl">www.ictwebwerk.nl</a>
+                    </div>
+                    <div class="single">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="#">Almere, Netherlands</a>
+                    </div>
+                </div>
+                <div class="social-wrapper-two menu">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="mobile-menu d-block d-xl-none">
+        <nav class="nav-main mainmenu-nav mt--30">
+            <ul class="mainmenu metismenu" id="mobile-menu-active">
+                {{- range .Site.Menus.main }}
+                <li>
+                    <a href="{{ .URL | relLangURL }}" class="main" aria-expanded="false">{{ .Name }}</a>
+                </li>
+                {{- end }}
+                
+                {{/* Mobile Language Switcher */}}
+                {{- if hugo.IsMultilingual }}
+                <li class="has-droupdown">
+                    <a href="#" class="main" aria-expanded="false">Language</a>
+                    <ul class="submenu mm-collapse" style="height: 0px;">
+                        {{- range .Site.Languages }}
+                        {{- if ne .Lang $.Language.Lang }}
+                        <li><a href="/{{ .Lang }}/">{{ .LanguageName }}</a></li>
+                        {{- end }}
+                        {{- end }}
+                    </ul>
+                </li>
+                {{- end }}
+            </ul>
+        </nav>
+
+        <div class="social-wrapper-one">
+            <ul>
+                <li>
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="linkedin">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Search overlay -->
+<div class="search-input-area">
+    <div class="container">
+        <div class="search-input-inner">
+            <div class="input-div">
+                <input class="search-input autocomplete" type="text" placeholder="Search by keyword or #">
+                <button><i class="far fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+</div>
+
+<div id="anywhere-home" class=""></div>

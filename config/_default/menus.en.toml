@@ -1,0 +1,19 @@
+# English Menu
+
+[[main]]
+  identifier = "home"
+  name = "SME Solutions"
+  url = "/"
+  weight = 2
+
+[[main]]
+  identifier = "business"
+  name = "Enterprise Solutions"
+  url = "/business/"
+  weight = 3
+
+[[main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/contact/"
+  weight = 4
