@@ -3,7 +3,6 @@
 
 baseURL = "https://ictwebwerk.nl/"
 title = "ICT Webwerk"
-ignoreFiles = ["\\.cpanel\\.yml$"]
 
 # Default language
 defaultContentLanguage = "hu"

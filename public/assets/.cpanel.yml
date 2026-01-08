@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/szallasw1/ictwebwerk.nl
     - /bin/rm -rf $DEPLOYPATH/*
-    - /bin/cp -R * $DEPLOYPATH/
+    - /bin/cp -R public/* $DEPLOYPATH/

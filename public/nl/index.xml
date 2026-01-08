@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MKB Oplossingen on ICT Webwerk</title><link>https://ictwebwerk.nl/nl/</link><description>Recent content in MKB Oplossingen on ICT Webwerk</description><generator>Hugo</generator><language>nl-NL</language><atom:link href="https://ictwebwerk.nl/nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Contact</title><link>https://ictwebwerk.nl/nl/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ictwebwerk.nl/nl/contact/</guid><description/></item><item><title>Enterprise Oplossingen</title><link>https://ictwebwerk.nl/nl/business/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ictwebwerk.nl/nl/business/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MKB Oplossingen on ICT Webwerk</title>
+    <link>http://localhost:1313/nl/</link>
+    <description>Recent content in MKB Oplossingen on ICT Webwerk</description>
+    <generator>Hugo</generator>
+    <language>nl-NL</language>
+    <atom:link href="http://localhost:1313/nl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/nl/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nl/contact/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Enterprise Oplossingen</title>
+      <link>http://localhost:1313/nl/business/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nl/business/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

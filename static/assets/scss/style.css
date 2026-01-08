@@ -28846,11 +28846,13 @@ a:hover {
 }
 
 .header-main-one-wrapper .nav-area ul li .submenu li a {
-    color: var(--dark-text-secondary) !important;
+    color: var(--accent-blue) !important;
+    background: rgba(59, 130, 246, 0.1);
+
 }
 
 .header-main-one-wrapper .nav-area ul li .submenu li a:hover {
-    color: var(--accent-blue) !important;
+    color: var(--accent-blue-hover) !important;
     background: rgba(59, 130, 246, 0.1);
 }
 
