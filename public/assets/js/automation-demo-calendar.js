@@ -38,7 +38,7 @@ let dayTimer = null;
 let currentDayAnimation = null;
 
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-const TIME_PER_DAY = 2700; // 2,7 seconds per day
+const TIME_PER_DAY = 4000; // 4 seconds per day
 
 // ============================================
 // DETECT LANGUAGE FROM PAGE

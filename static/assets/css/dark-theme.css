@@ -91,10 +91,12 @@ a:hover {
     background: rgba(10, 10, 15, 0.95) !important;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--dark-border);
+    z-index: 999 !important; /* Keep header above all content */
 }
 
 .header-one.style-four.header--sticky {
     background: rgba(10, 10, 15, 0.98) !important;
+    z-index: 999 !important; /* Maintain z-index when sticky */
 }
 
 .header-main-one-wrapper .nav-area ul li a {
@@ -111,6 +113,7 @@ a:hover {
     background: var(--dark-bg-elevated) !important;
     border: 1px solid var(--dark-border);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 1000 !important; /* Ensure dropdown appears above all content */
 }
 
 .header-main-one-wrapper .nav-area ul li .submenu li a {

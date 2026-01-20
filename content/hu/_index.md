@@ -66,19 +66,19 @@ process:
   steps:
     - title: "1. Konzultáció"
       description: "Igények és üzleti célok felmérése, projektterv összeállítása."
-      image: "/assets/images/faq/faq-01.webp"
+      image: "faq-01.svg"
     - title: "2. Dizájnterv"
       description: "Vázlatok, mintaoldalak bemutatása és finomítása ügyfél-visszajelzés alapján."
-      image: "/assets/images/faq/faq-02.webp"
+      image: "faq-02.svg"
     - title: "3. Fejlesztés"
       description: "Egyedi design megvalósítása, front- és backend funkciók lefejlesztése."
-      image: "/assets/images/faq/faq-03.webp"
+      image: "faq-03.svg"
     - title: "4. Tesztelés & Átadás"
       description: "Minőségbiztosítás, finomhangolás és átfogó tesztelés különböző eszközökön és böngészőkben. Élesítés és személyes betanítás."
-      image: "/assets/images/faq/faq-04.webp"
+      image: "faq-04.svg"
     - title: "5. Utókövetés"
       description: "Felmerülő igények, ötletek kezelése, bővítések ütemezése és megvalósítása folyamatos kommunikációval."
-      image: "/assets/images/faq/faq-05.webp"
+      image: "faq-05.svg"
 
 # Pricing Section
 pricing:

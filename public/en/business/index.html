@@ -52,15 +52,12 @@
 <link rel="stylesheet preload" href="/assets/css/automation-demo-calendar.css" as="style">
 
 
-
-
-
 </head>
 
 <body>
     
 
-<header class="header-one style-four top-transparent-header header--sticky">
+<header class="header-one style-four top-transparent-header header--sticky sticky">
     <div class="header-main">
         <div class="container">
             <div class="row">
@@ -408,89 +405,100 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="faq-main-wrapper-content-inner-four">
-                    <div class="title-style-four left">
-                        <span class="pre">How could we work together?</span>
-                        <h2 class="title rts-text-anime-style-1">Proven and effective <br>
-                            <span>project methodology</span>
-                        </h2>
+                    <div class="title-style-four center">
+                        <span class="pre">How we work?</span>
+                        <h2 class="title rts-text-anime-style-1">Proven and effective <span>Workflow</span></h2>
                     </div>
                     <div class="accordion mt--40" id="accordionExample">
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    data-bs-target="#collapse0" aria-expanded="true" aria-controls="collapse0"
+                                    data-faq-image="/assets/images/faq/en/faq-01.svg">
                                     1. Consultation
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
+                            <div id="collapse0" class="accordion-collapse collapse show"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Analysing business goals, expectations and requirements
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1"
+                                    data-faq-image="/assets/images/faq/en/faq-02.svg">
                                     2. Design
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse"
+                            <div id="collapse1" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Process description, functional design and compliance check
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2"
+                                    data-faq-image="/assets/images/faq/en/faq-03.svg">
                                     3. Development
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
+                            <div id="collapse2" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Custom or out-of-box solution based software development
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    4. Testing
+                                    data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3"
+                                    data-faq-image="/assets/images/faq/en/faq-04.svg">
+                                    4. Testing &amp; Delivery
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse"
+                            <div id="collapse3" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Functional testing, user acceptance testing and penetration testing
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    5. Go-live & Support
+                                    data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4"
+                                    data-faq-image="/assets/images/faq/en/faq-05.svg">
+                                    5. Follow-up
                                 </button>
                             </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse"
+                            <div id="collapse4" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     User training, continuous maintenance and feature development
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="thumbnail-faq-four">
-                    <img src="/assets/images/faq/faq-01.webp" alt="FAQ">
+                    
+                    <img id="faq-image" src="/assets/images/faq/en/faq-01.svg" alt="Process step">
+                    
                 </div>
             </div>
         </div>
@@ -791,6 +799,8 @@ if (document.readyState === 'loading') {
 <script defer src="/assets/js/plugins/counterup.js"></script>
 <script defer src="/assets/js/plugins/waw.js"></script>
 <script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/faqpictrigger.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script defer src="/assets/js/automation-demo-calendar.js"></script>
 
 

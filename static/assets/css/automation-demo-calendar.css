@@ -2,17 +2,9 @@
    RESTAURANT AUTOMATION DEMO - CALENDAR VERSION
    ============================================ */
 
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
+/* Scoped reset - only affects automation demo section */
+.automation-demo-section * {
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #0a0a0f;
-    color: #f1f5f9;
 }
 
 /* Dark section wrapper */
@@ -44,28 +36,28 @@ body {
     background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
 }
 
-/* Container */
-.container {
-    max-width: 1200px;
+/* Container - scoped to automation demo */
+.automation-demo-section .container {
+    max-width: 90%;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.row {
+.automation-demo-section .row {
     margin-bottom: 40px;
 }
 
-.col-lg-12 {
+.automation-demo-section .col-lg-12 {
     width: 100%;
 }
 
-/* Title styling */
-.title-style-four.center {
+/* Title styling - scoped to automation demo */
+.automation-demo-section .title-style-four.center {
     text-align: center;
     margin-bottom: 60px;
 }
 
-.title-style-four .pre {
+.automation-demo-section .title-style-four .pre {
     color: #3b82f6;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -75,7 +67,7 @@ body {
     margin-bottom: 12px;
 }
 
-.title-style-four .title {
+.automation-demo-section .title-style-four .title {
     font-size: 2.5rem;
     font-weight: 700;
     color: #f1f5f9;
@@ -83,14 +75,14 @@ body {
     line-height: 1.2;
 }
 
-.title-style-four .title span {
+.automation-demo-section .title-style-four .title span {
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.title-style-four .disc {
+.automation-demo-section .title-style-four .disc {
     color: #94a3b8;
     font-size: 1.125rem;
     max-width: 600px;
@@ -634,15 +626,15 @@ body {
 /* ============================================
    BUTTONS
    ============================================ */
-.text-center {
+.automation-demo-section .text-center {
     text-align: center;
 }
 
-.mt-5 {
+.automation-demo-section .mt-5 {
     margin-top: 3rem;
 }
 
-.rts-btn.btn-primary {
+.automation-demo-section .rts-btn.btn-primary {
     display: inline-block;
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     color: white;
@@ -656,7 +648,7 @@ body {
     cursor: pointer;
 }
 
-.rts-btn.btn-primary:hover {
+.automation-demo-section .rts-btn.btn-primary:hover {
     background: linear-gradient(135deg, #2563eb, #7c3aed);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
@@ -700,11 +692,11 @@ body {
         font-size: 1.125rem;
     }
     
-    .title-style-four .title {
+    .automation-demo-section .title-style-four .title {
         font-size: 1.75rem;
     }
     
-    .title-style-four .disc {
+    .automation-demo-section .title-style-four .disc {
         font-size: 1rem;
     }
     

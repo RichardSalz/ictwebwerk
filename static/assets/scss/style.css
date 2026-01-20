@@ -6317,7 +6317,7 @@ header.header--sticky.sticky .nav-area ul li.main-nav {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 81.536% 93.689%, 50.99% 100%, 25.313% 93.689%, 0% 100%, 0% 0%);
 }
 .banner-four-area-main-wrapper .banner-four-bg {
-  background-image: url(../images/banner/03.webp);
+  background-image: url(../images/banner/bg.jpg);
   height: 824px;
   display: flex;
   align-items: center;
@@ -28840,19 +28840,20 @@ a:hover {
 
 /* Dropdown menu */
 .header-main-one-wrapper .nav-area ul li .submenu {
+    z-index: 100;
     background: var(--dark-bg-elevated) !important;
     border: 1px solid var(--dark-border);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .header-main-one-wrapper .nav-area ul li .submenu li a {
-    color: var(--accent-blue) !important;
+    color: var(--dark-text-secondary) !important;
     background: rgba(59, 130, 246, 0.1);
 
 }
 
 .header-main-one-wrapper .nav-area ul li .submenu li a:hover {
-    color: var(--accent-blue-hover) !important;
+    color: var(--dark-text-secondary) !important;
     background: rgba(59, 130, 246, 0.1);
 }
 
@@ -29852,4 +29853,9 @@ a:hover {
 
 .bussinesscontent {
   padding-bottom: 100px;
+}
+
+.automation-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }

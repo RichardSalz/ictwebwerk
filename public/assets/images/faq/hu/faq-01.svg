@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" fill="none">
+  <defs>
+    <linearGradient id="bgGradC1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#12121a"/>
+      <stop offset="100%" style="stop-color:#1a1a25"/>
+    </linearGradient>
+    <linearGradient id="blueGradC1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="cardGradC1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2a"/>
+      <stop offset="100%" style="stop-color:#252532"/>
+    </linearGradient>
+    <filter id="glowC1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadowC1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="350" fill="url(#bgGradC1)"/>
+  
+  <!-- Decorative dots -->
+  <g opacity="0.15">
+    <circle cx="30" cy="30" r="2" fill="#3b82f6"/>
+    <circle cx="50" cy="30" r="2" fill="#3b82f6"/>
+    <circle cx="70" cy="30" r="2" fill="#3b82f6"/>
+    <circle cx="30" cy="50" r="2" fill="#3b82f6"/>
+    <circle cx="50" cy="50" r="2" fill="#3b82f6"/>
+    <circle cx="330" cy="300" r="2" fill="#8b5cf6"/>
+    <circle cx="350" cy="300" r="2" fill="#8b5cf6"/>
+    <circle cx="370" cy="300" r="2" fill="#8b5cf6"/>
+    <circle cx="350" cy="320" r="2" fill="#8b5cf6"/>
+    <circle cx="370" cy="320" r="2" fill="#8b5cf6"/>
+  </g>
+  
+  <!-- Video call window -->
+  <g filter="url(#shadowC1)">
+    <rect x="50" y="40" width="300" height="200" rx="16" fill="url(#cardGradC1)" stroke="#2a2a3a" stroke-width="1"/>
+    
+    <!-- Window header -->
+    <rect x="50" y="40" width="300" height="40" rx="16" fill="#1a1a25"/>
+    <rect x="50" y="64" width="300" height="16" fill="#1a1a25"/>
+    
+    <!-- Window controls -->
+    <circle cx="75" cy="60" r="6" fill="#ff5f57"/>
+    <circle cx="95" cy="60" r="6" fill="#febc2e"/>
+    <circle cx="115" cy="60" r="6" fill="#28c840"/>
+    
+    <!-- Meeting title -->
+    <text x="200" y="65" font-family="system-ui, sans-serif" font-size="12" fill="#f1f5f9" text-anchor="middle">Projekt Konzultáció</text>
+    
+    <!-- Two video feeds -->
+    <g transform="translate(65, 95)">
+      <!-- Person 1 - Client -->
+      <rect x="0" y="0" width="125" height="95" rx="10" fill="#12121a"/>
+      <circle cx="62" cy="40" r="25" fill="url(#blueGradC1)" opacity="0.3"/>
+      <circle cx="62" cy="35" r="15" fill="#3a3a4a"/>
+      <ellipse cx="62" cy="70" rx="20" ry="12" fill="#3a3a4a"/>
+      <rect x="10" y="75" width="50" height="14" rx="4" fill="#1e1e2a"/>
+      <text x="35" y="85" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Ügyfél</text>
+      
+      <!-- Mic icon -->
+      <circle cx="105" cy="80" r="8" fill="#10b981" opacity="0.2"/>
+      <rect x="102" y="75" width="6" height="8" rx="3" fill="#10b981"/>
+      <path d="M100 83 L100 86 L110 86 L110 83" stroke="#10b981" stroke-width="1.5" fill="none"/>
+    </g>
+    
+    <g transform="translate(210, 95)">
+      <!-- Person 2 - Us -->
+      <rect x="0" y="0" width="125" height="95" rx="10" fill="#12121a"/>
+      <circle cx="62" cy="40" r="25" fill="url(#blueGradC1)" opacity="0.3"/>
+      <circle cx="62" cy="35" r="15" fill="#3b82f6" opacity="0.5"/>
+      <ellipse cx="62" cy="70" rx="20" ry="12" fill="#3b82f6" opacity="0.5"/>
+      <rect x="10" y="75" width="70" height="14" rx="4" fill="#1e1e2a"/>
+      <text x="45" y="85" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">ICT Webwerk</text>
+      
+      <!-- Mic icon active -->
+      <circle cx="105" cy="80" r="8" fill="#10b981" opacity="0.2"/>
+      <rect x="102" y="75" width="6" height="8" rx="3" fill="#10b981"/>
+      <path d="M100 83 L100 86 L110 86 L110 83" stroke="#10b981" stroke-width="1.5" fill="none"/>
+    </g>
+    
+    <!-- Call controls -->
+    <g transform="translate(140, 205)">
+      <circle cx="20" cy="12" r="14" fill="#2a2a3a"/>
+      <rect x="14" y="8" width="12" height="8" rx="2" fill="#64748b"/>
+      
+      <circle cx="60" cy="12" r="14" fill="#2a2a3a"/>
+      <rect x="54" y="6" width="4" height="12" rx="2" fill="#64748b"/>
+      <path d="M52 14 L52 18 L68 18 L68 14" stroke="#64748b" stroke-width="1.5" fill="none"/>
+      
+      <circle cx="100" cy="12" r="14" fill="#ef4444"/>
+      <rect x="90" y="9" width="20" height="6" rx="3" fill="#fff" transform="rotate(135 100 12)"/>
+    </g>
+  </g>
+  
+  <!-- Checklist/Notes floating -->
+  <g filter="url(#shadowC1)" transform="translate(280, 200)">
+    <rect x="0" y="0" width="100" height="120" rx="10" fill="url(#cardGradC1)" stroke="#2a2a3a" stroke-width="1"/>
+    
+    <text x="15" y="25" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#f1f5f9">Igények</text>
+    
+    <!-- Checklist items -->
+    <g transform="translate(15, 40)">
+      <rect x="0" y="0" width="12" height="12" rx="3" fill="#12121a" stroke="#10b981" stroke-width="1.5"/>
+      <path d="M3 6 L5 8 L9 4" stroke="#10b981" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="2" width="50" height="6" rx="2" fill="#3a3a4a"/>
+      
+      <rect x="0" y="20" width="12" height="12" rx="3" fill="#12121a" stroke="#10b981" stroke-width="1.5"/>
+      <path d="M3 26 L5 28 L9 24" stroke="#10b981" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="22" width="40" height="6" rx="2" fill="#3a3a4a"/>
+      
+      <rect x="0" y="40" width="12" height="12" rx="3" fill="#12121a" stroke="#3b82f6" stroke-width="1.5"/>
+      <rect x="20" y="42" width="55" height="6" rx="2" fill="#3a3a4a"/>
+      
+      <rect x="0" y="60" width="12" height="12" rx="3" fill="#12121a" stroke="#3a3a4a" stroke-width="1.5"/>
+      <rect x="20" y="62" width="35" height="6" rx="2" fill="#3a3a4a"/>
+    </g>
+  </g>
+  
+  <!-- Speech bubbles -->
+  <g filter="url(#glowC1)">
+    <g transform="translate(20, 140)">
+      <rect x="0" y="0" width="80" height="35" rx="8" fill="url(#blueGradC1)" opacity="0.2" stroke="url(#blueGradC1)" stroke-width="1"/>
+      <polygon points="70,35 80,45 60,35" fill="url(#blueGradC1)" opacity="0.2"/>
+      <text x="40" y="15" font-family="system-ui, sans-serif" font-size="8" fill="#f1f5f9" text-anchor="middle">Milyen célok</text>
+      <text x="40" y="27" font-family="system-ui, sans-serif" font-size="8" fill="#f1f5f9" text-anchor="middle">vannak?</text>
+    </g>
+  </g>
+  
+  <!-- Step indicator -->
+  <g transform="translate(30, 290)">
+    <circle cx="20" cy="20" r="18" fill="url(#blueGradC1)"/>
+    <text x="20" y="26" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
+    <text x="55" y="26" font-family="system-ui, sans-serif" font-size="14" fill="#f1f5f9">Konzultáció</text>
+  </g>
+</svg>

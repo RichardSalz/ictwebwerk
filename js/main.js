@@ -52,7 +52,7 @@
       rtsJs.odoMeter();
       rtsJs.splitText();
       rtsJs.backToTopInit();
-      rtsJs.stickyHeader();
+      // rtsJs.stickyHeader();
       rtsJs.galleryPopUpmag();
       rtsJs.gsapAnimationImageScale();
       rtsJs.radialProgress();
@@ -1311,15 +1311,15 @@
 
       });
     },
-    stickyHeader: function (e) {
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 150) {
-          $('.header--sticky').addClass('sticky')
-        } else {
-          $('.header--sticky').removeClass('sticky')
-        }
-      })
-    },
+    // stickyHeader: function (e) {
+    //   $(window).scroll(function () {
+    //     if ($(this).scrollTop() > 150) {
+    //       $('.header--sticky').addClass('sticky')
+    //     } else {
+    //       $('.header--sticky').removeClass('sticky')
+    //     }
+    //   })
+    // },
     galleryPopUpmag: function () {
       $('.gallery-image').magnificPopup({
         type: 'image',
