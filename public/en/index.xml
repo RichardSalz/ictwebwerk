@@ -1,1 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SME Solutions on ICT Webwerk</title><link>https://ictwebwerk.nl/en/</link><description>Recent content in SME Solutions on ICT Webwerk</description><generator>Hugo</generator><language>en-GB</language><atom:link href="https://ictwebwerk.nl/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Contact</title><link>https://ictwebwerk.nl/en/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ictwebwerk.nl/en/contact/</guid><description/></item><item><title>Enterprise Solutions</title><link>https://ictwebwerk.nl/en/business/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ictwebwerk.nl/en/business/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SME Solutions on ICT Webwerk</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content in SME Solutions on ICT Webwerk</description>
+    <generator>Hugo</generator>
+    <language>en-GB</language>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Automation for Restaurants</title>
+      <link>http://localhost:1313/en/automation/</link>
+      <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/automation/</guid>
+      <description>&lt;h2 id=&#34;how-does-it-work&#34;&gt;How Does It Work?&lt;/h2&gt;&#xA;&lt;p&gt;Our AI-powered automation works in three simple steps:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Upload your menu&lt;/strong&gt; - Place your weekly menu in a Google Drive Excel file&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Automatic processing&lt;/strong&gt; - Our system automatically reads the data every day&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Posting&lt;/strong&gt; - The menu appears on your Facebook page with professional formatting&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;why-choose-automation&#34;&gt;Why Choose Automation?&lt;/h2&gt;&#xA;&lt;h3 id=&#34;save-time&#34;&gt;Save Time&lt;/h3&gt;&#xA;&lt;p&gt;No more daily posting. The system automatically works for you every day.&lt;/p&gt;&#xA;&lt;h3 id=&#34;growth&#34;&gt;Growth&lt;/h3&gt;&#xA;&lt;p&gt;Regular posting increases customer engagement and reach.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/en/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/contact/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Enterprise Solutions</title>
+      <link>http://localhost:1313/en/business/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/business/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

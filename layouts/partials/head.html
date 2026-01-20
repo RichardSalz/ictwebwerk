@@ -56,11 +56,12 @@
 <link rel="stylesheet preload" href="{{ "assets/css/dark-theme.css" | relURL }}" as="style">
 <link rel="stylesheet preload" href="{{ "assets/scss/style.css" | relURL }}" as="style">
 <link rel="stylesheet preload" href="{{ "assets/css/extra.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/automation-demo-calendar.css" | relURL }}" as="style">
 
 
 {{/* Automation demo CSS - only on development page */}}
 {{- if or (eq .Layout "development") (eq .Layout "home") }}
-<link rel="stylesheet preload" href="{{ "assets/css/automation-demo.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/automation-demo-calendar.css" | relURL }}" as="style">
 {{- end }}
 
 {{/* Google Tag Manager - Only if enabled */}}

@@ -12,6 +12,12 @@
   url = "/business/"
   weight = 3
 
+  [[main]]
+  identifier = "automations"
+  name = "AI-automatisering"
+  url = "/automation/"
+  weight = 3
+
 [[main]]
   identifier = "contact"
   name = "Contact"

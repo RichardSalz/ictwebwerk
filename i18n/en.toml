@@ -150,3 +150,167 @@ other = "Language"
 
 [switch_language]
 other = "Switch language"
+
+# English translations for automation demo
+# Path: i18n/en.toml
+
+# Automation demo section
+[automation_category]
+other = "Automation"
+
+[automation_title]
+other = "Restaurant <span>Social Media</span> Automation"
+
+[automation_description]
+other = "Upload your weekly menu in Excel – the system automatically posts to Facebook every day"
+
+# Calendar
+[calendar_label]
+other = "Next week's menu"
+
+# Days - full names
+[day_monday]
+other = "Monday"
+
+[day_tuesday]
+other = "Tuesday"
+
+[day_wednesday]
+other = "Wednesday"
+
+[day_thursday]
+other = "Thursday"
+
+[day_friday]
+other = "Friday"
+
+[day_saturday]
+other = "Saturday"
+
+[day_sunday]
+other = "Sunday"
+
+# Days - short names
+[day_monday_short]
+other = "Mon"
+
+[day_tuesday_short]
+other = "Tue"
+
+[day_wednesday_short]
+other = "Wed"
+
+[day_thursday_short]
+other = "Thu"
+
+[day_friday_short]
+other = "Fri"
+
+[day_saturday_short]
+other = "Sat"
+
+[day_sunday_short]
+other = "Sun"
+
+# Panels
+[panel_upload]
+other = "You upload"
+
+[panel_post]
+other = "We post"
+
+[arrow_auto]
+other = "Automatic"
+
+# Excel
+[dish_label]
+other = "Main dish"
+
+# Sample menu items (English)
+[sample_soup_monday]
+other = "Bean soup"
+
+[sample_dish1_monday]
+other = "Bolognese spaghetti with cheese"
+
+[sample_dish2_monday]
+other = "Grilled chicken breast with smoked cheese sauce"
+
+[sample_soup_tuesday]
+other = "Tomato soup with alphabet pasta"
+
+[sample_dish1_tuesday]
+other = "Dubarry pork ribs with rice"
+
+[sample_dish2_tuesday]
+other = "Layered potato casserole with sour cream"
+
+[sample_soup_wednesday]
+other = "Forester's soup"
+
+[sample_dish1_wednesday]
+other = "Spicy honey chicken strips with mashed potato"
+
+[sample_dish2_wednesday]
+other = "Chicken breast au gratin with vegetables and rice"
+
+[sample_soup_thursday]
+other = "Cheese soup with spiced croutons"
+
+[sample_dish1_thursday]
+other = "Bakony-style pork ribs with dumplings"
+
+[sample_dish2_thursday]
+other = "Paprika chicken with spätzle"
+
+[sample_soup_friday]
+other = "Goulash soup"
+
+[sample_dish1_friday]
+other = "Fish fillet with rice and lemon"
+
+[sample_dish2_friday]
+other = "Fried cheese with french fries"
+
+# Facebook
+[fb_name]
+other = "Your Restaurant"
+
+[fb_now]
+other = "Now"
+
+[fb_menu_title]
+other = "Today's menu"
+
+[fb_soup_label]
+other = "Soup"
+
+[fb_like]
+other = "Like"
+
+[fb_comment]
+other = "Comment"
+
+[fb_share]
+other = "Share"
+
+# Status bar
+[status_active]
+other = "Active"
+
+[status_custom_time]
+other = "daily, you choose when"
+
+[status_min]
+other = "min"
+
+[status_work]
+other = "work time"
+
+[status_reliable]
+other = "reliable"
+
+# CTA
+[cta_button]
+other = "Interested in automation"
+

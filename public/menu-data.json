@@ -1,0 +1,115 @@
+{
+  "restaurant": {
+    "name": "Az Ön Étterme",
+    "currency": "Ft",
+    "price": "2590",
+    "hours": "11:30-14:00"
+  },
+  "week": {
+    "monday": {
+      "soup": "Bableves",
+      "dishes": [
+        "Bolognai spagetti sajttal",
+        "Roston csirkemell füstölt sajtmártással"
+      ]
+    },
+    "tuesday": {
+      "soup": "Paradicsomleves betűtészta",
+      "dishes": [
+        "Dubarry sertésborda rizs",
+        "Rakott burgonya tejföllel"
+      ]
+    },
+    "wednesday": {
+      "soup": "Erdészleves",
+      "dishes": [
+        "Csípős-mézes csirkemell csíkok burgonyapüré",
+        "Zöldséggel gratinírozott csirkemell rizs"
+      ]
+    },
+    "thursday": {
+      "soup": "Sajtleves fűszeres krutonnal",
+      "dishes": [
+        "Bakonyi sertésborda galuska",
+        "Paprikás csirke nokedli"
+      ]
+    },
+    "friday": {
+      "soup": "Gulyásleves",
+      "dishes": [
+        "Halfilé rizs citrom",
+        "Rántott sajt hasábburgonya"
+      ]
+    }
+  },
+  "translations": {
+    "hu": {
+      "days": {
+        "monday": "Hétfő",
+        "tuesday": "Kedd",
+        "wednesday": "Szerda",
+        "thursday": "Csütörtök",
+        "friday": "Péntek",
+        "saturday": "Szombat",
+        "sunday": "Vasárnap"
+      },
+      "labels": {
+        "todaysMenu": "Mai menüajánlatunk",
+        "soup": "Leves",
+        "nextWeek": "Következő hét menüje",
+        "active": "Aktív",
+        "dailyCustomTime": "naponta, Ön dönti mikor",
+        "workTime": "munkaidő",
+        "reliable": "megbízható",
+        "interestedButton": "Érdekel az automatizáció"
+      }
+    },
+    "en": {
+      "days": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "labels": {
+        "todaysMenu": "Today's menu",
+        "soup": "Soup",
+        "nextWeek": "Next week's menu",
+        "active": "Active",
+        "dailyCustomTime": "daily, you choose when",
+        "workTime": "work time",
+        "reliable": "reliable",
+        "interestedButton": "Interested in automation"
+      }
+    },
+    "nl": {
+      "days": {
+        "monday": "Maandag",
+        "tuesday": "Dinsdag",
+        "wednesday": "Woensdag",
+        "thursday": "Donderdag",
+        "friday": "Vrijdag",
+        "saturday": "Zaterdag",
+        "sunday": "Zondag"
+      },
+      "labels": {
+        "todaysMenu": "Menu van vandaag",
+        "soup": "Soep",
+        "nextWeek": "Menu volgende week",
+        "active": "Actief",
+        "dailyCustomTime": "dagelijks, u bepaalt wanneer",
+        "workTime": "werktijd",
+        "reliable": "betrouwbaar",
+        "interestedButton": "Geïnteresseerd in automatisering"
+      }
+    }
+  },
+  "meta": {
+    "lastUpdated": "2025-01-09T12:00:00Z",
+    "weekStartDate": "2025-01-13",
+    "version": "1.0"
+  }
+}

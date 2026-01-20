@@ -1,0 +1,30 @@
+{{- define "main" -}}
+<div class="automation-page">
+    <!-- <section class="automation-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="hero-title">{{ .Title }}</h1>
+                    <p class="hero-description">{{ .Params.description }}</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    {{ partial "automation-demo.html" . }}
+
+    {{ if .Content }}
+    <section class="automation-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="content-wrapper">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ end }}
+</div>
+{{- end -}}

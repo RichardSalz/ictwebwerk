@@ -1,0 +1,740 @@
+/* ============================================
+   RESTAURANT AUTOMATION DEMO - CALENDAR VERSION
+   ============================================ */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0a0a0f;
+    color: #f1f5f9;
+}
+
+/* Dark section wrapper */
+.automation-demo-section {
+    background: linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.automation-demo-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.automation-demo-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+.col-lg-12 {
+    width: 100%;
+}
+
+/* Title styling */
+.title-style-four.center {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title-style-four .pre {
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.title-style-four .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.title-style-four .title span {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-style-four .disc {
+    color: #94a3b8;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Demo wrapper */
+.demo-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* ============================================
+   CALENDAR SELECTOR
+   ============================================ */
+.calendar-selector {
+    background: linear-gradient(135deg, #1a1a25 0%, #12121a 100%);
+    border: 1px solid #2a2a3a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    float: left; /* Float left on desktop */
+    width: auto;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.calendar-label {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.calendar-dates {
+    font-size: 0.875rem;
+    color: #3b82f6;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, 70px);
+    gap: 8px;
+}
+
+.calendar-day {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid #2a2a3a;
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none; /* Prevent text selection on click */
+}
+
+.calendar-day.weekend {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.02) 10px,
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0.1) 20px
+    );
+}
+
+.calendar-day:not(.weekend):hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+}
+
+/* Active day state */
+.calendar-day.active {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), inset 0 0 20px rgba(59, 130, 246, 0.1);
+    transform: scale(1.05);
+}
+
+/* Completed day state */
+.calendar-day.completed {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
+    opacity: 0.6;
+}
+
+.day-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.day-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.day-month {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Status indicators */
+.day-status {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.calendar-day.active .status-dot {
+    opacity: 1;
+    transform: scale(1);
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+.status-check {
+    font-size: 0.875rem;
+    color: #10b981;
+    opacity: 0;
+    transform: scale(0);
+    display: inline-block;
+}
+
+.calendar-day.completed .status-check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+    50% { box-shadow: 0 0 0 4px rgba(59, 130, 246, 0); }
+}
+
+/* ============================================
+   DEMO PANELS
+   ============================================ */
+.demo-panels {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    align-items: center;
+    clear: both; /* Clear the float from calendar */
+    margin-top: 20px;
+}
+
+/* Panel labels */
+.panel-label {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.left-panel, .right-panel {
+    position: relative;
+}
+
+/* ============================================
+   BROWSER MOCKUP
+   ============================================ */
+.browser-mockup {
+    background: #12121a;
+    border-radius: 16px;
+    border: 1px solid #2a2a3a;
+    overflow: hidden;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.browser-mockup:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 35px 60px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.browser-header {
+    background: #1a1a25;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #2a2a3a;
+}
+
+.browser-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.browser-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.browser-dots span:nth-child(1) { background: #ff5f57; }
+.browser-dots span:nth-child(2) { background: #febc2e; }
+.browser-dots span:nth-child(3) { background: #28c840; }
+
+.browser-url {
+    flex: 1;
+    background: #0a0a0f;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.browser-url .lock {
+    color: #10b981;
+}
+
+.browser-content {
+    padding: 24px;
+    min-height: 420px;
+    position: relative;
+}
+
+/* ============================================
+   EXCEL MOCKUP
+   ============================================ */
+.excel-mockup {
+    background: #1e4620;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-header {
+    background: #165a1a;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.excel-icon {
+    width: 20px;
+    height: 20px;
+    background: #28c840;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 10px;
+    color: white;
+}
+
+.excel-grid {
+    display: grid;
+    grid-template-columns: 40px repeat(2, 1fr);
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    max-height: 350px;
+    overflow-y: auto; /* Enable scrolling */
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth native scrolling */
+}
+
+/* Hide scrollbar but keep functionality */
+.excel-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.excel-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.excel-grid::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 3px;
+}
+
+.excel-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.5);
+}
+
+.excel-cell {
+    padding: 6px 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: #f1f5f9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.excel-cell.header {
+    background: rgba(255,255,255,0.1);
+    font-weight: 600;
+    text-align: center;
+}
+
+.excel-cell.row-num {
+    background: rgba(255,255,255,0.08);
+    text-align: center;
+    color: #64748b;
+}
+
+/* Highlighted Excel rows - will be animated */
+.excel-cell.highlight {
+    background: rgba(59, 130, 246, 0.3) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+    color: #fff !important;
+}
+
+/* ============================================
+   ARROW CONNECTOR
+   ============================================ */
+.arrow-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.arrow-label {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.arrow-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+    position: relative;
+}
+
+.arrow-tip {
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid #8b5cf6;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.arrow-icon {
+    font-size: 1.5rem;
+}
+
+/* ============================================
+   FACEBOOK MOCKUP
+   ============================================ */
+.progress-ring {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.progress-ring circle {
+    fill: none;
+    stroke-width: 3;
+}
+
+.progress-ring .bg {
+    stroke: #2a2a3a;
+}
+
+.progress-ring .progress {
+    stroke: #10b981;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 97.4;
+    stroke-dashoffset: 97.4;
+}
+
+.facebook-post {
+    background: #242526;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fb-header {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #3a3b3c;
+}
+
+.fb-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #dc2626);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.fb-meta {
+    flex: 1;
+}
+
+.fb-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #e4e6eb;
+}
+
+.fb-time {
+    font-size: 0.75rem;
+    color: #b0b3b8;
+}
+
+.fb-content {
+    padding: 12px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #e4e6eb;
+    min-height: 180px;
+}
+
+.fb-content .line {
+    /* Initial state will be set by JavaScript */
+}
+
+.fb-actions {
+    padding: 8px 12px;
+    border-top: 1px solid #3a3b3c;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fb-action {
+    color: #b0b3b8;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fb-action:hover {
+    background: #3a3b3c;
+}
+
+/* ============================================
+   STATUS BAR
+   ============================================ */
+.status-bar {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: #12121a;
+    border-radius: 100px;
+    border: 1px solid #2a2a3a;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-dot.active {
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    animation: statusDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.status-text {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.status-text strong {
+    color: #f1f5f9;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.rts-btn.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.rts-btn.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 991px) {
+    .demo-panels {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .arrow-connector {
+        transform: rotate(90deg);
+    }
+    
+    .arrow-label {
+        transform: rotate(-90deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-selector {
+        float: none; /* Remove float on mobile */
+        margin: 0 auto 40px;
+        text-align: center;
+    }
+    
+    .calendar-week {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+    }
+    
+    .calendar-day {
+        padding: 8px 4px;
+    }
+    
+    .day-number {
+        font-size: 1.125rem;
+    }
+    
+    .title-style-four .title {
+        font-size: 1.75rem;
+    }
+    
+    .title-style-four .disc {
+        font-size: 1rem;
+    }
+    
+    .browser-content {
+        padding: 16px;
+        min-height: 300px;
+    }
+    
+    .excel-grid {
+        font-size: 0.65rem;
+    }
+    
+    .status-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .automation-demo-section {
+        padding: 60px 0;
+    }
+    
+    .calendar-week {
+        grid-template-columns: repeat(7, 45px);
+        justify-content: center;
+    }
+    
+    .excel-cell {
+        font-size: 0.6rem;
+        padding: 4px;
+    }
+}

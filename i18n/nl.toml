@@ -150,3 +150,166 @@ other = "Taal"
 
 [switch_language]
 other = "Taal wisselen"
+
+# Dutch translations for automation demo
+# Path: i18n/nl.toml
+
+# Automation demo section
+[automation_category]
+other = "Automatisering"
+
+[automation_title]
+other = "Restaurant <span>Social Media</span> Automatisering"
+
+[automation_description]
+other = "Upload uw weekmenu in Excel – het systeem post automatisch elke dag op Facebook"
+
+# Calendar
+[calendar_label]
+other = "Menu volgende week"
+
+# Days - full names
+[day_monday]
+other = "Maandag"
+
+[day_tuesday]
+other = "Dinsdag"
+
+[day_wednesday]
+other = "Woensdag"
+
+[day_thursday]
+other = "Donderdag"
+
+[day_friday]
+other = "Vrijdag"
+
+[day_saturday]
+other = "Zaterdag"
+
+[day_sunday]
+other = "Zondag"
+
+# Days - short names
+[day_monday_short]
+other = "Ma"
+
+[day_tuesday_short]
+other = "Di"
+
+[day_wednesday_short]
+other = "Wo"
+
+[day_thursday_short]
+other = "Do"
+
+[day_friday_short]
+other = "Vr"
+
+[day_saturday_short]
+other = "Za"
+
+[day_sunday_short]
+other = "Zo"
+
+# Panels
+[panel_upload]
+other = "U uploadt"
+
+[panel_post]
+other = "Wij posten"
+
+[arrow_auto]
+other = "Automatisch"
+
+# Excel
+[dish_label]
+other = "Hoofdgerecht"
+
+# Sample menu items (Dutch)
+[sample_soup_monday]
+other = "Bonensoep"
+
+[sample_dish1_monday]
+other = "Bolognese spaghetti met kaas"
+
+[sample_dish2_monday]
+other = "Gegrilde kipfilet met gerookte kaassaus"
+
+[sample_soup_tuesday]
+other = "Tomatensoep met alfabetpasta"
+
+[sample_dish1_tuesday]
+other = "Dubarry varkensribbetjes met rijst"
+
+[sample_dish2_tuesday]
+other = "Aardappelgratin met zure room"
+
+[sample_soup_wednesday]
+other = "Bossoep"
+
+[sample_dish1_wednesday]
+other = "Pittige honingreepjes kip met aardappelpuree"
+
+[sample_dish2_wednesday]
+other = "Gegratineerde kipfilet met groenten en rijst"
+
+[sample_soup_thursday]
+other = "Kaassoep met gekruide croutons"
+
+[sample_dish1_thursday]
+other = "Varkensribbetjes Bakony-stijl met knoedels"
+
+[sample_dish2_thursday]
+other = "Paprikakip met spätzle"
+
+[sample_soup_friday]
+other = "Goulashsoep"
+
+[sample_dish1_friday]
+other = "Visfilet met rijst en citroen"
+
+[sample_dish2_friday]
+other = "Gefrituurde kaas met friet"
+
+# Facebook
+[fb_name]
+other = "Uw Restaurant"
+
+[fb_now]
+other = "Nu"
+
+[fb_menu_title]
+other = "Menu van vandaag"
+
+[fb_soup_label]
+other = "Soep"
+
+[fb_like]
+other = "Vind ik leuk"
+
+[fb_comment]
+other = "Reageren"
+
+[fb_share]
+other = "Delen"
+
+# Status bar
+[status_active]
+other = "Actief"
+
+[status_custom_time]
+other = "dagelijks, u bepaalt wanneer"
+
+[status_min]
+other = "min"
+
+[status_work]
+other = "werktijd"
+
+[status_reliable]
+other = "betrouwbaar"
+
+# CTA
+[cta_button]
+other = "Geïnteresseerd in automatisering"

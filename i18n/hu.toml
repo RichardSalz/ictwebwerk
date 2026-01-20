@@ -150,3 +150,166 @@ other = "Nyelv"
 
 [switch_language]
 other = "Nyelv váltás"
+
+# Hungarian translations for automation demo
+# Path: i18n/hu.toml
+
+# Automation demo section
+[automation_category]
+other = "Automatizáció"
+
+[automation_title]
+other = "Éttermi <span>Social Media</span> Automatizáció"
+
+[automation_description]
+other = "Töltse fel a heti menüt Excelben – a rendszer minden nap automatikusan posztol a Facebookra"
+
+# Calendar
+[calendar_label]
+other = "Következő hét menüje"
+
+# Days - full names
+[day_monday]
+other = "Hétfő"
+
+[day_tuesday]
+other = "Kedd"
+
+[day_wednesday]
+other = "Szerda"
+
+[day_thursday]
+other = "Csütörtök"
+
+[day_friday]
+other = "Péntek"
+
+[day_saturday]
+other = "Szombat"
+
+[day_sunday]
+other = "Vasárnap"
+
+# Days - short names
+[day_monday_short]
+other = "H"
+
+[day_tuesday_short]
+other = "K"
+
+[day_wednesday_short]
+other = "Sze"
+
+[day_thursday_short]
+other = "Cs"
+
+[day_friday_short]
+other = "P"
+
+[day_saturday_short]
+other = "Szo"
+
+[day_sunday_short]
+other = "V"
+
+# Panels
+[panel_upload]
+other = "Ön feltölti"
+
+[panel_post]
+other = "Mi posztoljuk"
+
+[arrow_auto]
+other = "Automatikus"
+
+# Excel
+[dish_label]
+other = "Főétel"
+
+# Sample menu items (Hungarian)
+[sample_soup_monday]
+other = "Bableves"
+
+[sample_dish1_monday]
+other = "Bolognai spagetti sajttal"
+
+[sample_dish2_monday]
+other = "Roston csirkemell füstölt sajtmártással"
+
+[sample_soup_tuesday]
+other = "Paradicsomleves betűtészta"
+
+[sample_dish1_tuesday]
+other = "Dubarry sertésborda rizs"
+
+[sample_dish2_tuesday]
+other = "Rakott burgonya tejföllel"
+
+[sample_soup_wednesday]
+other = "Erdészleves"
+
+[sample_dish1_wednesday]
+other = "Csípős-mézes csirkemell csíkok burgonyapüré"
+
+[sample_dish2_wednesday]
+other = "Zöldséggel gratinírozott csirkemell rizs"
+
+[sample_soup_thursday]
+other = "Sajtleves fűszeres krutonnal"
+
+[sample_dish1_thursday]
+other = "Bakonyi sertésborda galuska"
+
+[sample_dish2_thursday]
+other = "Paprikás csirke nokedli"
+
+[sample_soup_friday]
+other = "Gulyásleves"
+
+[sample_dish1_friday]
+other = "Halfilé rizs citrom"
+
+[sample_dish2_friday]
+other = "Rántott sajt hasábburgonya"
+
+# Facebook
+[fb_name]
+other = "Az Ön Étterme"
+
+[fb_now]
+other = "Most"
+
+[fb_menu_title]
+other = "Mai menüajánlatunk"
+
+[fb_soup_label]
+other = "Leves"
+
+[fb_like]
+other = "Tetszik"
+
+[fb_comment]
+other = "Hozzászólás"
+
+[fb_share]
+other = "Megosztás"
+
+# Status bar
+[status_active]
+other = "Aktív"
+
+[status_custom_time]
+other = "naponta, Ön dönti mikor"
+
+[status_min]
+other = "perc"
+
+[status_work]
+other = "munkaidő"
+
+[status_reliable]
+other = "megbízható"
+
+# CTA
+[cta_button]
+other = "Érdekel az automatizáció"

@@ -1,0 +1,256 @@
+<!-- Automation Demo Partial - Simplified -->
+<section class="automation-demo-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-style-four center">
+                    <span class="pre">{{ i18n "automation_category" }}</span>
+                    <h2 class="title">{{ i18n "automation_title" | safeHTML }}</h2>
+                    <p class="disc">{{ i18n "automation_description" }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-wrapper">
+            <!-- Calendar -->
+            <div class="calendar-selector">
+                <div class="calendar-header">
+                    <span class="calendar-label">📅 {{ i18n "calendar_label" }}:</span>
+                    <span class="calendar-dates" id="calendar-dates">Jan 13-17</span>
+                </div>
+                <div class="calendar-week">
+                    <!-- Monday -->
+                    <div class="calendar-day" data-day="monday">
+                        <div class="day-label">{{ i18n "day_monday_short" }}</div>
+                        <div class="day-number" id="day-mon">13</div>
+                        <div class="day-month">Jan</div>
+                        <div class="day-status">
+                            <span class="status-dot"></span>
+                            <span class="status-check">✓</span>
+                        </div>
+                    </div>
+                    <!-- Tuesday -->
+                    <div class="calendar-day" data-day="tuesday">
+                        <div class="day-label">{{ i18n "day_tuesday_short" }}</div>
+                        <div class="day-number" id="day-tue">14</div>
+                        <div class="day-month">Jan</div>
+                        <div class="day-status">
+                            <span class="status-dot"></span>
+                            <span class="status-check">✓</span>
+                        </div>
+                    </div>
+                    <!-- Wednesday -->
+                    <div class="calendar-day" data-day="wednesday">
+                        <div class="day-label">{{ i18n "day_wednesday_short" }}</div>
+                        <div class="day-number" id="day-wed">15</div>
+                        <div class="day-month">Jan</div>
+                        <div class="day-status">
+                            <span class="status-dot"></span>
+                            <span class="status-check">✓</span>
+                        </div>
+                    </div>
+                    <!-- Thursday -->
+                    <div class="calendar-day" data-day="thursday">
+                        <div class="day-label">{{ i18n "day_thursday_short" }}</div>
+                        <div class="day-number" id="day-thu">16</div>
+                        <div class="day-month">Jan</div>
+                        <div class="day-status">
+                            <span class="status-dot"></span>
+                            <span class="status-check">✓</span>
+                        </div>
+                    </div>
+                    <!-- Friday -->
+                    <div class="calendar-day" data-day="friday">
+                        <div class="day-label">{{ i18n "day_friday_short" }}</div>
+                        <div class="day-number" id="day-fri">17</div>
+                        <div class="day-month">Jan</div>
+                        <div class="day-status">
+                            <span class="status-dot"></span>
+                            <span class="status-check">✓</span>
+                        </div>
+                    </div>
+                    <!-- Saturday -->
+                    <div class="calendar-day weekend" data-day="saturday">
+                        <div class="day-label">{{ i18n "day_saturday_short" }}</div>
+                        <div class="day-number" id="day-sat">18</div>
+                        <div class="day-month">Jan</div>
+                    </div>
+                    <!-- Sunday -->
+                    <div class="calendar-day weekend" data-day="sunday">
+                        <div class="day-label">{{ i18n "day_sunday_short" }}</div>
+                        <div class="day-number" id="day-sun">19</div>
+                        <div class="day-month">Jan</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Panels -->
+            <div class="demo-panels">
+                <!-- Left Panel - Excel -->
+                <div class="left-panel">
+                    <span class="panel-label">📊 {{ i18n "panel_upload" }}</span>
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots"><span></span><span></span><span></span></div>
+                            <div class="browser-url">
+                                <span class="lock">🔒</span>
+                                drive.google.com/menu.xlsx
+                            </div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="excel-mockup">
+                                <div class="excel-header">
+                                    <div class="excel-icon">X</div>
+                                    <span>menu.xlsx</span>
+                                </div>
+                                <div class="excel-grid" id="excel-grid">
+                                    <div class="excel-cell header"></div>
+                                    <div class="excel-cell header">A</div>
+                                    <div class="excel-cell header">B</div>
+                                    
+                                    <!-- Monday -->
+                                    <div class="excel-cell row-num">1</div>
+                                    <div class="excel-cell" data-day="monday">{{ i18n "day_monday" | upper }}:</div>
+                                    <div class="excel-cell" data-day="monday">{{ i18n "sample_soup_monday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">2</div>
+                                    <div class="excel-cell" data-day="monday">{{ i18n "dish_label" }} 1:</div>
+                                    <div class="excel-cell" data-day="monday">{{ i18n "sample_dish1_monday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">3</div>
+                                    <div class="excel-cell" data-day="monday">{{ i18n "dish_label" }} 2:</div>
+                                    <div class="excel-cell" data-day="monday">{{ i18n "sample_dish2_monday" }}</div>
+                                    
+                                    <!-- Tuesday -->
+                                    <div class="excel-cell row-num">4</div>
+                                    <div class="excel-cell" data-day="tuesday">{{ i18n "day_tuesday" | upper }}:</div>
+                                    <div class="excel-cell" data-day="tuesday">{{ i18n "sample_soup_tuesday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">5</div>
+                                    <div class="excel-cell" data-day="tuesday">{{ i18n "dish_label" }} 1:</div>
+                                    <div class="excel-cell" data-day="tuesday">{{ i18n "sample_dish1_tuesday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">6</div>
+                                    <div class="excel-cell" data-day="tuesday">{{ i18n "dish_label" }} 2:</div>
+                                    <div class="excel-cell" data-day="tuesday">{{ i18n "sample_dish2_tuesday" }}</div>
+                                    
+                                    <!-- Wednesday -->
+                                    <div class="excel-cell row-num">7</div>
+                                    <div class="excel-cell" data-day="wednesday">{{ i18n "day_wednesday" | upper }}:</div>
+                                    <div class="excel-cell" data-day="wednesday">{{ i18n "sample_soup_wednesday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">8</div>
+                                    <div class="excel-cell" data-day="wednesday">{{ i18n "dish_label" }} 1:</div>
+                                    <div class="excel-cell" data-day="wednesday">{{ i18n "sample_dish1_wednesday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">9</div>
+                                    <div class="excel-cell" data-day="wednesday">{{ i18n "dish_label" }} 2:</div>
+                                    <div class="excel-cell" data-day="wednesday">{{ i18n "sample_dish2_wednesday" }}</div>
+                                    
+                                    <!-- Thursday -->
+                                    <div class="excel-cell row-num">10</div>
+                                    <div class="excel-cell" data-day="thursday">{{ i18n "day_thursday" | upper }}:</div>
+                                    <div class="excel-cell" data-day="thursday">{{ i18n "sample_soup_thursday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">11</div>
+                                    <div class="excel-cell" data-day="thursday">{{ i18n "dish_label" }} 1:</div>
+                                    <div class="excel-cell" data-day="thursday">{{ i18n "sample_dish1_thursday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">12</div>
+                                    <div class="excel-cell" data-day="thursday">{{ i18n "dish_label" }} 2:</div>
+                                    <div class="excel-cell" data-day="thursday">{{ i18n "sample_dish2_thursday" }}</div>
+                                    
+                                    <!-- Friday -->
+                                    <div class="excel-cell row-num">13</div>
+                                    <div class="excel-cell" data-day="friday">{{ i18n "day_friday" | upper }}:</div>
+                                    <div class="excel-cell" data-day="friday">{{ i18n "sample_soup_friday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">14</div>
+                                    <div class="excel-cell" data-day="friday">{{ i18n "dish_label" }} 1:</div>
+                                    <div class="excel-cell" data-day="friday">{{ i18n "sample_dish1_friday" }}</div>
+                                    
+                                    <div class="excel-cell row-num">15</div>
+                                    <div class="excel-cell" data-day="friday">{{ i18n "dish_label" }} 2:</div>
+                                    <div class="excel-cell" data-day="friday">{{ i18n "sample_dish2_friday" }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arrow-connector">
+                    <div class="arrow-label">{{ i18n "arrow_auto" }}</div>
+                    <div class="arrow-line"><div class="arrow-tip"></div></div>
+                    <span class="arrow-icon">⚡</span>
+                </div>
+
+                <!-- Right Panel - Facebook -->
+                <div class="right-panel">
+                    <span class="panel-label">📱 {{ i18n "panel_post" }}</span>
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots"><span></span><span></span><span></span></div>
+                            <div class="browser-url">
+                                <span class="lock">🔒</span>
+                                facebook.com/restaurant
+                            </div>
+                        </div>
+                        <div class="browser-content">
+                            <svg class="progress-ring" viewBox="0 0 36 36">
+                                <circle class="bg" cx="18" cy="18" r="15.5"></circle>
+                                <circle class="progress" cx="18" cy="18" r="15.5"></circle>
+                            </svg>
+                            <div class="facebook-post">
+                                <div class="fb-header">
+                                    <div class="fb-avatar">🍕</div>
+                                    <div class="fb-meta">
+                                        <div class="fb-name">{{ i18n "fb_name" }}</div>
+                                        <div class="fb-time">{{ i18n "fb_now" }} · 🌍</div>
+                                    </div>
+                                </div>
+                                <div class="fb-content" id="fb-content">
+                                    <div class="line">📅 {{ i18n "fb_menu_title" }} - {{ i18n "day_monday" }}</div>
+                                    <div class="line"><br></div>
+                                    <div class="line">🍲 {{ i18n "fb_soup_label" }}: {{ i18n "sample_soup_monday" }}</div>
+                                    <div class="line"><br></div>
+                                    <div class="line">🍽️ {{ i18n "sample_dish1_monday" }}</div>
+                                    <div class="line">🍽️ {{ i18n "sample_dish2_monday" }}</div>
+                                    <div class="line"><br>💰 2590 Ft · ⏰ 11:30-14:00</div>
+                                </div>
+                                <div class="fb-actions">
+                                    <div class="fb-action">👍 {{ i18n "fb_like" }}</div>
+                                    <div class="fb-action">💬 {{ i18n "fb_comment" }}</div>
+                                    <div class="fb-action">↗️ {{ i18n "fb_share" }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-dot active"></div>
+                    <span class="status-text"><strong>{{ i18n "status_active" }}</strong> – {{ i18n "status_custom_time" }}</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot active"></div>
+                    <span class="status-text"><strong>0 {{ i18n "status_min" }}</strong> {{ i18n "status_work" }}</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot active"></div>
+                    <span class="status-text"><strong>100%</strong> {{ i18n "status_reliable" }}</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-5">
+                <a href="{{ "contact" | relLangURL }}" class="rts-btn btn-primary">
+                    {{ i18n "cta_button" }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

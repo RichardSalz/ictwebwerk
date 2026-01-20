@@ -12,8 +12,14 @@
   url = "/business/"
   weight = 3
 
+  [[main]]
+  identifier = "automations"
+  name = "AI Automatizálás"
+  url = "/automation/"
+  weight = 4
+
 [[main]]
   identifier = "contact"
   name = "Kapcsolat"
   url = "/contact/"
-  weight = 4
+  weight = 5
