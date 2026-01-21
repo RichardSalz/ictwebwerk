@@ -20,8 +20,8 @@ window.automationDemoInitialized = true;
 // ============================================
 // CONFIGURATION
 // ============================================
-const MENU_DATA_URL = '/menu-data.json?v=3';
-const DEFAULT_LANGUAGE = 'hu'; 
+const MENU_DATA_URL = '/menu-data.json?v=3'; // Absolute path from site root // Path to your menu data file
+const DEFAULT_LANGUAGE = 'hu'; // Default language: 'hu', 'en', or 'nl'
 
 // ============================================
 // GLOBAL STATE
@@ -38,7 +38,7 @@ let dayTimer = null;
 let currentDayAnimation = null;
 
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-const TIME_PER_DAY = 3200; // 3.2 seconds per day
+const TIME_PER_DAY = 3200; // 3.2 seconds per day (20% faster than 4s)
 
 // ============================================
 // DETECT LANGUAGE FROM PAGE
@@ -356,6 +356,7 @@ function updateCalendarStatus(currentDayKey) {
 // ============================================
 // ANIMATION STATE MANAGEMENT
 // ============================================
+// (Variables already declared at top of file)
 
 // Set the complete state for a day (all UI elements)
 function setDayState(dayKey, animate = true) {
@@ -577,11 +578,11 @@ if ('IntersectionObserver' in window) {
             if (entry.isIntersecting) {
                 if (!isAutoPlaying) {
                     startAutoPlay();
-                    console.log('Section visible - resumed');
+                    console.log('👀 Section visible - resumed');
                 }
             } else {
                 stopAutoPlay();
-                console.log('Section hidden - paused');
+                console.log('🙈 Section hidden - paused');
             }
         });
     }, { threshold: 0.3 });
@@ -592,4 +593,4 @@ if ('IntersectionObserver' in window) {
     }
 }
 
-})();
+})(); // End of IIFE

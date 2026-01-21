@@ -61,14 +61,14 @@
     color: #3b82f6;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: 600;
     display: block;
     margin-bottom: 12px;
 }
 
 .automation-demo-section .title-style-four .title {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 700;
     color: #f1f5f9;
     margin-bottom: 16px;
@@ -84,7 +84,7 @@
 
 .automation-demo-section .title-style-four .disc {
     color: #94a3b8;
-    font-size: 1.125rem;
+    font-size: 2rem;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -92,7 +92,7 @@
 
 /* Demo wrapper */
 .demo-wrapper {
-    max-width: 1100px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 40px 0;
 }
@@ -120,13 +120,13 @@
 }
 
 .calendar-label {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     color: #94a3b8;
     font-weight: 500;
 }
 
 .calendar-dates {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     color: #3b82f6;
     font-weight: 600;
     font-family: 'JetBrains Mono', monospace;
@@ -183,7 +183,7 @@
 }
 
 .day-label {
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #64748b;
     font-weight: 600;
     margin-bottom: 8px;
@@ -191,7 +191,7 @@
 }
 
 .day-number {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #f1f5f9;
     margin-bottom: 4px;
@@ -199,7 +199,7 @@
 }
 
 .day-month {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
     color: #64748b;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -262,7 +262,7 @@
 .panel-label {
     display: block;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #64748b;
@@ -323,7 +323,7 @@
     background: #0a0a0f;
     border-radius: 6px;
     padding: 6px 12px;
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #64748b;
     font-family: 'JetBrains Mono', monospace;
     display: flex;
@@ -356,7 +356,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     color: rgba(255,255,255,0.8);
 }
 
@@ -369,19 +369,19 @@
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 16px;
     color: white;
 }
 
 .excel-grid {
     display: grid;
     grid-template-columns: 40px repeat(2, 1fr);
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     font-family: 'JetBrains Mono', monospace;
     max-height: 350px;
-    overflow-y: auto; /* Enable scrolling */
+    overflow-y: auto;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Smooth native scrolling */
+    scroll-behavior: smooth;
 }
 
 /* Hide scrollbar but keep functionality */
@@ -444,7 +444,7 @@
 }
 
 .arrow-label {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
     color: #64748b;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -535,18 +535,18 @@
 
 .fb-name {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     color: #e4e6eb;
 }
 
 .fb-time {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     color: #b0b3b8;
 }
 
 .fb-content {
     padding: 12px;
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     line-height: 1.6;
     color: #e4e6eb;
     min-height: 180px;
@@ -565,7 +565,7 @@
 
 .fb-action {
     color: #b0b3b8;
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
@@ -615,7 +615,7 @@
 }
 
 .status-text {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     color: #94a3b8;
 }
 
@@ -639,7 +639,7 @@
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     color: white;
     padding: 15px 40px;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 600;
     border-radius: 8px;
     text-decoration: none;

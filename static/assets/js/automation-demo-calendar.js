@@ -1,6 +1,9 @@
 /**
  * ============================================
  * RESTAURANT AUTOMATION DEMO - ANIMATION SCRIPT
+ * Rewritten for better click handling and looping
+ * Now loads data from external JSON file
+ * Wrapped in IIFE to prevent global conflicts
  * ============================================
  */
 
@@ -17,8 +20,8 @@ window.automationDemoInitialized = true;
 // ============================================
 // CONFIGURATION
 // ============================================
-const MENU_DATA_URL = 'menu-data.json'; 
-const DEFAULT_LANGUAGE = 'hu'; // Default language: 'hu', 'en', or 'nl'
+const MENU_DATA_URL = '/menu-data.json?v=3';
+const DEFAULT_LANGUAGE = 'hu'; 
 
 // ============================================
 // GLOBAL STATE
@@ -71,12 +74,30 @@ async function loadMenuData() {
         
         const data = await response.json();
         
+        // Load menu data
         menuData = data.week;
-        translations = data.translations[currentLanguage];
-        restaurantInfo = data.restaurant;
+        
+        // Load translations for current language
+        if (data.translations && data.translations[currentLanguage]) {
+            translations = data.translations[currentLanguage];
+        } else {
+            console.warn('⚠️ Translations not found for:', currentLanguage);
+            translations = data.translations.hu; // Fallback to Hungarian
+        }
+        
+        // Load restaurant info for current language
+        if (data.restaurant && data.restaurant[currentLanguage]) {
+            restaurantInfo = data.restaurant[currentLanguage];
+            console.log('✅ Restaurant info loaded for:', currentLanguage, restaurantInfo);
+        } else if (data.restaurant && data.restaurant.hu) {
+            restaurantInfo = data.restaurant.hu;
+            console.warn('⚠️ Restaurant info not found for:', currentLanguage, '- using Hungarian');
+        } else {
+            throw new Error('Restaurant info not found in JSON');
+        }
         
         console.log('✅ Menu data loaded successfully');
-        console.log('📅 Last updated:', data.meta.lastUpdated);
+        console.log('📅 Last updated:', data.meta?.lastUpdated);
         return true;
     } catch (error) {
         console.error('❌ Error loading menu data:', error);
@@ -160,15 +181,31 @@ function useFallbackData() {
         }
     };
     
-    // Select translations for current language
-    translations = fallbackTranslations[currentLanguage] || fallbackTranslations.hu;
-    
-    restaurantInfo = {
-        name: 'Az Ön Étterme',
-        price: '2590',
-        currency: 'Ft',
-        hours: '11:30-14:00'
+    // Fallback restaurant info - language specific
+    const fallbackRestaurantInfo = {
+        hu: {
+            name: 'Az Ön Étterme',
+            price: '2590',
+            currency: 'Ft',
+            hours: '11:30-14:00'
+        },
+        en: {
+            name: 'Your Restaurant',
+            price: '7.90',
+            currency: '€',
+            hours: '11:30 AM - 2:00 PM'
+        },
+        nl: {
+            name: 'Uw Restaurant',
+            price: '7,90',
+            currency: '€',
+            hours: '11:30 - 14:00'
+        }
     };
+    
+    // Select translations and restaurant info for current language
+    translations = fallbackTranslations[currentLanguage] || fallbackTranslations.hu;
+    restaurantInfo = fallbackRestaurantInfo[currentLanguage] || fallbackRestaurantInfo.hu;
 }
 
 // ============================================
@@ -540,11 +577,11 @@ if ('IntersectionObserver' in window) {
             if (entry.isIntersecting) {
                 if (!isAutoPlaying) {
                     startAutoPlay();
-                    console.log('👀 Section visible - resumed');
+                    console.log('Section visible - resumed');
                 }
             } else {
                 stopAutoPlay();
-                console.log('🙈 Section hidden - paused');
+                console.log('Section hidden - paused');
             }
         });
     }, { threshold: 0.3 });

@@ -1,44 +1,118 @@
 {
   "restaurant": {
-    "name": "Az Ön Étterme",
-    "currency": "Ft",
-    "price": "2590",
-    "hours": "11:30-14:00"
+    "hu": {
+      "name": "Az Ön Étterme",
+      "currency": "Ft",
+      "price": "2590",
+      "hours": "11:30-14:00"
+    },
+    "en": {
+      "name": "Your Restaurant",
+      "currency": "€",
+      "price": "7.90",
+      "hours": "11:30 AM - 2:00 PM"
+    },
+    "nl": {
+      "name": "Uw Restaurant",
+      "currency": "€",
+      "price": "7,90",
+      "hours": "11:30 - 14:00"
+    }
   },
   "week": {
     "monday": {
-      "soup": "Bableves",
+      "soup": {
+        "hu": "Bableves",
+        "en": "Bean soup",
+        "nl": "Bonensoep"
+      },
       "dishes": [
-        "Bolognai spagetti sajttal",
-        "Roston csirkemell füstölt sajtmártással"
+        {
+          "hu": "Bolognai spagetti sajttal",
+          "en": "Bolognese spaghetti with cheese",
+          "nl": "Bolognese spaghetti met kaas"
+        },
+        {
+          "hu": "Roston csirkemell füstölt sajtmártással",
+          "en": "Grilled chicken breast with smoked cheese sauce",
+          "nl": "Gegrilde kipfilet met gerookte kaassaus"
+        }
       ]
     },
     "tuesday": {
-      "soup": "Paradicsomleves betűtészta",
+      "soup": {
+        "hu": "Paradicsomleves betűtészta",
+        "en": "Tomato soup with alphabet pasta",
+        "nl": "Tomatensoep met alfabetpasta"
+      },
       "dishes": [
-        "Dubarry sertésborda rizs",
-        "Rakott burgonya tejföllel"
+        {
+          "hu": "Dubarry sertésborda rizs",
+          "en": "Dubarry pork ribs with rice",
+          "nl": "Dubarry varkensribbetjes met rijst"
+        },
+        {
+          "hu": "Rakott burgonya tejföllel",
+          "en": "Layered potato casserole with sour cream",
+          "nl": "Aardappelgratin met zure room"
+        }
       ]
     },
     "wednesday": {
-      "soup": "Erdészleves",
+      "soup": {
+        "hu": "Erdészleves",
+        "en": "Forester's soup",
+        "nl": "Bossoep"
+      },
       "dishes": [
-        "Csípős-mézes csirkemell csíkok burgonyapüré",
-        "Zöldséggel gratinírozott csirkemell rizs"
+        {
+          "hu": "Csípős-mézes csirkemell csíkok burgonyapüré",
+          "en": "Spicy honey chicken strips with mashed potato",
+          "nl": "Pittige honingreepjes kip met aardappelpuree"
+        },
+        {
+          "hu": "Zöldséggel gratinírozott csirkemell rizs",
+          "en": "Chicken breast au gratin with vegetables and rice",
+          "nl": "Gegratineerde kipfilet met groenten en rijst"
+        }
       ]
     },
     "thursday": {
-      "soup": "Sajtleves fűszeres krutonnal",
+      "soup": {
+        "hu": "Sajtleves fűszeres krutonnal",
+        "en": "Cheese soup with spiced croutons",
+        "nl": "Kaassoep met gekruide croutons"
+      },
       "dishes": [
-        "Bakonyi sertésborda galuska",
-        "Paprikás csirke nokedli"
+        {
+          "hu": "Bakonyi sertésborda galuska",
+          "en": "Bakony-style pork ribs with dumplings",
+          "nl": "Varkensribbetjes Bakony-stijl met knoedels"
+        },
+        {
+          "hu": "Paprikás csirke nokedli",
+          "en": "Paprika chicken with spätzle",
+          "nl": "Paprikakip met spätzle"
+        }
       ]
     },
     "friday": {
-      "soup": "Gulyásleves",
+      "soup": {
+        "hu": "Gulyásleves",
+        "en": "Goulash soup",
+        "nl": "Goulashsoep"
+      },
       "dishes": [
-        "Halfilé rizs citrom",
-        "Rántott sajt hasábburgonya"
+        {
+          "hu": "Halfilé rizs citrom",
+          "en": "Fish fillet with rice and lemon",
+          "nl": "Visfilet met rijst en citroen"
+        },
+        {
+          "hu": "Rántott sajt hasábburgonya",
+          "en": "Fried cheese with french fries",
+          "nl": "Gefrituurde kaas met friet"
+        }
       ]
     }
   },
@@ -108,8 +182,9 @@
     }
   },
   "meta": {
-    "lastUpdated": "2025-01-09T12:00:00Z",
-    "weekStartDate": "2025-01-13",
-    "version": "1.0"
+    "lastUpdated": "2025-01-21T12:00:00Z",
+    "weekStartDate": "2025-01-27",
+    "version": "3.0",
+    "note": "Language-specific restaurant info (currency, price, hours)"
   }
 }
