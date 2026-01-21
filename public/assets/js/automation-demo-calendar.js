@@ -1,9 +1,6 @@
 /**
  * ============================================
  * RESTAURANT AUTOMATION DEMO - ANIMATION SCRIPT
- * Rewritten for better click handling and looping
- * Now loads data from external JSON file
- * Wrapped in IIFE to prevent global conflicts
  * ============================================
  */
 
@@ -20,7 +17,7 @@ window.automationDemoInitialized = true;
 // ============================================
 // CONFIGURATION
 // ============================================
-const MENU_DATA_URL = 'menu-data.json'; // Path to your menu data file
+const MENU_DATA_URL = 'menu-data.json'; 
 const DEFAULT_LANGUAGE = 'hu'; // Default language: 'hu', 'en', or 'nl'
 
 // ============================================
@@ -38,7 +35,7 @@ let dayTimer = null;
 let currentDayAnimation = null;
 
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-const TIME_PER_DAY = 4000; // 4 seconds per day
+const TIME_PER_DAY = 3200; // 3.2 seconds per day
 
 // ============================================
 // DETECT LANGUAGE FROM PAGE
@@ -129,16 +126,42 @@ function useFallbackData() {
         }
     };
     
-    translations = {
-        days: {
-            monday: 'Hétfő', tuesday: 'Kedd', wednesday: 'Szerda',
-            thursday: 'Csütörtök', friday: 'Péntek', saturday: 'Szombat', sunday: 'Vasárnap'
+    // Fallback translations - must match JSON structure
+    const fallbackTranslations = {
+        hu: {
+            days: {
+                monday: 'Hétfő', tuesday: 'Kedd', wednesday: 'Szerda',
+                thursday: 'Csütörtök', friday: 'Péntek', saturday: 'Szombat', sunday: 'Vasárnap'
+            },
+            labels: {
+                todaysMenu: 'Mai menüajánlatunk',
+                soup: 'Leves'
+            }
         },
-        labels: {
-            todaysMenu: 'Mai menüajánlatunk',
-            soup: 'Leves'
+        en: {
+            days: {
+                monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday',
+                thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday'
+            },
+            labels: {
+                todaysMenu: "Today's menu",
+                soup: 'Soup'
+            }
+        },
+        nl: {
+            days: {
+                monday: 'Maandag', tuesday: 'Dinsdag', wednesday: 'Woensdag',
+                thursday: 'Donderdag', friday: 'Vrijdag', saturday: 'Zaterdag', sunday: 'Zondag'
+            },
+            labels: {
+                todaysMenu: 'Menu van vandaag',
+                soup: 'Soep'
+            }
         }
     };
+    
+    // Select translations for current language
+    translations = fallbackTranslations[currentLanguage] || fallbackTranslations.hu;
     
     restaurantInfo = {
         name: 'Az Ön Étterme',
@@ -296,7 +319,6 @@ function updateCalendarStatus(currentDayKey) {
 // ============================================
 // ANIMATION STATE MANAGEMENT
 // ============================================
-// (Variables already declared at top of file)
 
 // Set the complete state for a day (all UI elements)
 function setDayState(dayKey, animate = true) {
@@ -533,4 +555,4 @@ if ('IntersectionObserver' in window) {
     }
 }
 
-})(); // End of IIFE
+})();
