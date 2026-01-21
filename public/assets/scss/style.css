@@ -6317,7 +6317,7 @@ header.header--sticky.sticky .nav-area ul li.main-nav {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 81.536% 93.689%, 50.99% 100%, 25.313% 93.689%, 0% 100%, 0% 0%);
 }
 .banner-four-area-main-wrapper .banner-four-bg {
-  background-image: url(../images/banner/bg.jpg);
+  background-image: url(../images/banner/background.webp);
   height: 824px;
   display: flex;
   align-items: center;
