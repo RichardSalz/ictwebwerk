@@ -162,7 +162,7 @@
   <!-- Progress indicator -->
   <g transform="translate(150, 245)">
     <rect x="0" y="0" width="120" height="30" rx="6" fill="url(#cardGradC3)" stroke="#2a2a3a" stroke-width="1"/>
-    <text x="10" y="13" font-family="system-ui" font-size="8" fill="#64748b">Haladás</text>
+    <text x="10" y="13" font-family="system-ui" font-size="8" fill="#64748b">Progress</text>
     <rect x="10" y="18" width="100" height="6" rx="3" fill="#12121a"/>
     <rect x="10" y="18" width="75" height="6" rx="3" fill="url(#greenGradC3)"/>
     <text x="95" y="13" font-family="system-ui" font-size="8" fill="#10b981">75%</text>

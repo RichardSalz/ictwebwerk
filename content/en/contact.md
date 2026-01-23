@@ -11,7 +11,7 @@ breadcrumb:
 contacts:
   - name: "Zsolt Salzmann"
     role: "SME Solutions"
-    phone: "+31-6-11609985"
+    phone: "+31-6-44653344"
     email: "zsolt.salzmann@ictwebwerk.nl"
   - name: "István Bokó"
     role: "Enterprise Solutions"

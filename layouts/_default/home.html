@@ -207,12 +207,14 @@
                     <div class="featuremain-wrapper">
                         <div class="single-feature-wrapper">
                             <img src="{{ "assets/images/why-choose/icons/06.svg" | relURL }}" alt="icon">
-                            <h5 class="title">Salzmann Zsolt</h5>
+                            <h5 class="title">
+                                {{ if eq .Language.Lang "hu" }}Salzmann Zsolt {{ else if eq .Language.Lang "nl" }} Zsolt SALZMANN {{ else }} Zsolt SALZMANN {{ end }}
+                            </h5>
                             <p class="disc">
                                 {{ if eq .Language.Lang "hu" }}Értékesítési vezető{{ else if eq .Language.Lang "nl" }}Verkoopmanager{{ else }}Sales Manager{{ end }}
                             </p>
                             <ul>
-                                <li>{{ if eq .Language.Lang "hu" }}Telefon{{ else if eq .Language.Lang "nl" }}Telefoon{{ else }}Phone{{ end }}: +31-6-11609985</li>
+                                <li>{{ if eq .Language.Lang "hu" }}Telefon{{ else if eq .Language.Lang "nl" }}Telefoon{{ else }}Phone{{ end }}: +31-6-44653344</li>
                                 <li>Email: zsolt.salzmann@ictwebwerk.nl</li>
                             </ul>
                         </div>

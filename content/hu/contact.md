@@ -11,7 +11,7 @@ breadcrumb:
 contacts:
   - name: "Salzmann Zsolt"
     role: "KKV megoldások"
-    phone: "+31-6-11609985"
+    phone: "+31-6-44653344"
     email: "zsolt.salzmann@ictwebwerk.nl"
   - name: "Bokó István"
     role: "Nagyvállalati megoldások"

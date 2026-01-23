@@ -53,7 +53,7 @@
     <circle cx="105" cy="60" r="6" fill="#febc2e"/>
     <circle cx="125" cy="60" r="6" fill="#28c840"/>
     
-    <text x="200" y="65" font-family="system-ui" font-size="12" fill="#f1f5f9" text-anchor="middle">Karbantartási Panel</text>
+    <text x="200" y="65" font-family="system-ui" font-size="12" fill="#f1f5f9" text-anchor="middle">Maintenance Panel</text>
     
     <!-- Status cards row -->
     <g transform="translate(75, 95)">
@@ -67,13 +67,13 @@
       
       <!-- Updates card -->
       <rect x="85" y="0" width="75" height="55" rx="8" fill="#12121a"/>
-      <text x="122" y="18" font-family="system-ui" font-size="8" fill="#64748b" text-anchor="middle">Frissítések</text>
+      <text x="122" y="18" font-family="system-ui" font-size="8" fill="#64748b" text-anchor="middle">Updates</text>
       <text x="122" y="40" font-family="system-ui" font-size="18" font-weight="bold" fill="#3b82f6" text-anchor="middle">Auto</text>
       <circle cx="145" cy="15" r="4" fill="#3b82f6"/>
       
       <!-- Security card -->
       <rect x="170" y="0" width="75" height="55" rx="8" fill="#12121a"/>
-      <text x="207" y="18" font-family="system-ui" font-size="8" fill="#64748b" text-anchor="middle">Biztonság</text>
+      <text x="207" y="18" font-family="system-ui" font-size="8" fill="#64748b" text-anchor="middle">Security</text>
       <g transform="translate(195, 28)">
         <path d="M12 2 L22 6 L22 14 C22 20 17 24 12 26 C7 24 2 20 2 14 L2 6 Z" fill="none" stroke="#10b981" stroke-width="2"/>
         <path d="M8 14 L11 17 L17 11" stroke="#10b981" stroke-width="2" fill="none"/>
@@ -82,9 +82,9 @@
     
     <!-- Activity timeline -->
     <g transform="translate(75, 160)">
-      <text x="0" y="10" font-family="system-ui" font-size="9" fill="#64748b">Legutóbbi tevékenység:</text>
+      <text x="0" y="10" font-family="system-ui" font-size="9" fill="#64748b">Recent activity:</text>
       <circle cx="8" cy="28" r="4" fill="#10b981"/>
-      <text x="20" y="32" font-family="system-ui" font-size="9" fill="#94a3b8">Plugin frissítve - 2 órája</text>
+      <text x="20" y="32" font-family="system-ui" font-size="9" fill="#94a3b8">Plugin updated - 2h ago</text>
     </g>
   </g>
   
@@ -97,16 +97,16 @@
     <rect x="0" y="18" width="120" height="12" fill="#1a1a25"/>
     <circle cx="22" cy="15" r="8" fill="url(#blueGradC5)"/>
     <text x="22" y="18" font-family="system-ui" font-size="8" fill="#fff" text-anchor="middle">?</text>
-    <text x="70" y="19" font-family="system-ui" font-size="10" fill="#f1f5f9" text-anchor="middle">Támogatás</text>
+    <text x="70" y="19" font-family="system-ui" font-size="10" fill="#f1f5f9" text-anchor="middle">Support</text>
     <circle cx="100" cy="15" r="5" fill="#10b981"/>
     
     <!-- Chat messages -->
     <g transform="translate(10, 38)">
       <rect x="0" y="0" width="70" height="18" rx="8" fill="#12121a"/>
-      <text x="8" y="12" font-family="system-ui" font-size="7" fill="#94a3b8">Segíthetek?</text>
+      <text x="8" y="12" font-family="system-ui" font-size="7" fill="#94a3b8">Can I help?</text>
       
       <rect x="30" y="24" width="70" height="18" rx="8" fill="url(#blueGradC5)" opacity="0.3"/>
-      <text x="38" y="36" font-family="system-ui" font-size="7" fill="#f1f5f9">Igen, köszi!</text>
+      <text x="38" y="36" font-family="system-ui" font-size="7" fill="#f1f5f9">Yes, thanks!</text>
     </g>
   </g>
   
@@ -134,14 +134,14 @@
   <g transform="translate(100, 230)">
     <rect x="0" y="0" width="80" height="35" rx="8" fill="url(#greenGradC5)" opacity="0.15" stroke="url(#greenGradC5)" stroke-width="1"/>
     <text x="40" y="16" font-family="system-ui" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">24/7</text>
-    <text x="40" y="28" font-family="system-ui" font-size="8" fill="#34d399" text-anchor="middle">Támogatás</text>
+    <text x="40" y="28" font-family="system-ui" font-size="8" fill="#34d399" text-anchor="middle">Support</text>
   </g>
   
   <!-- Response time indicator -->
   <g transform="translate(200, 230)">
     <rect x="0" y="0" width="90" height="35" rx="8" fill="url(#blueGradC5)" opacity="0.15" stroke="url(#blueGradC5)" stroke-width="1"/>
-    <text x="45" y="16" font-family="system-ui" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">&lt; 24 óra</text>
-    <text x="45" y="28" font-family="system-ui" font-size="8" fill="#8b5cf6" text-anchor="middle">Válaszidő</text>
+    <text x="45" y="16" font-family="system-ui" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">&lt; 24 hours</text>
+    <text x="45" y="28" font-family="system-ui" font-size="8" fill="#8b5cf6" text-anchor="middle">Response time</text>
   </g>
   
   <!-- Step indicator -->

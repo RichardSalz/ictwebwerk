@@ -55,7 +55,7 @@
     <circle cx="115" cy="60" r="6" fill="#28c840"/>
     
     <!-- Meeting title -->
-    <text x="200" y="65" font-family="system-ui, sans-serif" font-size="12" fill="#f1f5f9" text-anchor="middle">Projekt Konzultáció</text>
+    <text x="200" y="65" font-family="system-ui, sans-serif" font-size="12" fill="#f1f5f9" text-anchor="middle">Project Consultatie</text>
     
     <!-- Two video feeds -->
     <g transform="translate(65, 95)">
@@ -65,7 +65,7 @@
       <circle cx="62" cy="35" r="15" fill="#3a3a4a"/>
       <ellipse cx="62" cy="70" rx="20" ry="12" fill="#3a3a4a"/>
       <rect x="10" y="75" width="50" height="14" rx="4" fill="#1e1e2a"/>
-      <text x="35" y="85" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Ügyfél</text>
+      <text x="35" y="85" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Klant</text>
       
       <!-- Mic icon -->
       <circle cx="105" cy="80" r="8" fill="#10b981" opacity="0.2"/>
@@ -106,7 +106,7 @@
   <g filter="url(#shadowC1)" transform="translate(280, 200)">
     <rect x="0" y="0" width="100" height="120" rx="10" fill="url(#cardGradC1)" stroke="#2a2a3a" stroke-width="1"/>
     
-    <text x="15" y="25" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#f1f5f9">Igények</text>
+    <text x="15" y="25" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#f1f5f9">Vereisten</text>
     
     <!-- Checklist items -->
     <g transform="translate(15, 40)">
@@ -131,8 +131,8 @@
     <g transform="translate(20, 140)">
       <rect x="0" y="0" width="80" height="35" rx="8" fill="url(#blueGradC1)" opacity="0.2" stroke="url(#blueGradC1)" stroke-width="1"/>
       <polygon points="70,35 80,45 60,35" fill="url(#blueGradC1)" opacity="0.2"/>
-      <text x="40" y="15" font-family="system-ui, sans-serif" font-size="8" fill="#f1f5f9" text-anchor="middle">Milyen célok</text>
-      <text x="40" y="27" font-family="system-ui, sans-serif" font-size="8" fill="#f1f5f9" text-anchor="middle">vannak?</text>
+      <text x="40" y="15" font-family="system-ui, sans-serif" font-size="8" fill="#f1f5f9" text-anchor="middle">Wat zijn uw</text>
+      <text x="40" y="27" font-family="system-ui, sans-serif" font-size="8" fill="#f1f5f9" text-anchor="middle">doelen?</text>
     </g>
   </g>
   
