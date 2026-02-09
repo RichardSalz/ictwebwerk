@@ -6392,9 +6392,10 @@ header.header--sticky.sticky .nav-area ul li.main-nav {
   margin-bottom: 25px;
   font-weight: 500;
   color: #fff;
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 45px;
   line-height: 1.5;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 @media only screen and (max-width: 991px) {
   .inner-content-wrapper-four-banner p.disc {
@@ -16190,9 +16191,9 @@ section.main-wrapper-sticky .sticky-statement.narrow .left-side img {
 .faq-main-wrapper-content-inner-four .title-style-four {
   margin-right: -50px;
 }
-.faq-main-wrapper-content-inner-four .title-style-four * {
+/* .faq-main-wrapper-content-inner-four .title-style-four * {
   color: #fff;
-}
+} */
 .faq-main-wrapper-content-inner-four .accordion .accordion-item {
   margin-bottom: 30px;
   background: transparent;
@@ -28771,7 +28772,7 @@ header.header-transparent.in-full-screen .action-area .menu-btn {
     
     /* Text colors */
     --dark-text-primary: #f1f5f9;
-    --dark-text-secondary: #94a3b8;
+    --dark-text-secondary: #C3D1E1;
     --dark-text-muted: #64748b;
     
     /* Borders */
@@ -28949,6 +28950,7 @@ a:hover {
 
 .inner-content-wrapper-four-banner .disc {
     color: var(--dark-text-secondary) !important;
+    font-size: 24px;
 }
 
 .inner-content-wrapper-four-banner .pre {
@@ -29004,7 +29006,7 @@ a:hover {
     background: var(--dark-bg-primary) !important;
 }
 
-.title-style-four.center .pre {
+/* .title-style-four.center .pre {
     color: var(--accent-blue) !important;
 }
 
@@ -29014,7 +29016,7 @@ a:hover {
 
 .title-style-four.center .title span {
     color: var(--accent-blue) !important;
-}
+} */
 
 .single-why-choose-four {
     background: var(--dark-bg-card) !important;
@@ -29419,7 +29421,7 @@ a:hover {
     }
     
     .inner-content-wrapper-four-banner .disc {
-        font-size: 16px !important;
+        font-size: 24px !important;
     }
 }
 
@@ -29437,7 +29439,7 @@ a:hover {
     }
     
     .inner-content-wrapper-four-banner .disc {
-        font-size: 15px !important;
+        font-size: 24px !important;
     }
     
     /* Section pre-titles */
@@ -29859,4 +29861,24 @@ a:hover {
 .automation-content {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.btn-herospecific {
+  height: 65px;
+  padding: 16px 32px;
+  font-size: 20px;
+}
+
+.ai-disc {
+  font-size: 18px;
+}
+
+.pricing-cta {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.pricing-cta-link {
+  width: 200px !important;
 }

@@ -156,13 +156,13 @@ other = "Nyelv váltás"
 
 # Automation demo section
 [automation_category]
-other = "Automatizáció"
+other = "Projektbemutató"
 
 [automation_title]
-other = "Éttermi <span>Social Media</span> Automatizáció"
+other = "Éttermi <span>Social Media</span> <br> Automatizáció"
 
 [automation_description]
-other = "Töltse fel a heti menüt Excelben – a rendszer minden nap automatikusan posztol a Facebookra"
+other = "Töltsd fel a heti menüt Excelben – a rendszer igény szerint automatikusan posztol a Facebookra"
 
 # Calendar
 [calendar_label]
@@ -214,10 +214,10 @@ other = "V"
 
 # Panels
 [panel_upload]
-other = "Ön feltölti"
+other = "Te feltöltöd hetente egyszer"
 
 [panel_post]
-other = "Mi posztoljuk"
+other = "Az AI posztolja"
 
 [arrow_auto]
 other = "Automatikus"
@@ -274,7 +274,7 @@ other = "Rántott sajt hasábburgonya"
 
 # Facebook
 [fb_name]
-other = "Az Ön Étterme"
+other = "A te Éttermed"
 
 [fb_now]
 other = "Most"
@@ -299,7 +299,7 @@ other = "Megosztás"
 other = "Aktív"
 
 [status_custom_time]
-other = "naponta, Ön dönti mikor"
+other = "igény szerint, napi vagy egyedi rendszerességgel"
 
 [status_min]
 other = "perc"

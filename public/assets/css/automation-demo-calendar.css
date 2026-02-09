@@ -58,29 +58,24 @@
 }
 
 .automation-demo-section .title-style-four .pre {
-    color: #3b82f6;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.4rem;
-    font-weight: 600;
     display: block;
     margin-bottom: 12px;
 }
 
-.automation-demo-section .title-style-four .title {
+/* .automation-demo-section .title-style-four .title {
     font-size: 4rem;
     font-weight: 700;
     color: #f1f5f9;
     margin-bottom: 16px;
     line-height: 1.2;
-}
+} */
 
-.automation-demo-section .title-style-four .title span {
+/* .automation-demo-section .title-style-four .title span {
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
+} */
 
 .automation-demo-section .title-style-four .disc {
     color: #94a3b8;
@@ -262,7 +257,7 @@
 .panel-label {
     display: block;
     text-align: center;
-    font-size: 1rem;
+    font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #64748b;
@@ -690,14 +685,6 @@
     
     .day-number {
         font-size: 1.125rem;
-    }
-    
-    .automation-demo-section .title-style-four .title {
-        font-size: 1.75rem;
-    }
-    
-    .automation-demo-section .title-style-four .disc {
-        font-size: 1rem;
     }
     
     .browser-content {
