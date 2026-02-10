@@ -61,7 +61,7 @@ process:
 
 # Contact info
 contact:
-  name: "István Bokó"
+  name: "István BOKO"
   role: "Enterprise Solutions"
   phone: "+36-20-351-5023"
   email: "istvan@ictwebwerk.nl"

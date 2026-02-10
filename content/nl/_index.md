@@ -6,118 +6,108 @@ layout: "home"
 
 # Hero Section
 hero:
-  title: "Website Creatie en <br> <span class='in'>AI Uitbreidingen</span>"
-  description: "AI-oplossingen worden apart besproken, omdat we begrijpen dat iedereen een andere AI-agent nodig heeft. Deze zijn niet inbegrepen in de pakketprijzen, en we verduidelijken dergelijke vragen tijdens de consultatie."
+  title: "Websitebouw en <br> <span class='in'>AI-Automatiseringen</span>"
+  description: "AI-automatiseringen zijn breed inzetbaar voor het automatiseren van allerlei taken - neem contact op voor een gratis consult zodat we het samen kunnen plannen!"
   cta:
     text: "Gratis consultatie"
     url: "/nl/contact/"
 
-# About Section
-about:
-  pre: "Diensten"
-  title: "Innovatieve oplossingen <br> <span>voor moderne klanten</span>"
-  description: "Ons bedrijf ontwikkelt al zeven jaar websites, ontwerpt en creëert digitale content. Wij zijn zowel ontwikkelaars als consultants die elke technische stap begrijpen en beheren, van idee tot afgewerkte website."
+# AI Section
+ai:
+  pre: "AI Automatiseringen"
+  title: "Kosteneffectieve  <span>Automatiseringen</span>"
+  description: "Een agency: 150-500k HUF per maand.  <br> Een freelancer: 50-150k HUF. <br> En geen van beiden kent je klanten zoals jij."
   stats:
-    - label: "Voltooide websites en projecten"
-      value: "50+"
-    - label: "Ervaring"
-      value: "7 jaar"
-    - label: "Toewijding"
-      value: "100%"
-
-# Automation Demo Section
-automation:
-  pre: "Automatisering"
-  title: "Restaurant <span>Social Media</span> Automatisering"
-  description: "Upload uw weekmenu in Excel – het systeem plaatst automatisch elke dag op Facebook"
-  left_label: "📊 U uploadt"
-  right_label: "📱 Wij plaatsen"
-  arrow_label: "Automatisch"
-  status:
-    - text: "<strong>Actief</strong> – dagelijks om 10:30"
-    - text: "<strong>0 minuten</strong> werktijd"
-    - text: "<strong>100%</strong> betrouwbaar"
-  cta:
-    text: "Ik ben geïnteresseerd in automatisering"
-    url: "/nl/contact/"
+    - label: "Agency"
+      value: "€500-1000/maand"
+      progress: 100
+    - label: "Freelancer"
+      value: "€100-400/maand"
+      progress: 60
+    - label: "Automatisering"
+      value: "€40/maand"
+      progress: 32
 
 # Services Section (Why Choose Us)
 services:
-  pre: "Diensten"
-  title: "Wat Wij <span>Bieden</span>"
+  pre: "Andere diensten"
+  title: "Wat We <span>Bieden</span>"
   items:
-    - title: "Full-stack website ontwikkeling"
-      description: "Maatwerk design met responsive layout. Infrastructuur en contentbeheer."
+    - title: "Volledige Websitebouw"
+      description: "Uniek design met responsieve opbouw. Infrastructuur en contentbeheer."
       image: "/assets/images/why-choose/service-fullstack-web.svg"
       icon: "/assets/images/why-choose/icons/01.svg"
-    - title: "SEO-basis en digitale content"
-      description: "Zoekmachineoptimalisatie instellingen, professionele contentcreatie."
+    - title: "SEO-basis & Digitale Content"
+      description: "Zoekmachine-optimalisatie, professionele contentcreatie."
       image: "/assets/images/why-choose/service-seo-content.svg"
       icon: "/assets/images/why-choose/icons/02.svg"
-    - title: "Moderne technologieën"
+    - title: "Moderne Technologieën"
       description: "AI-tools en workflows."
       image: "/assets/images/why-choose/service-ai-modern.svg"
       icon: "/assets/images/why-choose/icons/03.svg"
 
+# Andere Services Section
+about:
+  pre: "Diensten"
+  title: "Innovatieve Oplossingen <br> <span>voor Moderne Klanten</span>"
+  description: "Ons bedrijf houdt zich sinds zeven jaar bezig met websiteontwikkeling, design en digitale contentcreatie. We zijn zowel ontwikkelaar als consultant die elk technisch aspect beheert van idee tot afgewerkte website."
+  stats:
+    - label: "Gereed Websites & Projecten"
+      value: "50+"
+    - label: "Ervaring"
+      value: "7 jaar"
+    - label: "Aandacht voor Detail"
+      value: "100%"
+
 # Process/FAQ Section
 process:
-  pre: "Hoe werken wij?"
-  title: "Bewezen en effectieve <span>Workflow</span>"
+  pre: "Hoe Werken We?"
+  title: "Getest & Effectieve <span>Werkschema</span>"
   steps:
-    - title: "1. Consultatie"
-      description: "Beoordeling van behoeften en bedrijfsdoelen, projectplan voorbereiding."
+    - title: "1. Consult - 30 min"
+      description: "We bespreken op welke platforms je zit en welke communicatiestijl je wilt."
       image: "faq-01.svg"
-    - title: "2. Ontwerp"
-      description: "Presentatie en verfijning van schetsen en voorbeeldpagina's op basis van klantfeedback."
+    - title: "2. Opbouw - 1 week"
+      description: "We ontwerpen en bouwen het geautomatiseerde systeem, afgestemd op jouw bedrijf."
       image: "faq-02.svg"
-    - title: "3. Ontwikkeling"
-      description: "Implementatie van maatwerk design, front-end en back-end functie ontwikkeling."
+    - title: "3. Testen - 1 week"
+      description: "We testen alles in proefmodus zodat inhoud en timing precies zijn zoals jij wilt."
       image: "faq-03.svg"
-    - title: "4. Testen & Oplevering"
-      description: "Kwaliteitsborging, fijnafstemming en uitgebreide tests op verschillende apparaten en browsers. Lancering en persoonlijke training."
+    - title: "4. Live Gaan"
+      description: "We zetten het aan. Vanaf dan loopt het automatisch."
       image: "faq-04.svg"
-    - title: "5. Nazorg"
-      description: "Behandeling van opkomende behoeften en ideeën, planning en implementatie van uitbreidingen met continue communicatie."
-      image: "faq-05.svg"
+
 
 # Pricing Section
 pricing:
-  pre: "Prijzen"
-  title: "Prijzen en <span>pakketten</span>"
-  note: "Weergegeven prijzen zijn exclusief BTW."
+  pre: "Prijsstelling - AI Automatiseringen"
+  title: "Eenvoudig & Transparant <br> <span>Zonder Verrassingen</span>"
+  note: "Weergegeven prijzen exclusief BTW."
+  cta:
+    text: "Geïnteresseerd"
+    url: "/hu/contact/"
   packages:
-    - name: "Basispakket"
-      price: "€600"
+    - name: "Installatie"
+      price: "€200"
       features:
-        - "Website"
-        - "Responsive design"
-        - "Technische SEO-basis"
-        - "3 maanden ondersteuning"
+        - "Consult"
+        - "Systeemopbouw"
+        - "Testen"
+        - "Instructie"
+        - "Eenmalige kosten"
       cta:
-        text: "Ik ben geïnteresseerd"
-        url: "/nl/contact/"
-    - name: "Standaardpakket"
-      price: "€1000"
-      popular: true
+        text: "Geïnteresseerd"
+        url: "/hu/contact/"
+    - name: "Maandabonnement"
+      price: "€50/maand"
       features:
-        - "Website"
-        - "Responsive design"
-        - "Technische SEO-basis"
-        - "Maatwerk design oplossingen"
-        - "6 maanden ondersteuning"
+        - "Hosting"
+        - "Onderhoud"
+        - "Platform Updates"
+        - "Ondersteuning"
+        - "Maandelijkse Monitoring"
       cta:
-        text: "Ik ben geïnteresseerd"
-        url: "/nl/contact/"
-    - name: "Premiumpakket"
-      price: "€2000"
-      features:
-        - "Website"
-        - "Responsive design"
-        - "Technische SEO-basis"
-        - "Maatwerk design oplossingen"
-        - "6 maanden ondersteuning"
-        - "Webshop integratie"
-      cta:
-        text: "Ik ben geïnteresseerd"
-        url: "/nl/contact/"
+        text: "Geïnteresseerd"
+        url: "/hu/contact/"
+
 ---

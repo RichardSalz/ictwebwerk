@@ -50,10 +50,11 @@
                         {{ range .Params.ai.stats }}
                         <div class="single-progress">
                             <h6 class="title">{{ .label }}</h6>
-                            <div class="progress">
+                            <div class="progress progress-bar-container ">
                                 <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s"
-                                    data-wow-delay=".3s" role="progressbar" style="width: 100%" aria-valuenow="100"
-                                    aria-valuemin="0" aria-valuemax="100">
+                                    data-wow-delay=".3s" role="progressbar" aria-valuenow="50"
+                                    data-progress="{{ .progress }}"
+                                    aria-valuemin="0" aria-valuemax="100" style="--progress: {{ .progress }}%;">
                                 </div>
                                 <span class="progress-number">{{ .value }}</span>
                             </div>
@@ -192,7 +193,7 @@
                         <span class="pre">{{ .Params.about.pre }}</span>
                         <h2 class="title rts-text-anime-style-1">{{ .Params.about.title | safeHTML }}</h2>
                     </div>
-                    <p class="disc">
+                    <p class="disc ai-disc">
                         {{ .Params.about.description }}
                     </p>
                     <div class="progress-wrapper-about-4">
@@ -256,8 +257,8 @@
                             {{ if eq .Language.Lang "hu" }}Lépjen velünk <br><span>Kapcsolatba</span>{{ else if eq .Language.Lang "nl" }}Neem <span>Contact</span> <br>met ons op{{ else }}Get in <br><span>Touch</span>{{ end }}
                         </h2>
                     </div>
-                    <p class="disc">
-                        {{ if eq .Language.Lang "hu" }}Lépjen kapcsolatba velünk, hogy elmagyarázhassuk a csomagok különböző pontjait!{{ else if eq .Language.Lang "nl" }}Neem contact met ons op zodat we de verschillende pakketten kunnen uitleggen!{{ else }}Get in touch with us so we can explain the different package options!{{ end }}
+                    <p class="disc ai-disc">
+                        {{ if eq .Language.Lang "hu" }}Lépjen kapcsolatba velünk!{{ else if eq .Language.Lang "nl" }}Neem contact met ons op zodat we de verschillende pakketten kunnen uitleggen!{{ else }}Get in touch with us so we can explain the different package options!{{ end }}
                     </p>
                     <div class="featuremain-wrapper">
                         <div class="single-feature-wrapper">

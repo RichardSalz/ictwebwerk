@@ -6,118 +6,107 @@ layout: "home"
 
 # Hero Section
 hero:
-  title: "Website Creation and <br> <span class='in'>AI Extensions</span>"
-  description: "AI solution development is discussed separately, as we understand that everyone needs a different AI agent. These are not included in the package prices, and we clarify such questions during the consultation."
+  title: "Website <br> Development and <br> <span class='in'>AI Automations</span>"
+  description: "AI automations can be widely applied to streamline all sorts of tasks - reach out for a free consultation so we can plan it together!"
   cta:
     text: "Free consultation"
     url: "/en/contact/"
 
-# About Section
-about:
-  pre: "Services"
-  title: "Innovative solutions <br> <span>for modern clients</span>"
-  description: "Our company has been developing websites, designing and creating digital content for seven years. We are both developers and consultants who understand and manage every technical step from idea to finished website."
+ # AI Section
+ai:
+  pre: "AI Automations"
+  title: "Cost-Effective <span> Automations </span>"
+  description: "An agency: 150-500k HUF monthly. <br> A freelancer: 50-150k HUF. <br> And neither knows your customers like you do."
   stats:
-    - label: "Completed websites and projects"
-      value: "50+"
-    - label: "Experience"
-      value: "7 years"
-    - label: "Dedication"
-      value: "100%"
-
-# Automation Demo Section
-automation:
-  pre: "Automation"
-  title: "Restaurant <span>Social Media</span> Automation"
-  description: "Upload your weekly menu in Excel – the system automatically posts to Facebook every day"
-  left_label: "📊 You upload"
-  right_label: "📱 We post"
-  arrow_label: "Automatic"
-  status:
-    - text: "<strong>Active</strong> – daily at 10:30"
-    - text: "<strong>0 minutes</strong> work time"
-    - text: "<strong>100%</strong> reliable"
-  cta:
-    text: "I'm interested in automation"
-    url: "/en/contact/"
+    - label: "Agency"
+      value: "€500-1000/month"
+      progress: 100
+    - label: "Freelancer"
+      value: €100-400/month"
+      progress: 60
+    - label: "Automations"
+      value: "€40/month"
+      progress: 32   
 
 # Services Section (Why Choose Us)
 services:
-  pre: "Services"
+  pre: "Other services"
   title: "What We <span>Offer</span>"
   items:
-    - title: "Full-stack website development"
+    - title: "Full-Stack Website Development"
       description: "Custom design with responsive layout. Infrastructure and content management."
       image: "/assets/images/why-choose/service-fullstack-web.svg"
       icon: "/assets/images/why-choose/icons/01.svg"
-    - title: "SEO basics and digital content"
-      description: "Search engine optimization settings, professional content creation."
+    - title: "SEO Basics & Digital Content"
+      description: "Search engine optimization setup, professional content creation."
       image: "/assets/images/why-choose/service-seo-content.svg"
       icon: "/assets/images/why-choose/icons/02.svg"
-    - title: "Modern technologies"
+    - title: "Modern Technologies"
       description: "AI tools and workflows."
       image: "/assets/images/why-choose/service-ai-modern.svg"
       icon: "/assets/images/why-choose/icons/03.svg"
 
+# Other Services Section
+about:
+  pre: "Services"
+  title: "Innovative Solutions <br> <span>for Modern Clients</span>"
+  description: "Our company has been developing websites, designing them, and creating digital content for seven years. We're both developers and consultants who oversee and handle every technical step from idea to finished website."
+  stats:
+    - label: "Completed Websites & Projects"
+      value: "50+"
+    - label: "Experience"
+      value: "7 years"
+    - label: "Attention to Detail"
+      value: "100%"
+
 # Process/FAQ Section
 process:
-  pre: "How we work?"
-  title: "Proven and effective <span>Workflow</span>"
+  pre: "How We Work?"
+  title: "Proven & Effective <span>Workflow</span>"
   steps:
-    - title: "1. Consultation"
-      description: "Assessment of needs and business goals, project plan preparation."
+    - title: "1. Consultation - 30 min"
+      description: "We discuss which platforms you're on and what communication style you prefer."
       image: "faq-01.svg"
-    - title: "2. Design"
-      description: "Presentation and refinement of sketches and sample pages based on client feedback."
+    - title: "2. Setup - 1 week"
+      description: "We design and build the automated system, tailored to your business."
       image: "faq-02.svg"
-    - title: "3. Development"
-      description: "Custom design implementation, front-end and back-end function development."
+    - title: "3. Testing - 1 week"
+      description: "We test everything in trial mode to ensure content and timing match exactly what you want."
       image: "faq-03.svg"
-    - title: "4. Testing & Delivery"
-      description: "Quality assurance, fine-tuning and comprehensive testing on various devices and browsers. Launch and personal training."
+    - title: "4. Launch"
+      description: "We switch it on. It runs automatically from then on."
       image: "faq-04.svg"
-    - title: "5. Follow-up"
-      description: "Handling emerging needs and ideas, scheduling and implementing extensions with continuous communication."
-      image: "faq-05.svg"
 
 # Pricing Section
 pricing:
-  pre: "Pricing"
-  title: "Pricing and <span>packages</span>"
-  note: "Displayed prices are excluding VAT."
+  pre: "Pricing - AI Automation"
+  title: "Simple & Transparent <br> <span>No Surprises</span>"
+  note: "Displayed prices exclude VAT."
+  cta:
+    text: "Interested"
+    url: "/hu/contact/"
   packages:
-    - name: "Basic Package"
-      price: "€600"
+    - name: "Setup"
+      price: "€200"
       features:
-        - "Website"
-        - "Responsive design"
-        - "Technical SEO basics"
-        - "3 months support"
+        - "Consultation"
+        - "System Setup"
+        - "Testing"
+        - "Training"
+        - "One-time fee"
       cta:
-        text: "I'm interested"
-        url: "/en/contact/"
-    - name: "Standard Package"
-      price: "€1000"
-      popular: true
+        text: "Interested"
+        url: "/hu/contact/"
+    - name: "Monthly Plan"
+      price: "€50/month"
       features:
-        - "Website"
-        - "Responsive design"
-        - "Technical SEO basics"
-        - "Custom design solutions"
-        - "6 months support"
+        - "Hosting"
+        - "Maintenance"
+        - "Platform Updates"
+        - "Support"
+        - "Monthly Monitoring"
       cta:
-        text: "I'm interested"
-        url: "/en/contact/"
-    - name: "Premium Package"
-      price: "€2000"
-      features:
-        - "Website"
-        - "Responsive design"
-        - "Technical SEO basics"
-        - "Custom design solutions"
-        - "6 months support"
-        - "Webshop integration"
-      cta:
-        text: "I'm interested"
-        url: "/en/contact/"
+        text: "Interested"
+        url: "/hu/contact/"
+
 ---

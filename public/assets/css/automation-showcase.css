@@ -1,0 +1,621 @@
+/* ============================================
+   AUTOMATION SHOWCASE - SCROLL-DRIVEN EXPERIENCE
+   n8n-style workflow visualization
+   ============================================ */
+
+/* ============================================
+   CSS VARIABLES - Easy timeline adjustment
+   ============================================ */
+:root {
+  /* Scroll timeline percentages */
+  --phase-0-start: 0%;
+  --phase-0-end: 12%;
+  --phase-1-start: 12%;
+  --phase-1-end: 28%;
+  --phase-2-start: 28%;
+  --phase-2-end: 44%;
+  --phase-3-start: 44%;
+  --phase-3-end: 60%;
+  --phase-4-start: 60%;
+  --phase-4-end: 76%;
+  --phase-5-start: 76%;
+  --phase-5-end: 88%;
+  --phase-6-start: 88%;
+  --phase-6-end: 100%;
+
+  /* n8n Color Palette */
+  --n8n-bg: #1a1a2e;
+  --n8n-canvas: #0f0f1a;
+  --n8n-node-bg: #262640;
+  --n8n-node-border: #3d3d5c;
+  
+  /* Node type colors (inspired by n8n) */
+  --trigger-color: #10b981;      /* Green for triggers */
+  --trigger-header: #065f46;
+  --process-color: #3b82f6;      /* Blue for processing */
+  --process-header: #1e3a5f;
+  --ai-color: #8b5cf6;           /* Purple for AI */
+  --ai-header: #4c1d95;
+  --output-color: #f97316;       /* Orange for outputs */
+  --output-header: #9a3412;
+  
+  /* Connection colors */
+  --connection-default: #4b5563;
+  --connection-active: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  --data-glow: #3b82f6;
+  
+  /* Text colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Animation timings */
+  --transition-smooth: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   BASE STYLES & RESET
+   ============================================ */
+.automation-showcase-page {
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+.automation-showcase-page * {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   SCROLL CONTAINER
+   ============================================ */
+.showcase-scroll-container {
+  position: relative;
+  /* Total scroll height: ~6 viewport heights for medium pacing */
+  height: 600vh;
+}
+
+/* ============================================
+   PHASE SECTIONS (Snap points)
+   ============================================ */
+.showcase-phase {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.phase-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.showcase-phase.active .phase-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Split layout for phases with canvas focus */
+.split-layout {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  padding: 0 5%;
+}
+
+.split-layout .text-panel {
+  max-width: 500px;
+}
+
+.split-layout .text-panel.right-aligned {
+  margin-left: auto;
+  text-align: left;
+}
+
+.split-layout .text-panel.left-aligned {
+  margin-right: auto;
+  text-align: left;
+}
+
+.split-layout.reversed {
+  flex-direction: row-reverse;
+}
+
+.text-panel.centered {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* ============================================
+   PHASE 0: OPENING HOOK
+   ============================================ */
+.phase-hook {
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%);
+}
+
+.phase-hook .phase-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.hook-headline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hook-subtext {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  margin-bottom: 60px;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.scroll-arrow {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--text-muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.scroll-arrow:hover {
+  border-color: var(--process-color);
+  color: var(--process-color);
+}
+
+.scroll-text {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   PHASE TEXT STYLES
+   ============================================ */
+.phase-headline {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.phase-description {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.phase-detail {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid var(--process-color);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ============================================
+   PHASE 6: CTA
+   ============================================ */
+.phase-cta {
+  background: radial-gradient(ellipse at center bottom, #1e1e3f 0%, #0a0a0f 70%);
+}
+
+.cta-container {
+  text-align: center;
+  max-width: 600px;
+}
+
+.cta-headline {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+}
+
+.cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   N8N CANVAS CONTAINER
+   ============================================ */
+.n8n-canvas-container {
+  position: fixed;
+  top: 90px; /* Below navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.n8n-canvas-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.n8n-canvas {
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+/* Canvas state classes for zoom/pan */
+.n8n-canvas-container.zoom-triggers .n8n-canvas {
+  transform: scale(1.8) translateX(30%);
+}
+
+.n8n-canvas-container.zoom-processing .n8n-canvas {
+  transform: scale(1.8) translateX(0%);
+}
+
+.n8n-canvas-container.zoom-outputs .n8n-canvas {
+  transform: scale(1.8) translateX(-30%);
+}
+
+.n8n-canvas-container.zoom-full .n8n-canvas {
+  transform: scale(1);
+}
+
+/* ============================================
+   N8N NODE STYLES
+   ============================================ */
+.node {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.node.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.node.dimmed {
+  opacity: 0.15;
+}
+
+.node.highlighted {
+  opacity: 1;
+}
+
+.node-bg {
+  fill: var(--n8n-node-bg);
+  stroke: var(--n8n-node-border);
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.node.highlighted .node-bg {
+  stroke-width: 3;
+}
+
+/* Trigger nodes */
+.trigger-node .node-header {
+  fill: var(--trigger-header);
+}
+
+.trigger-node .node-bg {
+  stroke: var(--trigger-color);
+}
+
+.trigger-node.highlighted .node-bg {
+  filter: drop-shadow(0 0 10px var(--trigger-color));
+}
+
+.trigger-node .node-icon {
+  color: var(--trigger-color);
+}
+
+/* Process nodes */
+.process-node .node-header {
+  fill: var(--process-header);
+}
+
+.process-node .node-bg {
+  stroke: var(--process-color);
+}
+
+.process-node.highlighted .node-bg {
+  filter: drop-shadow(0 0 10px var(--process-color));
+}
+
+.process-node .node-icon {
+  color: var(--process-color);
+}
+
+/* AI nodes */
+.ai-node .node-header {
+  fill: var(--ai-header);
+}
+
+.ai-node .node-bg {
+  stroke: var(--ai-color);
+}
+
+.ai-node.highlighted .node-bg {
+  filter: drop-shadow(0 0 10px var(--ai-color));
+}
+
+.ai-node .node-icon {
+  color: var(--ai-color);
+}
+
+/* Output nodes */
+.output-node .node-header {
+  fill: var(--output-header);
+}
+
+.output-node .node-bg {
+  stroke: var(--output-color);
+}
+
+.output-node.highlighted .node-bg {
+  filter: drop-shadow(0 0 10px var(--output-color));
+}
+
+.output-node .node-icon {
+  color: var(--output-color);
+}
+
+/* Node text */
+.node-title {
+  fill: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.node-subtitle {
+  fill: var(--text-muted);
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Connectors */
+.connector {
+  fill: var(--n8n-node-bg);
+  stroke: var(--n8n-node-border);
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.connector.input {
+  stroke: var(--connection-default);
+}
+
+.connector.output {
+  stroke: var(--connection-default);
+}
+
+/* ============================================
+   CONNECTION LINES
+   ============================================ */
+.connection {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1s ease, stroke 0.3s ease, filter 0.3s ease;
+}
+
+.connection.drawn {
+  stroke-dashoffset: 0;
+}
+
+.connection.active {
+  stroke: url(#active-connection);
+  filter: url(#glow);
+}
+
+.connection.dimmed {
+  opacity: 0.15;
+}
+
+/* Extension hint lines */
+.hint-line {
+  transition: opacity 0.5s ease;
+}
+
+.hint-line.visible {
+  opacity: 0.6;
+}
+
+/* ============================================
+   DATA FLOW PARTICLES
+   ============================================ */
+.data-particle {
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   COMPLETION CHECKS
+   ============================================ */
+.completion-check {
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.completion-check.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .n8n-canvas-container.zoom-triggers .n8n-canvas,
+  .n8n-canvas-container.zoom-processing .n8n-canvas,
+  .n8n-canvas-container.zoom-outputs .n8n-canvas {
+    transform: scale(1.5) translateX(0);
+  }
+  
+  .split-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .split-layout .text-panel {
+    text-align: center;
+    margin: 0;
+  }
+  
+  .split-layout.reversed {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase-scroll-container {
+    height: 500vh; /* Slightly shorter on mobile */
+  }
+  
+  .n8n-canvas-container {
+    top: 60px; /* Smaller navbar on mobile */
+  }
+  
+  .n8n-canvas {
+    width: 95%;
+  }
+  
+  /* Simplify zoom on mobile - just scale, no pan */
+  .n8n-canvas-container.zoom-triggers .n8n-canvas,
+  .n8n-canvas-container.zoom-processing .n8n-canvas,
+  .n8n-canvas-container.zoom-outputs .n8n-canvas {
+    transform: scale(1.3);
+  }
+  
+  .phase-content {
+    padding: 20px;
+  }
+  
+  .hook-headline {
+    font-size: 1.75rem;
+  }
+  
+  .phase-headline {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .n8n-canvas-container.zoom-triggers .n8n-canvas,
+  .n8n-canvas-container.zoom-processing .n8n-canvas,
+  .n8n-canvas-container.zoom-outputs .n8n-canvas,
+  .n8n-canvas-container.zoom-full .n8n-canvas {
+    transform: scale(1);
+  }
+  
+  .node-title {
+    font-size: 11px;
+  }
+  
+  .node-subtitle {
+    font-size: 9px;
+  }
+}
+
+/* ============================================
+   SCROLL SNAP BEHAVIOR
+   ============================================ */
+@supports (scroll-snap-type: y mandatory) {
+  .showcase-scroll-container {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator {
+    animation: none;
+  }
+  
+  .node,
+  .connection,
+  .phase-content,
+  .n8n-canvas-container,
+  .n8n-canvas {
+    transition-duration: 0.01ms !important;
+  }
+}

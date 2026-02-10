@@ -12,7 +12,7 @@ hero:
     text: "Ingyenes konzultáció"
     url: "/hu/contact/"
 
-# About Section
+# AI Section
 ai:
   pre: "AI Automatizációk"
   title: "Költséghatékony <span>automatizációk</span>"
@@ -20,27 +20,13 @@ ai:
   stats:
     - label: "Ügynökség"
       value: "195-585e Ft/hó"
+      progress: 100
     - label: "Szabadúszó"
       value: "50-150e Ft/hó"
+      progress: 60
     - label: "Automatizálás"
       value: "16e Ft/hó"
-  description2: ""
-
-# Automation Demo Section
-automation:
-  pre: "Bemutatjuk egyik legutóbbi munkánkat"
-  title: "Éttermi <span>Social Media</span> Automatizáció"
-  description: "Töltsd fel a heti menüt Excelben – a rendszer minden nap automatikusan posztol a Facebookra"
-  left_label: "📊 Ön feltölti"
-  right_label: "📱 Mi posztoljuk"
-  arrow_label: "Automatikus"
-  status:
-    - text: "<strong>Aktív</strong> – naponta 10:30-kor"
-    - text: "<strong>0 perc</strong> munkaidő"
-    - text: "<strong>100%</strong> megbízható"
-  cta:
-    text: "Érdekel az automatizáció"
-    url: "/hu/contact/"
+      progress: 32
 
 # Services Section (Why Choose Us)
 services:
@@ -60,7 +46,7 @@ services:
       image: "/assets/images/why-choose/service-ai-modern.svg"
       icon: "/assets/images/why-choose/icons/03.svg"
 
-# About Section
+# Egyéb Szolgáltatások
 about:
   pre: "Szolgáltatások"
   title: "Innovatív megoldások <br> <span>modern ügyfeleknek</span>"
@@ -93,7 +79,7 @@ process:
 
 # Pricing Section
 pricing:
-  pre: "Árazás"
+  pre: "Árazás - AI Automatizáció"
   title: "Egyszerű és átlátható <br> <span>meglepetések nélkül</span>"
   note: "A megjelenített árak ÁFA nélkül értendők."
   cta:

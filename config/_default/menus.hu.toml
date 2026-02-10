@@ -12,11 +12,11 @@
   url = "/business/"
   weight = 3
 
-  [[main]]
-  identifier = "automations"
-  name = "AI Automatizálás"
-  url = "/automation/"
-  weight = 4
+#  [[main]]
+#  identifier = "automations"
+#  name = "AI Automatizálás"
+#  url = "/automation/"
+#  weight = 4
 
 [[main]]
   identifier = "contact"

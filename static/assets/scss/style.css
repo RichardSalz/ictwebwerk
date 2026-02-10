@@ -29882,3 +29882,7 @@ a:hover {
 .pricing-cta-link {
   width: 200px !important;
 }
+
+.progress-bar {
+  width: var(--progress);
+}
