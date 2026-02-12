@@ -16,7 +16,7 @@ hero:
 ai:
   pre: "AI Automatizációk"
   title: "Költséghatékony <span>automatizációk</span>"
-  description: "Egy ügynökség havi 150-500 ezer forint. <br> Egy szabadúszó 50-150 ezer. <br> És egyik sem ismeri a vendégeid úgy, mint Te."
+  description: "Egy ügynökség havi 150-500 ezer forint. <br> Egy szabadúszó 50-150 ezer. <br> És egyik sem ismeri a szolgáltatásodat úgy, mint Te."
   stats:
     - label: "Ügynökség"
       value: "195-585e Ft/hó"
@@ -31,7 +31,7 @@ ai:
 # Services Section (Why Choose Us)
 services:
   pre: "Egyéb szolgáltatások"
-  title: "Amit <span>Kínálunk</span>"
+  title: "Amit <br> <span>Kínálunk</span>"
   items:
     - title: "Teljes körű weboldalkészítés"
       description: "Egyedi design reszponzív felépítéssel. Infrastruktúra és tartalomkezelés."
@@ -49,7 +49,7 @@ services:
 # Egyéb Szolgáltatások
 about:
   pre: "Szolgáltatások"
-  title: "Innovatív megoldások <br> <span>modern ügyfeleknek</span>"
+  title: "Innovatív megoldások <br> <span> modern ügyfeleknek </span>"
   description: "Cégünk hét éve foglalkozik weboldalak fejlesztésével, designjával és digitális tartalom létrehozásával. Egyszerre fejlesztő és tanácsadó, aki az ötlettől a kész weboldalig minden technikai lépést átlát és kezel."
   stats:
     - label: "Elkészült weboldal és projekt"
@@ -67,7 +67,7 @@ process:
     - title: "1. Konzultáció - 30 perc"
       description: "Megbeszéljük milyen platformokon vagy jelen és milyen stílusban szeretnél kommunikálni."
       image: "faq-01.svg"
-    - title: "2. Felépítés - 1 hét"
+    - title: "2. Fejlesztés - 1 hét"
       description: "Megtervezzük és felépítjük az automatizált rendszert, a te üzletedhez szabva."
       image: "faq-02.svg"
     - title: "3. Tesztelés - 1 hét"
@@ -80,7 +80,7 @@ process:
 # Pricing Section
 pricing:
   pre: "Árazás - AI Automatizáció"
-  title: "Egyszerű és átlátható <br> <span>meglepetések nélkül</span>"
+  title: "Egyszerű és <br> <span>  átlátható </span> "
   note: "A megjelenített árak ÁFA nélkül értendők."
   cta:
     text: "Érdekel"

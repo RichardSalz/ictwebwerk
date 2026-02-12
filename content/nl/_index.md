@@ -16,7 +16,7 @@ hero:
 ai:
   pre: "AI Automatiseringen"
   title: "Kosteneffectieve  <span>Automatiseringen</span>"
-  description: "Een agency: 150-500k HUF per maand.  <br> Een freelancer: 50-150k HUF. <br> En geen van beiden kent je klanten zoals jij."
+  description: "Een agency: €500-1000/maand.  <br> Een freelancer: €100-400/maand. <br> En geen van beiden kent je dienst zoals jij."
   stats:
     - label: "Agency"
       value: "€500-1000/maand"
@@ -67,7 +67,7 @@ process:
     - title: "1. Consult - 30 min"
       description: "We bespreken op welke platforms je zit en welke communicatiestijl je wilt."
       image: "faq-01.svg"
-    - title: "2. Opbouw - 1 week"
+    - title: "2. Ontwikkeling - 1 week"
       description: "We ontwerpen en bouwen het geautomatiseerde systeem, afgestemd op jouw bedrijf."
       image: "faq-02.svg"
     - title: "3. Testen - 1 week"
@@ -81,7 +81,7 @@ process:
 # Pricing Section
 pricing:
   pre: "Prijsstelling - AI Automatiseringen"
-  title: "Eenvoudig & Transparant <br> <span>Zonder Verrassingen</span>"
+  title: "Eenvoudig &  <br> <span>Transparant</span>"
   note: "Weergegeven prijzen exclusief BTW."
   cta:
     text: "Geïnteresseerd"

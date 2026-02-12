@@ -16222,7 +16222,7 @@ section.main-wrapper-sticky .sticky-statement.narrow .left-side img {
 }
 .faq-main-wrapper-content-inner-four .accordion .accordion-item .accordion-button {
   background: transparent;
-  font-size: 18px;
+  font-size: 22px;
   color: #fff;
   padding: 18px 35px;
   font-weight: 700;
@@ -16246,7 +16246,7 @@ section.main-wrapper-sticky .sticky-statement.narrow .left-side img {
   transition: 0s;
   transition-delay: 0s;
   padding: 25px 30px 30px 30px;
-  font-size: 16px;
+  font-size: 20px;
   color: #5D666F;
 }
 .faq-main-wrapper-content-inner-four .accordion .accordion-item .accordion-collapse.show .accordion-body {
@@ -29657,6 +29657,7 @@ a:hover {
     padding: 4px;
     line-height: 1;
     transition: color 0.2s;
+    max-width: 20px;
 }
 
 .cookie-modal-close:hover {
@@ -29900,6 +29901,10 @@ a:hover {
   }
 }
 
+.cta-btn {
+  font-size: 20px;
+}
+
 .pricing-cta {
   display: flex;
   margin-top: 30px;
@@ -29909,5 +29914,3 @@ a:hover {
 .pricing-cta-link {
   width: 200px !important;
 }
-
-

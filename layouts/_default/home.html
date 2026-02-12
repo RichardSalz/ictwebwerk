@@ -39,7 +39,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="about-content-four-left">
-                    <div class="title-style-four left">
+                    <div class="title-style-four center">
                         <span class="pre">{{ .Params.ai.pre }}</span>
                         <h2 class="title rts-text-anime-style-1">{{ .Params.ai.title | safeHTML }}</h2>
                     </div>
@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div class="pricing-cta">
+            <div class="pricing-cta cta-btn">
                 <a class="rts-btn btn-primary pricing-cta-link" href="{{ .Params.pricing.cta.url | relLangURL }}">{{ .Params.pricing.cta.text | safeHTML }}</a>
             </div>
         </div>
@@ -254,7 +254,7 @@
                     <div class="title-style-four center">
                         <span class="pre">{{ i18n "contact_us" }}</span>
                         <h2 class="title rts-text-anime-style-1">
-                            {{ if eq .Language.Lang "hu" }}Lépjen velünk <br><span>Kapcsolatba</span>{{ else if eq .Language.Lang "nl" }}Neem <span>Contact</span> <br>met ons op{{ else }}Get in <br><span>Touch</span>{{ end }}
+                            {{ if eq .Language.Lang "hu" }}Lépjen velünk <br><span>Kapcsolatba</span>{{ else if eq .Language.Lang "nl" }}Neem Contact <br> <span>met ons op </span>{{ else }}Get in <br><span>Touch</span>{{ end }}
                         </h2>
                     </div>
                     <p class="disc ai-disc">

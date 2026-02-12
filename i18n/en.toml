@@ -159,7 +159,7 @@ other = "Switch language"
 other = "Automation"
 
 [automation_title]
-other = "Restaurant <span>Social Media</span> Automation"
+other = "<span>Social Media</span> <br> Automation"
 
 [automation_description]
 other = "Upload your weekly menu in Excel – the system automatically posts to Facebook every day"

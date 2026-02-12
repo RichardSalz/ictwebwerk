@@ -16,7 +16,7 @@ hero:
 ai:
   pre: "AI Automations"
   title: "Cost-Effective <span> Automations </span>"
-  description: "An agency: 150-500k HUF monthly. <br> A freelancer: 50-150k HUF. <br> And neither knows your customers like you do."
+  description: "An agency: €500-1000/month monthly. <br> A freelancer: €100-400/month. <br> And neither knows your business like you do."
   stats:
     - label: "Agency"
       value: "€500-1000/month"
@@ -67,7 +67,7 @@ process:
     - title: "1. Consultation - 30 min"
       description: "We discuss which platforms you're on and what communication style you prefer."
       image: "faq-01.svg"
-    - title: "2. Setup - 1 week"
+    - title: "2. Development - 1 week"
       description: "We design and build the automated system, tailored to your business."
       image: "faq-02.svg"
     - title: "3. Testing - 1 week"
@@ -80,7 +80,7 @@ process:
 # Pricing Section
 pricing:
   pre: "Pricing - AI Automation"
-  title: "Simple & Transparent <br> <span>No Surprises</span>"
+  title: "Simple & <br> <span> Transparent </span>"
   note: "Displayed prices exclude VAT."
   cta:
     text: "Interested"
