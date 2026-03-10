@@ -1,9 +1,15 @@
 # Hungarian Menu
 
 [[main]]
-  identifier = "development"
-  name = "KKV megoldások"
+  identifier = "automation"
+  name = "Automatizáció"
   url = "/"
+  weight = 1
+
+[[main]]
+  identifier = "development"
+  name = "Weblapkészítés"
+  url = "/development"
   weight = 2
 
 [[main]]
@@ -12,14 +18,8 @@
   url = "/business/"
   weight = 3
 
-#  [[main]]
-#  identifier = "automations"
-#  name = "AI Automatizálás"
-#  url = "/automation/"
-#  weight = 4
-
 [[main]]
   identifier = "contact"
   name = "Kapcsolat"
   url = "/contact/"
-  weight = 5
+  weight = 4

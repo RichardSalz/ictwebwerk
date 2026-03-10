@@ -1,6 +1,6 @@
 ---
-title: "AI Automatizáció Éttermeknek"
-description: "Automatizálja étterme social media jelenlétét – spóroljon időt és növelje az értékesítést mesterséges intelligencia segítségével"
+title: "AI Automatizáció"
+description: "Automatizálja"
 date: 2025-01-09
 draft: false
 layout: automation
