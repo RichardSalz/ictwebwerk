@@ -7,12 +7,6 @@
   weight = 1
 
 [[main]]
-  identifier = "development"
-  name = "Weblapkészítés"
-  url = "/development"
-  weight = 2
-
-[[main]]
   identifier = "business"
   name = "Nagyvállalati megoldások"
   url = "/business/"
