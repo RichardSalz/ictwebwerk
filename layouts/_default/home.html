@@ -33,7 +33,7 @@
 </div>
 <!-- banner area end -->
 
-<!-- AI automation area start -->
+<!-- AI automation cost comparison area start -->
 <div class="rts-about-area about-bg-four bg_image rts-section-gap">
     <div class="container pt--50">
         <div class="row align-items-center">
@@ -79,17 +79,14 @@
         </div>
     </div>
 </div>
-<!-- AI Automation area end -->
+<!-- AI automation cost comparison area end -->
 
+<!-- Automation Showcase (scroll-driven n8n workflow animation) -->
+{{ partial "automation-showcase.html" . }}
 
-  {{ partial "automation-demo.html" . }}
-
-
-
-<!-- faq area start -->
-    {{ partial "faq-section.html" . }}
+<!-- faq / process area start -->
+{{ partial "faq-section.html" . }}
 <!-- faq area end -->
-
 
 <!-- pricing area start -->
 <div class="rts-pricing-area-one rts-section-gap">
@@ -145,92 +142,6 @@
     </div>
 </div>
 <!-- pricing area end -->
-
-<!-- why choose us area start -->
-<div class="why-choose-us-area rts-section-gapBottom rts_jump_animation-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="title-style-four center services">
-                    <span class="pre">{{ .Params.services.pre }}</span>
-                    <h2 class="title rts-text-anime-style-1">{{ .Params.services.title | safeHTML }}</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row g-5 mt--10">
-            {{ range $index, $service := .Params.services.items }}
-            <div class="col-lg-4 col-md-6 col-sm-12 rts-jump__item">
-                <div class="single-why-choose-four">
-                    <a href="#" class="thumbnail disabled">
-                        <img src="{{ $service.image | relURL }}" alt="{{ $service.title }}">
-                    </a>
-                    <div class="inner-content">
-                        <div class="icon">
-                            <img src="{{ $service.icon | relURL }}" alt="why-choose">
-                        </div>
-                        <a href="#" class="disabled">
-                            <h5 class="title">{{ $service.title }}</h5>
-                        </a>
-                        <p class="disc">
-                            {{ $service.description }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
-</div>
-<!-- why choose us area end -->
-
-<!-- about area start -->
-<div class="rts-about-area about-bg-four bg_image rts-section-gap">
-    <div class="container pt--50">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="about-content-four-left">
-                    <div class="title-style-four left">
-                        <span class="pre">{{ .Params.about.pre }}</span>
-                        <h2 class="title rts-text-anime-style-1">{{ .Params.about.title | safeHTML }}</h2>
-                    </div>
-                    <p class="disc ai-disc">
-                        {{ .Params.about.description }}
-                    </p>
-                    <div class="progress-wrapper-about-4">
-                        {{ range .Params.about.stats }}
-                        <div class="single-progress">
-                            <h6 class="title">{{ .label }}</h6>
-                            <div class="progress">
-                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s"
-                                    data-wow-delay=".3s" role="progressbar" style="width: 100%" aria-valuenow="100"
-                                    aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                                <span class="progress-number">{{ .value }}</span>
-                            </div>
-                        </div>
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="thumbnail-about-right-4">
-                    <div class="large-iamge">
-                        <img src="{{ "assets/images/about/modern2.webp" | relURL }}" alt="about">
-                    </div>
-                    <div class="small-image images-r">
-                        <img src="{{ "assets/images/about/09.webp" | relURL }}" alt="about">
-                    </div>
-                    <div class="poligon-shape images-r">
-                        <img src="{{ "assets/images/about/poligon-shape.svg" | relURL }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- about area end -->
-
-
 
 <!-- business solution / contact area start -->
 <div class="business-solution-area rts-section-gap">

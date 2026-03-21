@@ -1,333 +1,92 @@
-{{/*
-  ============================================
-  AUTOMATION SHOWCASE PAGE
-  A scroll-driven interactive showcase of n8n automation possibilities
-  ============================================
-*/}}
+{{/* Automation Showcase Partial - Embedded version for homepage */}}
+{{/* Place this file at: layouts/partials/automation-showcase.html */}}
 
-<main class="automation-showcase-page">
-  <!-- Scroll Container - This is where the magic happens -->
-  <div class="showcase-scroll-container" id="showcase-container">
-    
-    <!-- Phase 0: Opening Hook -->
-    <section class="showcase-phase phase-hook" data-phase="0">
-      <div class="phase-content">
-        <div class="hook-text">
-          <h1 class="hook-headline" data-i18n="hook_headline">
-            What repetitive task is eating your time?
-          </h1>
-          <p class="hook-subtext" data-i18n="hook_subtext">
-            Scroll to discover how automation handles it for you
-          </p>
-        </div>
-        <div class="scroll-indicator">
-          <div class="scroll-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
+<div class="automation-showcase" id="automation-showcase">
+    <div class="as-scroll-container" id="as-showcase-container">
+        
+        <!-- N8N Canvas - MUST come first for sticky to work -->
+        <div class="as-n8n-canvas-container" id="as-n8n-canvas">
+            <svg class="as-n8n-canvas" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <filter id="as-glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                    <filter id="as-data-glow" x="-100%" y="-100%" width="300%" height="300%">
+                        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                    <linearGradient id="as-connection-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#4b5563;stop-opacity:0.8"/>
+                        <stop offset="100%" style="stop-color:#4b5563;stop-opacity:0.8"/>
+                    </linearGradient>
+                    <linearGradient id="as-active-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#3b82f6"/>
+                        <stop offset="100%" style="stop-color:#8b5cf6"/>
+                    </linearGradient>
+                </defs>
+                <!-- Task Labels -->
+                <g class="as-task-labels-layer">
+                    <g class="as-task-label-wrapper as-task-label-left" id="as-task-label-triggers">
+                        <rect x="30" y="90" width="240" height="360" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+                        <rect x="30" y="90" width="240" height="50" rx="12" fill="#0f172a"/>
+                        <rect x="30" y="128" width="240" height="12" fill="#1e293b"/>
+                        <g transform="translate(48, 115)"><rect x="0" y="-8" width="16" height="14" rx="2" fill="none" stroke="#94a3b8" stroke-width="1.5"/><line x1="0" y1="-3" x2="16" y2="-3" stroke="#94a3b8" stroke-width="1.5"/><line x1="4" y1="-11" x2="4" y2="-6" stroke="#94a3b8" stroke-width="1.5"/><line x1="12" y1="-11" x2="12" y2="-6" stroke="#94a3b8" stroke-width="1.5"/></g>
+                        <text x="76" y="120" fill="#f1f5f9" font-size="16" font-weight="600" font-family="Inter, sans-serif">{{ if eq .Language.Lang "hu" }}Napi feladatok{{ else if eq .Language.Lang "nl" }}Dagelijkse taken{{ else }}Daily Tasks{{ end }}</text>
+                        <g class="as-skeleton-lines" transform="translate(48, 160)"><rect x="0" y="0" width="14" height="14" rx="3" fill="#334155"/><rect x="24" y="2" width="140" height="10" rx="4" fill="#334155"/><rect x="0" y="32" width="14" height="14" rx="3" fill="#334155"/><rect x="24" y="34" width="120" height="10" rx="4" fill="#334155"/><rect x="0" y="64" width="14" height="14" rx="3" fill="#334155"/><rect x="24" y="66" width="155" height="10" rx="4" fill="#334155"/><rect x="0" y="96" width="14" height="14" rx="3" fill="#334155"/><rect x="24" y="98" width="100" height="10" rx="4" fill="#334155"/><rect x="0" y="128" width="14" height="14" rx="3" fill="#334155"/><rect x="24" y="130" width="130" height="10" rx="4" fill="#334155"/></g>
+                        <g transform="translate(150, 340)"><text fill="#64748b" font-size="12" font-family="Inter, sans-serif" text-anchor="middle">{{ if eq .Language.Lang "hu" }}↻ Minden nap...{{ else if eq .Language.Lang "nl" }}↻ Elke dag...{{ else }}↻ Every day...{{ end }}</text></g>
+                    </g>
+                    <g class="as-task-label-wrapper as-task-label-right" id="as-task-label-outputs">
+                        <rect x="930" y="90" width="240" height="360" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+                        <rect x="930" y="90" width="240" height="50" rx="12" fill="#0f172a"/>
+                        <rect x="930" y="128" width="240" height="12" fill="#1e293b"/>
+                        <g transform="translate(948, 115)"><circle cx="8" cy="0" r="7" fill="none" stroke="#10b981" stroke-width="1.5"/><circle cx="8" cy="0" r="3" fill="none" stroke="#10b981" stroke-width="1.5"/><circle cx="8" cy="0" r="1" fill="#10b981"/></g>
+                        <text x="976" y="120" fill="#f1f5f9" font-size="16" font-weight="600" font-family="Inter, sans-serif">{{ if eq .Language.Lang "hu" }}Célok{{ else if eq .Language.Lang "nl" }}Doelen{{ else }}Goals{{ end }}</text>
+                        <g class="as-skeleton-lines" transform="translate(948, 160)"><circle cx="7" cy="7" r="6" fill="#334155"/><rect x="24" y="2" width="130" height="10" rx="4" fill="#334155"/><circle cx="7" cy="39" r="6" fill="#334155"/><rect x="24" y="34" width="150" height="10" rx="4" fill="#334155"/><circle cx="7" cy="71" r="6" fill="#334155"/><rect x="24" y="66" width="110" height="10" rx="4" fill="#334155"/><circle cx="7" cy="103" r="6" fill="#334155"/><rect x="24" y="98" width="140" height="10" rx="4" fill="#334155"/><circle cx="7" cy="135" r="6" fill="#334155"/><rect x="24" y="130" width="120" height="10" rx="4" fill="#334155"/></g>
+                    </g>
+                </g>
+                <!-- Connections -->
+                <g class="as-connections-layer">
+                    <path class="as-connection" id="as-conn-schedule-fetch" d="M 230 200 C 300 200, 300 250, 370 250" fill="none" stroke="url(#as-connection-gradient)" stroke-width="2.5"/>
+                    <path class="as-connection" id="as-conn-email-fetch" d="M 230 350 C 300 350, 300 250, 370 250" fill="none" stroke="url(#as-connection-gradient)" stroke-width="2.5"/>
+                    <path class="as-connection" id="as-conn-fetch-ai" d="M 530 250 C 600 250, 600 300, 670 300" fill="none" stroke="url(#as-connection-gradient)" stroke-width="2.5"/>
+                    <path class="as-connection" id="as-conn-ai-report" d="M 830 300 C 900 300, 900 200, 970 200" fill="none" stroke="url(#as-connection-gradient)" stroke-width="2.5"/>
+                    <path class="as-connection" id="as-conn-ai-post" d="M 830 300 C 900 300, 900 400, 970 400" fill="none" stroke="url(#as-connection-gradient)" stroke-width="2.5"/>
+                </g>
+                <!-- Extension hints -->
+                <g class="as-extension-hints">
+                    <line class="as-hint-line" id="as-hint-triggers" x1="150" y1="430" x2="150" y2="480" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4" opacity="0"/>
+                    <text class="as-hint-text" id="as-hint-triggers-text" x="150" y="500" text-anchor="middle" fill="#10b981" font-size="12" opacity="0">+ more triggers</text>
+                    <line class="as-hint-line" id="as-hint-outputs" x1="1050" y1="480" x2="1050" y2="530" stroke="#f97316" stroke-width="2" stroke-dasharray="6 4" opacity="0"/>
+                    <text class="as-hint-text" id="as-hint-outputs-text" x="1050" y="550" text-anchor="middle" fill="#f97316" font-size="12" opacity="0">+ more outputs</text>
+                </g>
+                <!-- Nodes -->
+                <g class="as-nodes-layer">
+                    <g class="as-node as-trigger-node" id="as-node-schedule" data-category="trigger"><rect x="70" y="160" width="160" height="80" rx="8" class="as-node-bg"/><rect x="70" y="160" width="160" height="28" rx="8" class="as-node-header"/><g class="as-node-icon" transform="translate(85, 168)"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="7 4 7 7 9.5 8.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></g><text x="150" y="180" class="as-node-title" text-anchor="middle">Schedule</text><text x="150" y="210" class="as-node-subtitle" text-anchor="middle">{{ if eq .Language.Lang "hu" }}Minden nap 9:00-kor{{ else if eq .Language.Lang "nl" }}Elke dag om 9:00{{ else }}Every day at 9:00{{ end }}</text><circle cx="230" cy="200" r="6" class="as-connector as-output"/></g>
+                    <g class="as-node as-trigger-node" id="as-node-email" data-category="trigger"><rect x="70" y="310" width="160" height="80" rx="8" class="as-node-bg"/><rect x="70" y="310" width="160" height="28" rx="8" class="as-node-header"/><g class="as-node-icon" transform="translate(85, 318)"><rect x="1" y="2" width="12" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="1 3 7 7 13 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><text x="150" y="330" class="as-node-title" text-anchor="middle">Email</text><text x="150" y="360" class="as-node-subtitle" text-anchor="middle">{{ if eq .Language.Lang "hu" }}Új email érkezett{{ else if eq .Language.Lang "nl" }}Nieuwe e-mail ontvangen{{ else }}New email received{{ end }}</text><circle cx="230" cy="350" r="6" class="as-connector as-output"/></g>
+                    <g class="as-node as-process-node" id="as-node-fetch" data-category="process"><rect x="370" y="210" width="160" height="80" rx="8" class="as-node-bg"/><rect x="370" y="210" width="160" height="28" rx="8" class="as-node-header"/><g class="as-node-icon" transform="translate(385, 218)"><ellipse cx="7" cy="3" rx="6" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M1 3v7c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M1 6.5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></g><text x="450" y="230" class="as-node-title" text-anchor="middle">Fetch Data</text><text x="450" y="260" class="as-node-subtitle" text-anchor="middle">API / Database</text><circle cx="370" cy="250" r="6" class="as-connector as-input"/><circle cx="530" cy="250" r="6" class="as-connector as-output"/></g>
+                    <g class="as-node as-ai-node" id="as-node-ai" data-category="ai"><rect x="670" y="260" width="160" height="80" rx="8" class="as-node-bg"/><rect x="670" y="260" width="160" height="28" rx="8" class="as-node-header"/><g class="as-node-icon" transform="translate(685, 268)"><path d="M12 4.5a2.5 2.5 0 0 0-5 0v5.5a2.5 2.5 0 0 0 5 0V4.5z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 7H4.5a2.5 2.5 0 0 0 0 5H7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 10H5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="9.5" cy="7" r="1" fill="currentColor"/></g><text x="750" y="280" class="as-node-title" text-anchor="middle">AI</text><text x="750" y="310" class="as-node-subtitle" text-anchor="middle">ChatGPT, Claude, etc.</text><circle cx="670" cy="300" r="6" class="as-connector as-input"/><circle cx="830" cy="300" r="6" class="as-connector as-output"/></g>
+                    <g class="as-node as-output-node" id="as-node-report" data-category="output"><rect x="970" y="160" width="160" height="80" rx="8" class="as-node-bg"/><rect x="970" y="160" width="160" height="28" rx="8" class="as-node-header"/><g class="as-node-icon" transform="translate(985, 168)"><path d="M13 2H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5l-2-3z" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="11 2 11 5 14 5" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="8" x2="12" y2="8" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="11" x2="11" y2="11" stroke="currentColor" stroke-width="1.5"/></g><text x="1050" y="180" class="as-node-title" text-anchor="middle">{{ if eq .Language.Lang "hu" }}Riport küldés{{ else if eq .Language.Lang "nl" }}Rapport Versturen{{ else }}Send Report{{ end }}</text><text x="1050" y="210" class="as-node-subtitle" text-anchor="middle">Email</text><circle cx="970" cy="200" r="6" class="as-connector as-input"/></g>
+                    <g class="as-node as-output-node" id="as-node-post" data-category="output"><rect x="970" y="360" width="160" height="80" rx="8" class="as-node-bg"/><rect x="970" y="360" width="160" height="28" rx="8" class="as-node-header"/><g class="as-node-icon" transform="translate(985, 368)"><circle cx="5" cy="7" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="3" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="11" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="7.2" y1="5.8" x2="9.8" y2="4.2" stroke="currentColor" stroke-width="1.5"/><line x1="7.2" y1="8.2" x2="9.8" y2="9.8" stroke="currentColor" stroke-width="1.5"/></g><text x="1050" y="380" class="as-node-title" text-anchor="middle">{{ if eq .Language.Lang "hu" }}Poszt közzététel{{ else if eq .Language.Lang "nl" }}Update Plaatsen{{ else }}Post Update{{ end }}</text><text x="1050" y="410" class="as-node-subtitle" text-anchor="middle">Social Media</text><circle cx="970" cy="400" r="6" class="as-connector as-input"/></g>
+                </g>
+                <!-- Data flow particles -->
+                <g class="as-data-flow-layer">
+                    <circle class="as-data-particle" id="as-particle-1" r="5" fill="#3b82f6" filter="url(#as-data-glow)" opacity="0"/>
+                    <circle class="as-data-particle" id="as-particle-2" r="5" fill="#8b5cf6" filter="url(#as-data-glow)" opacity="0"/>
+                    <circle class="as-data-particle" id="as-particle-3" r="5" fill="#f97316" filter="url(#as-data-glow)" opacity="0"/>
+                    <circle class="as-data-particle" id="as-particle-4" r="5" fill="#f97316" filter="url(#as-data-glow)" opacity="0"/>
+                </g>
             </svg>
-          </div>
-          <span class="scroll-text" data-i18n="scroll_hint">Scroll</span>
         </div>
-      </div>
-    </section>
 
-    <!-- Phase 1: Workflow Appears -->
-    <section class="showcase-phase phase-appear" data-phase="1">
-      <div class="phase-content">
-        <div class="text-panel appear-text">
-          <h2 class="phase-headline" data-i18n="appear_headline">
-            Automation connects your tools
-          </h2>
-          <p class="phase-description" data-i18n="appear_description">
-            Each node is a step. Each line is information flowing automatically.
-          </p>
+        <!-- Phases scroll OVER the sticky canvas -->
+        <div class="as-phases-wrapper">
+            <section class="as-phase as-phase-hook" data-as-phase="0"><div class="as-phase-content"><div class="as-hook-text as-text-panel"><h2 class="as-hook-headline">{{ if eq .Language.Lang "hu" }}Milyen ismétlődő feladat eszi az idődet?{{ else if eq .Language.Lang "nl" }}Welke terugkerende taak vreet je tijd?{{ else }}What repetitive task is eating your time?{{ end }}</h2><p class="as-hook-subtext">{{ if eq .Language.Lang "hu" }}Görgess lejjebb, és nézd meg, hogyan oldja meg az automatizáció{{ else if eq .Language.Lang "nl" }}Scroll naar beneden en ontdek hoe automatisering het aanpakt{{ else }}Scroll to discover how automation handles it for you{{ end }}</p></div><div class="as-scroll-indicator"><div class="as-scroll-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div><span class="as-scroll-text">Scroll</span></div></div></section>
+            <section class="as-phase as-phase-appear" data-as-phase="1"><div class="as-phase-content"><div class="as-text-panel as-appear-text"><h2 class="as-phase-headline">{{ if eq .Language.Lang "hu" }}Az automatizáció összeköti az eszközeidet{{ else if eq .Language.Lang "nl" }}Automatisering verbindt je tools{{ else }}Automation connects your tools{{ end }}</h2><p class="as-phase-description">{{ if eq .Language.Lang "hu" }}Minden csomópont egy lépés. Minden vonal automatikusan áramló információ.{{ else if eq .Language.Lang "nl" }}Elk knooppunt is een stap. Elke lijn is automatisch stromende informatie.{{ else }}Each node is a step. Each line is information flowing automatically.{{ end }}</p></div></div></section>
+            <section class="as-phase as-phase-triggers" data-as-phase="2"><div class="as-phase-content as-split-layout"><div class="as-text-panel as-right-aligned"><h2 class="as-phase-headline">{{ if eq .Language.Lang "hu" }}Egy eseménnyel indul{{ else if eq .Language.Lang "nl" }}Het begint met een trigger{{ else }}It starts with a trigger{{ end }}</h2><p class="as-phase-description">{{ if eq .Language.Lang "hu" }}Új email érkezik. Fájl feltöltés történik. Elérkezik egy megadott időpont. Te választod meg, mi indítsa el.{{ else if eq .Language.Lang "nl" }}Er komt een nieuwe e-mail. Een bestand wordt geüpload. Een geplande tijd wordt bereikt. Jij kiest wat de automatisering start.{{ else }}A new email arrives. A file is uploaded. A scheduled time is reached. You choose what kicks off the automation.{{ end }}</p><p class="as-phase-detail">{{ if eq .Language.Lang "hu" }}Egyszer állítod be → örökre fut{{ else if eq .Language.Lang "nl" }}Eenmalig instellen → draait voor altijd{{ else }}You set this up once → it runs forever{{ end }}</p></div></div></section>
+            <section class="as-phase as-phase-processing" data-as-phase="3"><div class="as-phase-content as-split-layout as-reversed"><div class="as-text-panel as-left-aligned"><h2 class="as-phase-headline">{{ if eq .Language.Lang "hu" }}A varázslat automatikusan történik{{ else if eq .Language.Lang "nl" }}De magie gebeurt automatisch{{ else }}The magic happens automatically{{ end }}</h2><p class="as-phase-description">{{ if eq .Language.Lang "hu" }}Adatok lekérése, átalakítása, elemzése. Az AI összefoglalhat, kategorizálhat vagy dönthet.{{ else if eq .Language.Lang "nl" }}Data wordt opgehaald, getransformeerd, geanalyseerd. AI kan samenvatten, categoriseren of beslissingen nemen.{{ else }}Data is fetched, transformed, analyzed. AI can summarize, categorize, or make decisions.{{ end }}</p><p class="as-phase-detail">{{ if eq .Language.Lang "hu" }}Nincs kézi munka. Nincs másolás-beillesztés. Nincs hiba.{{ else if eq .Language.Lang "nl" }}Geen handmatig werk. Geen kopiëren-plakken. Geen fouten.{{ else }}No manual work. No copy-paste. No mistakes.{{ end }}</p></div></div></section>
+            <section class="as-phase as-phase-outputs" data-as-phase="4"><div class="as-phase-content as-split-layout"><div class="as-text-panel as-right-aligned"><h2 class="as-phase-headline">{{ if eq .Language.Lang "hu" }}Eredmények mindenhova eljuttatva{{ else if eq .Language.Lang "nl" }}Resultaten overal afgeleverd{{ else }}Results delivered, everywhere{{ end }}</h2><p class="as-phase-description">{{ if eq .Language.Lang "hu" }}Riportok a postaládádba. Posztok automatikusan közzétéve. Adatbázisok frissítve. Értesítések kiküldve.{{ else if eq .Language.Lang "nl" }}Rapporten naar je inbox. Posts automatisch gepubliceerd. Databases bijgewerkt. Meldingen verstuurd.{{ else }}Reports sent to your inbox. Posts published automatically. Databases updated. Notifications triggered.{{ end }}</p><p class="as-phase-detail">{{ if eq .Language.Lang "hu" }}Miközben te arra fókuszálsz, ami fontos{{ else if eq .Language.Lang "nl" }}Terwijl jij je focust op wat belangrijk is{{ else }}While you focus on what matters{{ end }}</p></div></div></section>
+            <section class="as-phase as-phase-fullpicture" data-as-phase="5"><div class="as-phase-content"><div class="as-text-panel as-centered"><h2 class="as-phase-headline">{{ if eq .Language.Lang "hu" }}Te arra fókuszálsz, amit csak Te tudsz megcsinálni{{ else if eq .Language.Lang "nl" }}Jij focust op wat alleen jij kunt doen{{ else }}You focus on what only you can do{{ end }}</h2><p class="as-phase-description">{{ if eq .Language.Lang "hu" }}A munkafolyamatot a TE meglévő eszközeid és folyamataid köré tervezzük. Nem kell megváltoztatnod, ahogy dolgozol — mi automatizáljuk körülötte.{{ else if eq .Language.Lang "nl" }}We ontwerpen de workflow rond JOUW bestaande tools en processen. Je hoeft niet te veranderen hoe je werkt — wij automatiseren eromheen.{{ else }}We design the workflow around YOUR existing tools and processes. You don't change how you work - we automate around it.{{ end }}</p></div></div></section>
         </div>
-      </div>
-    </section>
-
-    <!-- Phase 2: Focus on Triggers -->
-    <section class="showcase-phase phase-triggers" data-phase="2">
-      <div class="phase-content split-layout">
-        <div class="text-panel right-aligned">
-          <h2 class="phase-headline" data-i18n="triggers_headline">
-            It starts with a trigger
-          </h2>
-          <p class="phase-description" data-i18n="triggers_description">
-            A new email arrives. A file is uploaded. A scheduled time is reached. You choose what kicks off the automation.
-          </p>
-          <p class="phase-detail" data-i18n="triggers_detail">
-            You set this up once → it runs forever
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Phase 3: Focus on Processing -->
-    <section class="showcase-phase phase-processing" data-phase="3">
-      <div class="phase-content split-layout reversed">
-        <div class="text-panel left-aligned">
-          <h2 class="phase-headline" data-i18n="processing_headline">
-            The magic happens automatically
-          </h2>
-          <p class="phase-description" data-i18n="processing_description">
-            Data is fetched, transformed, analyzed. AI can summarize, categorize, or make decisions.
-          </p>
-          <p class="phase-detail" data-i18n="processing_detail">
-            No manual work. No copy-paste. No mistakes.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Phase 4: Focus on Outputs -->
-    <section class="showcase-phase phase-outputs" data-phase="4">
-      <div class="phase-content split-layout">
-        <div class="text-panel right-aligned">
-          <h2 class="phase-headline" data-i18n="outputs_headline">
-            Results delivered, everywhere
-          </h2>
-          <p class="phase-description" data-i18n="outputs_description">
-            Reports sent to your inbox. Posts published automatically. Databases updated. Notifications triggered.
-          </p>
-          <p class="phase-detail" data-i18n="outputs_detail">
-            While you focus on what matters
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Phase 5: Full Picture -->
-    <section class="showcase-phase phase-fullpicture" data-phase="5">
-      <div class="phase-content">
-        <div class="text-panel centered">
-          <h2 class="phase-headline" data-i18n="fullpicture_headline">
-            You focus on what only you can do
-          </h2>
-          <p class="phase-description" data-i18n="fullpicture_description">
-            We design the workflow around YOUR existing tools and processes. You don't change how you work - we automate around it.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Phase 6: CTA -->
-    <section class="showcase-phase phase-cta" data-phase="6">
-      <div class="phase-content">
-        <div class="cta-container">
-          <h2 class="cta-headline" data-i18n="cta_headline">
-            Let's build yours
-          </h2>
-          <p class="cta-description" data-i18n="cta_description">
-            Book a free consultation. We'll find the repetitive tasks worth automating.
-          </p>
-          <a href="{{ "contact" | relLangURL }}" class="cta-button">
-            <span data-i18n="cta_button">Book Free Consultation</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- N8N Canvas - Fixed position, transforms based on scroll -->
-    <div class="n8n-canvas-container" id="n8n-canvas">
-      <svg class="n8n-canvas" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <!-- Glow filter for active connections -->
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          
-          <!-- Stronger glow for data flow -->
-          <filter id="data-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-
-          <!-- Gradient for connections -->
-          <linearGradient id="connection-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#64748b;stop-opacity:0.6"/>
-            <stop offset="100%" style="stop-color:#64748b;stop-opacity:0.6"/>
-          </linearGradient>
-          
-          <!-- Active connection gradient -->
-          <linearGradient id="active-connection" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1"/>
-            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Connection Lines Group -->
-        <g class="connections-layer">
-          <!-- Schedule to Fetch Data -->
-          <path class="connection" id="conn-schedule-fetch" 
-                d="M 230 200 C 280 200, 320 250, 370 250" 
-                fill="none" stroke="url(#connection-gradient)" stroke-width="2"/>
-          
-          <!-- Email to Fetch Data -->
-          <path class="connection" id="conn-email-fetch" 
-                d="M 230 350 C 280 350, 320 250, 370 250" 
-                fill="none" stroke="url(#connection-gradient)" stroke-width="2"/>
-          
-          <!-- Fetch Data to AI -->
-          <path class="connection" id="conn-fetch-ai" 
-                d="M 530 250 C 580 250, 620 300, 670 300" 
-                fill="none" stroke="url(#connection-gradient)" stroke-width="2"/>
-          
-          <!-- AI to Send Report -->
-          <path class="connection" id="conn-ai-report" 
-                d="M 830 300 C 880 300, 920 200, 970 200" 
-                fill="none" stroke="url(#connection-gradient)" stroke-width="2"/>
-          
-          <!-- AI to Post Update -->
-          <path class="connection" id="conn-ai-post" 
-                d="M 830 300 C 880 300, 920 400, 970 400" 
-                fill="none" stroke="url(#connection-gradient)" stroke-width="2"/>
-        </g>
-
-        <!-- Extension hints (dotted lines suggesting more possibilities) -->
-        <g class="extension-hints">
-          <!-- More triggers hint -->
-          <path class="hint-line" id="hint-triggers" 
-                d="M 150 450 L 150 480" 
-                fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" opacity="0"/>
-          
-          <!-- More outputs hint -->
-          <path class="hint-line" id="hint-outputs" 
-                d="M 1050 500 L 1050 530" 
-                fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="4 4" opacity="0"/>
-        </g>
-
-        <!-- Nodes Group -->
-        <g class="nodes-layer">
-          
-          <!-- TRIGGER NODES -->
-          <g class="node trigger-node" id="node-schedule" data-category="trigger">
-            <rect x="70" y="160" width="160" height="80" rx="8" class="node-bg"/>
-            <rect x="70" y="160" width="160" height="28" rx="8" class="node-header"/>
-            <!-- Clock icon (Lucide) -->
-            <g class="node-icon" transform="translate(82, 168)">
-              <circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <polyline points="7 4 7 7 9 8" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            </g>
-            <text x="150" y="180" class="node-title" text-anchor="middle">Schedule</text>
-            <text x="150" y="210" class="node-subtitle" text-anchor="middle" data-i18n="node_schedule_sub">Every day at 9:00</text>
-            <!-- Output connector -->
-            <circle cx="230" cy="200" r="6" class="connector output"/>
-          </g>
-
-          <g class="node trigger-node" id="node-email" data-category="trigger">
-            <rect x="70" y="310" width="160" height="80" rx="8" class="node-bg"/>
-            <rect x="70" y="310" width="160" height="28" rx="8" class="node-header"/>
-            <!-- Mail icon (Lucide) -->
-            <g class="node-icon" transform="translate(82, 318)">
-              <rect x="1" y="2" width="12" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <polyline points="1 4 7 8 13 4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            </g>
-            <text x="150" y="330" class="node-title" text-anchor="middle">Email</text>
-            <text x="150" y="360" class="node-subtitle" text-anchor="middle" data-i18n="node_email_sub">New email received</text>
-            <circle cx="230" cy="350" r="6" class="connector output"/>
-          </g>
-
-          <!-- PROCESSING NODES -->
-          <g class="node process-node" id="node-fetch" data-category="process">
-            <rect x="370" y="210" width="160" height="80" rx="8" class="node-bg"/>
-            <rect x="370" y="210" width="160" height="28" rx="8" class="node-header"/>
-            <!-- Database icon (Lucide) -->
-            <g class="node-icon" transform="translate(382, 218)">
-              <ellipse cx="7" cy="3" rx="6" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M1 3v8c0 1.1 2.7 2 6 2s6-.9 6-2V3" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M1 7c0 1.1 2.7 2 6 2s6-.9 6-2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            </g>
-            <text x="450" y="230" class="node-title" text-anchor="middle">Fetch Data</text>
-            <text x="450" y="260" class="node-subtitle" text-anchor="middle" data-i18n="node_fetch_sub">API / Database</text>
-            <circle cx="370" cy="250" r="6" class="connector input"/>
-            <circle cx="530" cy="250" r="6" class="connector output"/>
-          </g>
-
-          <g class="node ai-node" id="node-ai" data-category="ai">
-            <rect x="670" y="260" width="160" height="80" rx="8" class="node-bg"/>
-            <rect x="670" y="260" width="160" height="28" rx="8" class="node-header"/>
-            <!-- Brain/AI icon (Lucide-style) -->
-            <g class="node-icon" transform="translate(682, 268)">
-              <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v.5a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H9.5A2.5 2.5 0 0 1 7 7.5V4.5A2.5 2.5 0 0 1 9.5 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M4.5 2A2.5 2.5 0 0 0 2 4.5v3A2.5 2.5 0 0 0 4.5 10H7V4.5A2.5 2.5 0 0 0 4.5 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M5.5 10a2.5 2.5 0 1 0 0 5H7v-5H5.5Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M8.5 15a2.5 2.5 0 1 0 0-5H7v5h1.5Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            </g>
-            <text x="750" y="280" class="node-title" text-anchor="middle">AI</text>
-            <text x="750" y="310" class="node-subtitle" text-anchor="middle" data-i18n="node_ai_sub">ChatGPT, Claude, etc.</text>
-            <circle cx="670" cy="300" r="6" class="connector input"/>
-            <circle cx="830" cy="300" r="6" class="connector output"/>
-          </g>
-
-          <!-- OUTPUT NODES -->
-          <g class="node output-node" id="node-report" data-category="output">
-            <rect x="970" y="160" width="160" height="80" rx="8" class="node-bg"/>
-            <rect x="970" y="160" width="160" height="28" rx="8" class="node-header"/>
-            <!-- FileText icon (Lucide) -->
-            <g class="node-icon" transform="translate(982, 168)">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.5" transform="scale(0.6)"/>
-              <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="1.5" transform="scale(0.6)"/>
-              <line x1="10" y1="9" x2="4" y2="9" stroke="currentColor" stroke-width="1.5"/>
-              <line x1="10" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="1.5"/>
-            </g>
-            <text x="1050" y="180" class="node-title" text-anchor="middle">Send Report</text>
-            <text x="1050" y="210" class="node-subtitle" text-anchor="middle" data-i18n="node_report_sub">Email</text>
-            <circle cx="970" cy="200" r="6" class="connector input"/>
-            <!-- Checkmark that appears when complete -->
-            <g class="completion-check" opacity="0">
-              <circle cx="1110" cy="170" r="10" fill="#10b981"/>
-              <polyline points="1105 170 1108 173 1115 166" fill="none" stroke="white" stroke-width="2"/>
-            </g>
-          </g>
-
-          <g class="node output-node" id="node-post" data-category="output">
-            <rect x="970" y="360" width="160" height="80" rx="8" class="node-bg"/>
-            <rect x="970" y="360" width="160" height="28" rx="8" class="node-header"/>
-            <!-- Share/Social icon (Lucide) -->
-            <g class="node-icon" transform="translate(982, 368)">
-              <circle cx="4" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="11" cy="3" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="11" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <line x1="5.7" y1="5.9" x2="9.3" y2="4.1" stroke="currentColor" stroke-width="1.5"/>
-              <line x1="5.7" y1="8.1" x2="9.3" y2="9.9" stroke="currentColor" stroke-width="1.5"/>
-            </g>
-            <text x="1050" y="380" class="node-title" text-anchor="middle">Post Update</text>
-            <text x="1050" y="410" class="node-subtitle" text-anchor="middle" data-i18n="node_post_sub">Social Media</text>
-            <circle cx="970" cy="400" r="6" class="connector input"/>
-            <g class="completion-check" opacity="0">
-              <circle cx="1110" cy="370" r="10" fill="#10b981"/>
-              <polyline points="1105 370 1108 373 1115 366" fill="none" stroke="white" stroke-width="2"/>
-            </g>
-          </g>
-        </g>
-
-        <!-- Data flow particles (animated along paths) -->
-        <g class="data-flow-layer">
-          <circle class="data-particle" id="particle-1" r="4" fill="#3b82f6" filter="url(#data-glow)" opacity="0"/>
-          <circle class="data-particle" id="particle-2" r="4" fill="#8b5cf6" filter="url(#data-glow)" opacity="0"/>
-          <circle class="data-particle" id="particle-3" r="4" fill="#3b82f6" filter="url(#data-glow)" opacity="0"/>
-          <circle class="data-particle" id="particle-4" r="4" fill="#f97316" filter="url(#data-glow)" opacity="0"/>
-          <circle class="data-particle" id="particle-5" r="4" fill="#f97316" filter="url(#data-glow)" opacity="0"/>
-        </g>
-
-      </svg>
     </div>
-
-  </div>
-</main>
-
-<!-- Load anime.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-<!-- Load showcase script -->
-<script src="{{ "js/automation-showcase.js" | relURL }}"></script>
+</div>

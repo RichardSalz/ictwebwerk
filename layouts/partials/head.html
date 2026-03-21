@@ -57,39 +57,9 @@
 <link rel="stylesheet preload" href="{{ "assets/scss/style.css" | relURL }}" as="style">
 <link rel="stylesheet preload" href="{{ "assets/css/extra.css" | relURL }}" as="style">
 <link rel="stylesheet preload" href="{{ "assets/css/automation-demo-calendar.css" | relURL }}" as="style">
+<link rel="stylesheet preload" href="{{ "assets/css/automation-showcase.css" | relURL }}" as="style">
 <!-- <link rel="stylesheet preload" href="{{ "assets/css/purestyle.css" | relURL }}" as="style"> -->
 
 <script defer src="https://analytics.ictwebwerk.nl/script.js" data-website-id="e342d947-a848-4693-ab04-c5fe84e03070"></script>
 
-{{/* Google Tag Manager - Only if enabled */}}
-{{- if .Site.Params.enableAnalytics }}
-<!-- Google Tag Manager -->
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
 
-// Set default consent state (before GTM loads)
-gtag('consent', 'default', {
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'functionality_storage': 'granted',
-    'security_storage': 'granted',
-    'wait_for_update': 500
-});
-
-// Push initial pageview event
-dataLayer.push({
-    'event': 'default_consent'
-});
-
-// Google Tag Manager
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','{{ .Site.Params.gtmId }}');
-</script>
-<!-- End Google Tag Manager -->
-{{- end }}

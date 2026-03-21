@@ -1,0 +1,305 @@
+/* ============================================
+   ICT WEBWERK - AI AUTOMATION HOMEPAGE
+   Hugo-adapted version — no navbar/footer styles
+   (those come from the existing theme)
+   ALL SIZES ~30% LARGER than original
+   ============================================ */
+
+/* ── Variables (scoped, won't override theme vars) ── */
+.auto-hero,
+.auto-showcase,
+#main-canvas,
+#dark-overlay {
+    --auto-bg-deep: #06060b;
+    --auto-bg-surface: #0c0c14;
+    --auto-bg-elevated: #12121e;
+    --auto-text-primary: #f1f5f9;
+    --auto-text-secondary: #94a3b8;
+    --auto-text-muted: #64748b;
+    --auto-text-dim: #475569;
+    --auto-accent-blue: #3b82f6;
+    --auto-accent-purple: #8b5cf6;
+    --auto-accent-green: #10b981;
+    --auto-font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --auto-font-mono: 'Space Mono', 'SF Mono', monospace;
+}
+
+/* ── Canvas ── */
+#main-canvas {
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 2; pointer-events: none;
+}
+body.hero-active #main-canvas { pointer-events: all; }
+
+/* ── Dark overlay (for CTA focus) ── */
+#dark-overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1;
+    background: var(--auto-bg-deep);
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+}
+
+/* ── Hero ── */
+.auto-hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding-top: 100px;
+    z-index: 3;
+    background: transparent;
+}
+.hero-grid-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black 0%, transparent 100%);
+}
+.hero-content { position: relative; z-index: 10; text-align: center; max-width: 940px; padding: 0 42px; }
+
+.hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--auto-font-mono); font-size: 0.975rem; letter-spacing: 0.6px;
+    color: var(--auto-text-muted); text-transform: uppercase; margin-bottom: 36px;
+    padding: 8px 21px 8px 13px; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 100px;
+}
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--auto-accent-green); animation: autoDotPulse 2s ease-in-out infinite; }
+@keyframes autoDotPulse { 0%,100%{opacity:.5;box-shadow:0 0 0 0 rgba(16,185,129,.4)} 50%{opacity:1;box-shadow:0 0 0 5px rgba(16,185,129,0)} }
+
+.hero-headline { font-size: clamp(3.9rem,9vw,7.15rem); font-weight: 700; line-height: 1.05; letter-spacing: -3px; margin-bottom: 32px; color: var(--auto-text-primary) !important; }
+.hero-sub { font-size: clamp(1.35rem,2vw,1.56rem); color: var(--auto-text-secondary) !important; margin-bottom: 20px; max-width: 680px; margin-left: auto; margin-right: auto; }
+.price-highlight { color: var(--auto-accent-green) !important; font-weight: 600; font-family: var(--auto-font-mono); font-size: 1.24em; }
+.hero-proof { font-family: var(--auto-font-mono); font-size: 0.94rem; letter-spacing: 1px; color: var(--auto-text-dim) !important; text-transform: uppercase; margin-bottom: 56px; }
+.hero-actions { display: flex; align-items: center; justify-content: center; gap: 26px; }
+
+/* ── Buttons ── */
+.btn-primary-auto {
+    display: inline-flex; align-items: center; gap: 13px; padding: 18px 36px;
+    background: linear-gradient(135deg, var(--auto-accent-blue), var(--auto-accent-purple)) !important;
+    color: white !important; font-family: var(--auto-font-body); font-size: 1.24rem; font-weight: 600;
+    text-decoration: none; border-radius: 13px; border: none; cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 5px 30px rgba(59,130,246,0.25);
+}
+.btn-primary-auto:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(59,130,246,0.35); color: white !important; }
+.btn-primary-auto svg { transition: transform 0.3s; }
+.btn-primary-auto:hover svg { transform: translateX(3px); }
+
+.btn-ghost-auto {
+    display: inline-flex; align-items: center; gap: 10px; padding: 18px 32px;
+    color: var(--auto-text-secondary) !important; font-size: 1.17rem; font-weight: 500;
+    text-decoration: none; border-radius: 13px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.25s;
+}
+.btn-ghost-auto:hover { color: var(--auto-text-primary) !important; border-color: rgba(255,255,255,0.16); background: rgba(255,255,255,0.03); }
+.btn-ghost-auto svg { animation: autoFloatArrow 2.5s ease-in-out infinite; }
+@keyframes autoFloatArrow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+
+/* ── Showcase ── */
+.auto-showcase { position: relative; background: linear-gradient(180deg, var(--auto-bg-deep) 0%, var(--auto-bg-surface) 50%, var(--auto-bg-deep) 100%); }
+.showcase-scroll { position: relative; padding-bottom: 52px; }
+
+/* ── Phase sections ── */
+.phase {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10; pointer-events: none;
+}
+.phase-inner {
+    pointer-events: auto;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%;
+}
+
+.side-left-col {
+    width: 48%; max-width: none;
+    padding: 0 42px;
+    margin-right: auto;
+}
+.side-left-col .text-card { max-width: 572px; }
+
+/* ── Text cards ── */
+.text-card {
+    background: rgba(6,6,11,0.88);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px; padding: 42px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 10px 42px rgba(0,0,0,0.5);
+}
+.text-card.no-bg { background: none; border: none; box-shadow: none; backdrop-filter: none; }
+.text-card.centered { text-align: center; }
+
+.text-hero {
+    font-size: clamp(2.6rem,6.5vw,4.55rem); font-weight: 700; line-height: 1.15; letter-spacing: -2px; margin-bottom: 32px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.text-title { font-size: clamp(1.95rem,3.9vw,2.93rem); font-weight: 700; margin-bottom: 26px; letter-spacing: -1px; color: var(--auto-text-primary) !important; }
+.text-body { font-size: clamp(1.3rem,2vw,1.37rem); line-height: 1.7; color: var(--auto-text-secondary) !important; margin-bottom: 26px; }
+.text-sub { font-size: clamp(1.3rem,2.6vw,1.5rem); color: var(--auto-text-secondary) !important; margin-bottom: 52px; }
+.text-accent {
+    font-size: 1.1rem; font-family: var(--auto-font-mono); color: var(--auto-accent-blue) !important;
+    padding: 16px 21px; background: rgba(59,130,246,0.08);
+    border-left: 3px solid var(--auto-accent-blue); border-radius: 0 10px 10px 0;
+}
+.text-cta {
+    font-size: clamp(2.6rem,5.2vw,3.9rem); font-weight: 700; margin-bottom: 26px; letter-spacing: -2px;
+    background: linear-gradient(135deg, var(--auto-accent-blue), var(--auto-accent-purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* ── Final split (CTA + Pricing) ── */
+.split-final {
+    width: 100%; max-width: 1560px;
+    display: flex; gap: 62px;
+    padding: 0 3%;
+    align-items: flex-start;
+}
+.final-left { flex: 1; min-width: 0; }
+.final-left .text-card { max-width: 676px; }
+.final-right {
+    flex: 0 0 auto;
+    display: flex; flex-direction: column; align-items: center; gap: 28px;
+}
+.final-right-cards {
+    display: flex; gap: 26px;
+}
+/* Smaller, secondary-style CTA under pricing — not the giant primary button */
+.final-right-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--auto-accent-blue), var(--auto-accent-purple)) !important;
+    color: white !important;
+    font-family: var(--auto-font-body);
+    font-size: 1.05rem; font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px; border: none; cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 4px 20px rgba(59,130,246,0.25);
+    position: relative;
+    z-index: 20;
+    width: auto;
+}
+.final-right-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59,130,246,0.35);
+    color: white !important;
+}
+.final-right-cta svg { transition: transform 0.3s; }
+.final-right-cta:hover svg { transform: translateX(3px); }
+
+/* Workflow steps */
+.cta-workflow { display: flex; flex-direction: column; gap: 13px; margin-top: 32px; }
+.workflow-step { display: flex; align-items: center; gap: 16px; font-size: 1.17rem; color: var(--auto-text-secondary); }
+.step-num {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(59,130,246,0.12); color: var(--auto-accent-blue);
+    font-family: var(--auto-font-mono); font-size: 0.975rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+/* Pricing cards */
+.pricing-card-auto {
+    background: rgba(6,6,11,0.88);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px; padding: 42px 36px;
+    width: 312px;
+    box-shadow: 0 10px 42px rgba(0,0,0,0.4);
+}
+.pricing-highlight-auto {
+    border-color: rgba(59,130,246,0.25);
+    background: rgba(10,12,24,0.92);
+    box-shadow: 0 10px 42px rgba(59,130,246,0.1), 0 0 0 1px rgba(59,130,246,0.08);
+}
+.pricing-amount { font-size: 3.12rem; font-weight: 700; letter-spacing: -1.3px; color: var(--auto-text-primary) !important; margin-bottom: 8px; }
+.pricing-period { font-size: 1.3rem; font-weight: 500; color: var(--auto-text-muted) !important; letter-spacing: 0; }
+.pricing-label-auto {
+    font-family: var(--auto-font-mono); font-size: 0.975rem;
+    text-transform: uppercase; letter-spacing: 1.3px;
+    color: var(--auto-accent-blue) !important; margin-bottom: 26px;
+}
+.pricing-features-auto { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.pricing-features-auto li { font-size: 1.1rem; color: var(--auto-text-secondary) !important; padding-left: 21px; position: relative; }
+.pricing-features-auto li::before { content: '✓'; position: absolute; left: 0; color: var(--auto-accent-green); font-size: 1.04rem; }
+.pricing-note-auto {
+    margin-top: 21px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.975rem; color: var(--auto-text-dim) !important;
+    font-family: var(--auto-font-mono); text-transform: uppercase; letter-spacing: 0.65px;
+}
+
+/* ── Scroll indicator ── */
+.scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: 16px; animation: autoFloat 2.5s ease-in-out infinite; }
+@keyframes autoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(12px)} }
+.scroll-arrow { width: 57px; height: 57px; border: 2px solid var(--auto-text-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--auto-text-dim); }
+.scroll-label { font-family: var(--auto-font-mono); font-size: 0.845rem; text-transform: uppercase; letter-spacing: 4px; color: var(--auto-text-dim); }
+
+/* ============================================
+   TABLET (757px – 1100px)
+   ============================================ */
+@media (max-width: 1100px) and (min-width: 757px) {
+    .side-left-col { width: 65%; padding: 0 32px 0 4%; }
+    .side-left-col .text-card { max-width: 100%; }
+    .split-final {
+        flex-direction: column; align-items: center; gap: 42px;
+        padding: 0 4%; max-width: 900px; margin: 0 auto;
+    }
+    .final-left { width: 100%; }
+    .final-left .text-card { max-width: 100%; }
+    .final-right { width: 100%; align-items: center; gap: 24px; }
+    .final-right-cards { justify-content: center; gap: 21px; }
+    .final-right-cta { width: auto; }
+    .pricing-card-auto { flex: 1; max-width: 340px; }
+    .hero-headline { font-size: clamp(3.25rem, 7.8vw, 5.2rem); }
+}
+
+/* ============================================
+   MOBILE (≤756px)
+   ============================================ */
+@media (max-width: 756px) {
+    .side-left-col { width: 100%; padding: 0 20px; }
+    .side-left-col .text-card { max-width: 100%; }
+    .phase-inner { max-width: 100%; padding: 26px 20px; }
+    .text-card { background: rgba(6,6,11,0.92); backdrop-filter: blur(16px); padding: 32px; }
+
+    .auto-hero { padding-top: 80px; }
+    .hero-content { max-width: 100%; padding: 0 20px; }
+    .hero-headline { font-size: clamp(2.6rem, 10vw, 3.9rem); letter-spacing: -1.5px; }
+    .hero-sub { font-size: 1.24rem; }
+    .hero-proof { font-size: 0.845rem; margin-bottom: 42px; }
+    .hero-actions { flex-direction: column; gap: 16px; }
+    .hero-actions .btn-primary-auto,
+    .hero-actions .btn-ghost-auto { width: 100%; justify-content: center; }
+    .hero-eyebrow { font-size: 0.845rem; padding: 7px 16px 7px 10px; }
+
+    .split-final {
+        flex-direction: column; align-items: stretch; gap: 32px;
+        padding: 0 20px; max-width: 100%;
+    }
+    .final-left { width: 100%; }
+    .final-left .text-card { max-width: 100%; }
+    .final-right { width: 100%; flex-direction: column; align-items: center; gap: 20px; }
+    .final-right-cards { flex-direction: row; justify-content: center; gap: 16px; }
+    .final-right-cta { width: auto; padding: 12px 28px; font-size: 1rem; }
+    .pricing-card-auto { flex: 1; width: auto; min-width: 0; max-width: 260px; padding: 32px 21px; }
+    .pricing-amount { font-size: 2.34rem; }
+    .pricing-label-auto { font-size: 0.845rem; margin-bottom: 18px; }
+    .pricing-features-auto li { font-size: 1.04rem; }
+
+    .text-hero { font-size: clamp(2.08rem, 7.8vw, 2.86rem); }
+    .text-title { font-size: clamp(1.69rem, 5.2vw, 2.34rem); }
+    .text-body { font-size: 1.17rem; }
+    .text-sub { font-size: 1.17rem; margin-bottom: 32px; }
+    .text-accent { font-size: 1.04rem; padding: 13px 16px; }
+    .text-cta { font-size: clamp(2.08rem, 6.5vw, 2.6rem); }
+    .workflow-step { font-size: 1.1rem; }
+    .step-num { width: 29px; height: 29px; font-size: 0.91rem; }
+    .phase-final { padding-bottom: 130px; }
+}
+
+/* ── Pricing overflow fix ── */
+.phase-final { padding-bottom: 104px; min-height: auto; }

@@ -1,751 +1,887 @@
 /**
  * ============================================
- * AUTOMATION SHOWCASE - SCROLL-DRIVEN ANIMATION
- * Uses anime.js for smooth animations
- * Scroll-linked phases with n8n-style workflow
+ * AUTOMATION SHOWCASE - EMBEDDED VERSION
+ * Scroll-driven animation scoped to section
+ * Place at: assets/js/automation-showcase.js
  * ============================================
  */
 
 (function() {
 'use strict';
 
-// Prevent double initialization
-if (window.automationShowcaseInitialized) {
-  console.log('⚠️ Automation showcase already initialized, skipping...');
-  return;
-}
-window.automationShowcaseInitialized = true;
-
 // ============================================
-// CONFIGURATION
+// DESKTOP CONFIGURATION
 // ============================================
-const CONFIG = {
-  // Timeline breakpoints (as decimal 0-1)
-  phases: {
-    0: { start: 0.00, end: 0.12 },  // Hook
-    1: { start: 0.12, end: 0.28 },  // Workflow appears
-    2: { start: 0.28, end: 0.44 },  // Triggers focus
-    3: { start: 0.44, end: 0.60 },  // Processing focus
-    4: { start: 0.60, end: 0.76 },  // Outputs focus
-    5: { start: 0.76, end: 0.88 },  // Full picture
-    6: { start: 0.88, end: 1.00 }   // CTA
-  },
-  
-  // Animation durations (ms)
-  durations: {
-    nodeAppear: 600,
-    connectionDraw: 800,
-    dataFlow: 1500,
-    textFade: 500,
-    canvasTransition: 600
-  },
-  
-  // Default language
-  defaultLanguage: 'hu'
+const DESKTOP_CONFIG = {
+    breakpoint: 900,
+    scrollHeight: '600vh',
+    
+    phases: {
+        0: { start: 0.00, end: 0.08 },  // Hook
+        1: { start: 0.08, end: 0.25 },   // Workflow appears
+        2: { start: 0.25, end: 0.40 },   // Triggers focus
+        3: { start: 0.40, end: 0.57 },   // Processing focus
+        4: { start: 0.57, end: 0.73 },   // Outputs focus
+        5: { start: 0.73, end: 1.00 }    // Full picture
+    },
+    
+    durations: {
+        nodeAppear: 500,
+        connectionDraw: 700,
+        dataFlow: 1200
+    }
 };
 
 // ============================================
-// TRANSLATIONS
+// MOBILE CONFIGURATION
 // ============================================
-const TRANSLATIONS = {
-  hu: {
-    // Phase 0: Hook
-    hook_headline: 'Melyik ismétlődő feladat emészti fel az idődet?',
-    hook_subtext: 'Görgess, és fedezd fel, hogyan kezeli az automatizálás helyetted',
-    scroll_hint: 'Görgess',
+const MOBILE_CONFIG = {
+    breakpoint: 900,
+    scrollHeight: '280vh',
     
-    // Phase 1: Appear
-    appear_headline: 'Az automatizálás összeköti az eszközeidet',
-    appear_description: 'Minden csomópont egy lépés. Minden vonal automatikusan áramló információ.',
+    canvasOpacity: 0.85,
+    canvasBlurAmount: 2.5,
     
-    // Phase 2: Triggers
-    triggers_headline: 'Minden egy triggerrel kezdődik',
-    triggers_description: 'Új email érkezik. Fájl feltöltés történik. Elérkezik egy ütemezett időpont. Te döntöd el, mi indítja az automatizálást.',
-    triggers_detail: 'Ezt egyszer állítod be → örökké fut',
+    zoom: {
+        phase0: 1,
+        phase1: 1.8,
+        phase2: 1.8,
+        phase3: 1,
+        phase4: 1,
+    },
     
-    // Phase 3: Processing
-    processing_headline: 'A varázslat automatikusan történik',
-    processing_description: 'Az adatok lekérésre, átalakításra, elemzésre kerülnek. Az AI összefoglalhat, kategorizálhat vagy döntéseket hozhat.',
-    processing_detail: 'Nincs manuális munka. Nincs másolás-beillesztés. Nincs hiba.',
+    phases: {
+        0: { start: 0.00, end: 0.15 },
+        1: { start: 0.15, end: 0.30 },
+        2: { start: 0.30, end: 0.45 },
+        3: { start: 0.45, end: 0.65 },
+        4: { start: 0.65, end: 0.80 },
+        5: { start: 0.80, end: 1.00 }
+    },
     
-    // Phase 4: Outputs
-    outputs_headline: 'Eredmények mindenhova eljuttatva',
-    outputs_description: 'Jelentések az emailedbe. Posztok automatikusan publikálva. Adatbázisok frissítve. Értesítések elküldve.',
-    outputs_detail: 'Miközben arra koncentrálsz, ami igazán számít',
-    
-    // Phase 5: Full picture
-    fullpicture_headline: 'Te arra fókuszálsz, amit csak te tudsz megcsinálni',
-    fullpicture_description: 'A munkafolyamatot a TE meglévő eszközeid és folyamataid köré tervezzük. Nem kell megváltoztatnod a munkamódszered - mi automatizálunk körülötte.',
-    
-    // Phase 6: CTA
-    cta_headline: 'Építsük fel a tiédet',
-    cta_description: 'Foglalj ingyenes konzultációt. Megkeressük az automatizálásra érdemes ismétlődő feladatokat.',
-    cta_button: 'Ingyenes Konzultáció',
-    
-    // Node labels
-    node_schedule_sub: 'Minden nap 9:00-kor',
-    node_email_sub: 'Új email érkezett',
-    node_fetch_sub: 'API / Adatbázis',
-    node_ai_sub: 'ChatGPT, Claude, stb.',
-    node_report_sub: 'Email',
-    node_post_sub: 'Közösségi média'
-  },
-  
-  en: {
-    hook_headline: 'What repetitive task is eating your time?',
-    hook_subtext: 'Scroll to discover how automation handles it for you',
-    scroll_hint: 'Scroll',
-    
-    appear_headline: 'Automation connects your tools',
-    appear_description: 'Each node is a step. Each line is information flowing automatically.',
-    
-    triggers_headline: 'It starts with a trigger',
-    triggers_description: 'A new email arrives. A file is uploaded. A scheduled time is reached. You choose what kicks off the automation.',
-    triggers_detail: 'You set this up once → it runs forever',
-    
-    processing_headline: 'The magic happens automatically',
-    processing_description: 'Data is fetched, transformed, analyzed. AI can summarize, categorize, or make decisions.',
-    processing_detail: 'No manual work. No copy-paste. No mistakes.',
-    
-    outputs_headline: 'Results delivered, everywhere',
-    outputs_description: 'Reports sent to your inbox. Posts published automatically. Databases updated. Notifications triggered.',
-    outputs_detail: 'While you focus on what matters',
-    
-    fullpicture_headline: 'You focus on what only you can do',
-    fullpicture_description: "We design the workflow around YOUR existing tools and processes. You don't change how you work - we automate around it.",
-    
-    cta_headline: "Let's build yours",
-    cta_description: "Book a free consultation. We'll find the repetitive tasks worth automating.",
-    cta_button: 'Book Free Consultation',
-    
-    node_schedule_sub: 'Every day at 9:00',
-    node_email_sub: 'New email received',
-    node_fetch_sub: 'API / Database',
-    node_ai_sub: 'ChatGPT, Claude, etc.',
-    node_report_sub: 'Email',
-    node_post_sub: 'Social Media'
-  },
-  
-  nl: {
-    hook_headline: 'Welke repetitieve taak vreet aan je tijd?',
-    hook_subtext: 'Scroll om te ontdekken hoe automatisering het voor je afhandelt',
-    scroll_hint: 'Scroll',
-    
-    appear_headline: 'Automatisering verbindt je tools',
-    appear_description: 'Elke node is een stap. Elke lijn is informatie die automatisch stroomt.',
-    
-    triggers_headline: 'Het begint met een trigger',
-    triggers_description: 'Een nieuwe e-mail komt binnen. Een bestand wordt geüpload. Een geplande tijd wordt bereikt. Jij kiest wat de automatisering start.',
-    triggers_detail: 'Je stelt dit één keer in → het draait voor altijd',
-    
-    processing_headline: 'De magie gebeurt automatisch',
-    processing_description: 'Data wordt opgehaald, getransformeerd, geanalyseerd. AI kan samenvatten, categoriseren of beslissingen nemen.',
-    processing_detail: 'Geen handmatig werk. Geen kopiëren-plakken. Geen fouten.',
-    
-    outputs_headline: 'Resultaten overal afgeleverd',
-    outputs_description: 'Rapporten naar je inbox gestuurd. Posts automatisch gepubliceerd. Databases bijgewerkt. Meldingen verzonden.',
-    outputs_detail: 'Terwijl jij je focust op wat ertoe doet',
-    
-    fullpicture_headline: 'Jij focust op wat alleen jij kunt doen',
-    fullpicture_description: 'We ontwerpen de workflow rond JOUW bestaande tools en processen. Je hoeft niet te veranderen hoe je werkt - wij automatiseren eromheen.',
-    
-    cta_headline: 'Laten we de jouwe bouwen',
-    cta_description: 'Boek een gratis consultatie. We vinden de repetitieve taken die automatisering waard zijn.',
-    cta_button: 'Gratis Consultatie Boeken',
-    
-    node_schedule_sub: 'Elke dag om 9:00',
-    node_email_sub: 'Nieuwe e-mail ontvangen',
-    node_fetch_sub: 'API / Database',
-    node_ai_sub: 'ChatGPT, Claude, etc.',
-    node_report_sub: 'E-mail',
-    node_post_sub: 'Social Media'
-  }
+    durations: {
+        nodeAppear: 400,
+        connectionDraw: 600,
+        dataFlow: 1000
+    }
 };
 
 // ============================================
-// STATE
+// SHARED STATE
 // ============================================
-let state = {
-  currentPhase: -1,
-  scrollProgress: 0,
-  language: CONFIG.defaultLanguage,
-  nodesVisible: false,
-  connectionsDrawn: false,
-  dataFlowPlayed: false,
-  animationTimeline: null
+const state = {
+    currentPhase: -1,
+    scrollProgress: 0,
+    initialized: false,
+    isMobile: false,
+    nodesVisible: false,
+    connectionsDrawn: false,
+    dataFlowPlayed: false
 };
 
 // ============================================
-// DOM REFERENCES
+// DOM CACHE
 // ============================================
 let dom = {};
 
 // ============================================
-// LANGUAGE DETECTION
-// ============================================
-function detectLanguage() {
-  // Try HTML lang attribute
-  const htmlLang = document.documentElement.lang;
-  if (htmlLang && TRANSLATIONS[htmlLang]) {
-    return htmlLang;
-  }
-  
-  // Try URL path
-  const path = window.location.pathname;
-  if (path.includes('/en/')) return 'en';
-  if (path.includes('/nl/')) return 'nl';
-  if (path.includes('/hu/')) return 'hu';
-  
-  return CONFIG.defaultLanguage;
-}
-
-// ============================================
-// APPLY TRANSLATIONS
-// ============================================
-function applyTranslations() {
-  const lang = state.language;
-  const translations = TRANSLATIONS[lang] || TRANSLATIONS[CONFIG.defaultLanguage];
-  
-  document.querySelectorAll('[data-i18n]').forEach(element => {
-    const key = element.getAttribute('data-i18n');
-    if (translations[key]) {
-      element.textContent = translations[key];
-    }
-  });
-  
-  console.log('✅ Translations applied for:', lang);
-}
-
-// ============================================
-// SCROLL PROGRESS CALCULATION
+// UTILITY FUNCTIONS
 // ============================================
 function getScrollProgress() {
-  const container = dom.scrollContainer;
-  if (!container) return 0;
-  
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const scrollHeight = container.offsetHeight - window.innerHeight;
-  
-  return Math.min(Math.max(scrollTop / scrollHeight, 0), 1);
+    const container = dom.scrollContainer;
+    if (!container) return 0;
+    
+    const rect = container.getBoundingClientRect();
+    const containerHeight = container.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    
+    // Progress: 0 when top of container hits top of viewport,
+    // 1 when bottom of container hits bottom of viewport
+    const scrolled = -rect.top;
+    const scrollable = containerHeight - viewportHeight;
+    
+    return Math.min(Math.max(scrolled / scrollable, 0), 1);
+}
+
+function getCurrentPhase(progress, config) {
+    for (const [phase, bounds] of Object.entries(config.phases)) {
+        if (progress >= bounds.start && progress < bounds.end) {
+            return parseInt(phase);
+        }
+    }
+    return Object.keys(config.phases).length - 1;
+}
+
+function isMobileView() {
+    return window.innerWidth <= DESKTOP_CONFIG.breakpoint;
+}
+
+// Scoped query helpers
+function qs(selector) {
+    return dom.root ? dom.root.querySelector(selector) : null;
+}
+function qsa(selector) {
+    return dom.root ? dom.root.querySelectorAll(selector) : [];
 }
 
 // ============================================
-// DETERMINE CURRENT PHASE
-// ============================================
-function getCurrentPhase(progress) {
-  for (const [phase, bounds] of Object.entries(CONFIG.phases)) {
-    if (progress >= bounds.start && progress < bounds.end) {
-      return parseInt(phase);
-    }
-  }
-  return 6; // Last phase
-}
-
-// ============================================
-// PHASE HANDLERS
-// ============================================
-const phaseHandlers = {
-  // Phase 0: Hook - Canvas hidden
-  0: {
-    enter() {
-      console.log('📍 Phase 0: Hook');
-      hideCanvas();
-      activatePhaseSection(0);
-    },
-    update(progress) {
-      // Subtle parallax on text
-      const localProgress = (progress - CONFIG.phases[0].start) / (CONFIG.phases[0].end - CONFIG.phases[0].start);
-      const hookText = document.querySelector('.hook-text');
-      if (hookText) {
-        hookText.style.transform = `translateY(${localProgress * -30}px)`;
-        hookText.style.opacity = 1 - (localProgress * 0.5);
-      }
-    },
-    exit() {
-      // Nothing special
-    }
-  },
-  
-  // Phase 1: Workflow Appears
-  1: {
-    enter() {
-      console.log('📍 Phase 1: Workflow appears');
-      showCanvas();
-      activatePhaseSection(1);
-      
-      // Animate nodes appearing
-      if (!state.nodesVisible) {
-        animateNodesAppearing();
-        state.nodesVisible = true;
-      }
-    },
-    update(progress) {
-      const localProgress = (progress - CONFIG.phases[1].start) / (CONFIG.phases[1].end - CONFIG.phases[1].start);
-      
-      // Draw connections as we progress through this phase
-      if (localProgress > 0.3 && !state.connectionsDrawn) {
-        animateConnectionsDrawing();
-        state.connectionsDrawn = true;
-      }
-    },
-    exit() {
-      // Keep canvas visible
-    }
-  },
-  
-  // Phase 2: Focus on Triggers
-  2: {
-    enter() {
-      console.log('📍 Phase 2: Triggers focus');
-      activatePhaseSection(2);
-      zoomToTriggers();
-      highlightNodes(['node-schedule', 'node-email']);
-      dimNodes(['node-fetch', 'node-ai', 'node-report', 'node-post']);
-      showExtensionHint('hint-triggers');
-    },
-    update(progress) {
-      // Could add subtle animations here
-    },
-    exit() {
-      hideExtensionHint('hint-triggers');
-    }
-  },
-  
-  // Phase 3: Focus on Processing
-  3: {
-    enter() {
-      console.log('📍 Phase 3: Processing focus');
-      activatePhaseSection(3);
-      zoomToProcessing();
-      highlightNodes(['node-fetch', 'node-ai']);
-      dimNodes(['node-schedule', 'node-email', 'node-report', 'node-post']);
-      
-      // Animate data flow through processing
-      animateDataFlowSegment(['conn-schedule-fetch', 'conn-fetch-ai']);
-    },
-    update(progress) {
-      // Could pulse AI node
-    },
-    exit() {
-      // Nothing special
-    }
-  },
-  
-  // Phase 4: Focus on Outputs
-  4: {
-    enter() {
-      console.log('📍 Phase 4: Outputs focus');
-      activatePhaseSection(4);
-      zoomToOutputs();
-      highlightNodes(['node-report', 'node-post']);
-      dimNodes(['node-schedule', 'node-email', 'node-fetch', 'node-ai']);
-      showExtensionHint('hint-outputs');
-      
-      // Show completion checks
-      setTimeout(() => {
-        showCompletionChecks();
-      }, 800);
-    },
-    update(progress) {
-      // Nothing special
-    },
-    exit() {
-      hideExtensionHint('hint-outputs');
-      hideCompletionChecks();
-    }
-  },
-  
-  // Phase 5: Full Picture
-  5: {
-    enter() {
-      console.log('📍 Phase 5: Full picture');
-      activatePhaseSection(5);
-      zoomToFull();
-      highlightNodes(['node-schedule', 'node-email', 'node-fetch', 'node-ai', 'node-report', 'node-post']);
-      
-      // Run full data flow animation
-      if (!state.dataFlowPlayed) {
-        setTimeout(() => {
-          animateFullDataFlow();
-        }, 500);
-        state.dataFlowPlayed = true;
-      }
-    },
-    update(progress) {
-      // Nothing special
-    },
-    exit() {
-      // Nothing special
-    }
-  },
-  
-  // Phase 6: CTA
-  6: {
-    enter() {
-      console.log('📍 Phase 6: CTA');
-      activatePhaseSection(6);
-      fadeOutCanvas();
-    },
-    update(progress) {
-      // Nothing special
-    },
-    exit() {
-      // Nothing special
-    }
-  }
-};
-
-// ============================================
-// CANVAS VISIBILITY
+// CANVAS CONTROLS
 // ============================================
 function showCanvas() {
-  dom.canvas?.classList.add('visible');
+    dom.canvas?.classList.add('as-visible');
 }
 
 function hideCanvas() {
-  dom.canvas?.classList.remove('visible');
+    dom.canvas?.classList.remove('as-visible');
 }
 
-function fadeOutCanvas() {
-  if (dom.canvas) {
-    dom.canvas.style.opacity = '0.3';
-  }
+function setCanvasZoom(zoomClass) {
+    const zoomClasses = ['as-zoom-triggers', 'as-zoom-processing', 'as-zoom-outputs', 'as-zoom-full'];
+    zoomClasses.forEach(cls => dom.canvas?.classList.remove(cls));
+    if (zoomClass) {
+        dom.canvas?.classList.add(zoomClass);
+    }
 }
 
-// ============================================
-// ZOOM CONTROLS
-// ============================================
-function zoomToTriggers() {
-  dom.canvas?.classList.remove('zoom-processing', 'zoom-outputs', 'zoom-full');
-  dom.canvas?.classList.add('zoom-triggers');
+function setCanvasOpacity(opacity) {
+    if (dom.canvas) {
+        dom.canvas.style.opacity = opacity;
+    }
 }
 
-function zoomToProcessing() {
-  dom.canvas?.classList.remove('zoom-triggers', 'zoom-outputs', 'zoom-full');
-  dom.canvas?.classList.add('zoom-processing');
-}
-
-function zoomToOutputs() {
-  dom.canvas?.classList.remove('zoom-triggers', 'zoom-processing', 'zoom-full');
-  dom.canvas?.classList.add('zoom-outputs');
-}
-
-function zoomToFull() {
-  dom.canvas?.classList.remove('zoom-triggers', 'zoom-processing', 'zoom-outputs');
-  dom.canvas?.classList.add('zoom-full');
+function setCanvasBlur(blur) {
+    const svg = dom.canvas?.querySelector('.as-n8n-canvas');
+    if (svg) {
+        svg.style.filter = blur > 0 ? `blur(${blur}px)` : 'none';
+    }
 }
 
 // ============================================
-// NODE HIGHLIGHTING
+// TASK LABEL CONTROLS
 // ============================================
+function showTaskLabels() {
+    qsa('.as-task-label-wrapper').forEach(label => {
+        label.classList.add('as-visible');
+        label.style.opacity = '1';
+        label.style.visibility = 'visible';
+    });
+}
+
+function hideTaskLabels() {
+    qsa('.as-task-label-wrapper').forEach(label => {
+        label.classList.remove('as-visible');
+        label.style.opacity = '0';
+        label.style.visibility = 'hidden';
+    });
+}
+
+function fadeTaskLabels(opacity) {
+    qsa('.as-task-label-wrapper').forEach(label => {
+        label.style.opacity = opacity;
+        if (opacity <= 0) {
+            label.style.visibility = 'hidden';
+        }
+    });
+}
+
+// ============================================
+// NODE ICON CONTROLS
+// ============================================
+function hideNodeIcons() {
+    qsa('.as-node-icon').forEach(icon => {
+        icon.style.opacity = '0';
+    });
+}
+
+function showNodeIcons() {
+    const icons = qsa('.as-node-icon');
+    anime({
+        targets: Array.from(icons),
+        opacity: [0, 1],
+        duration: 400,
+        delay: anime.stagger(50),
+        easing: 'easeOutQuad'
+    });
+}
+
+// ============================================
+// NODE CONTROLS
+// ============================================
+function showAllNodes() {
+    qsa('.as-node').forEach(node => {
+        node.classList.add('as-visible');
+        node.classList.remove('as-dimmed', 'as-highlighted', 'as-hidden');
+        node.style.opacity = '1';
+    });
+}
+
+function showProblemAndGoalNodes() {
+    const triggerNodes = ['as-node-schedule', 'as-node-email'];
+    const outputNodes = ['as-node-report', 'as-node-post'];
+    
+    qsa('.as-node').forEach(node => {
+        if (triggerNodes.includes(node.id) || outputNodes.includes(node.id)) {
+            node.classList.add('as-visible');
+            node.classList.remove('as-hidden', 'as-dimmed');
+            node.style.opacity = '1';
+        } else {
+            node.classList.add('as-hidden');
+            node.classList.remove('as-visible');
+            node.style.opacity = '0';
+        }
+    });
+    
+    qsa('.as-connection').forEach(conn => {
+        conn.classList.add('as-hidden');
+        conn.classList.remove('as-drawn');
+    });
+}
+
+function revealMiddleNodes(config) {
+    const middleNodes = ['as-node-fetch', 'as-node-ai'];
+    
+    middleNodes.forEach((nodeId, index) => {
+        const node = document.getElementById(nodeId);
+        if (node) {
+            node.classList.remove('as-hidden');
+            anime({
+                targets: node,
+                opacity: [0, 1],
+                duration: config.durations.nodeAppear,
+                delay: index * 150,
+                easing: 'easeOutQuad',
+                begin: () => {
+                    node.classList.add('as-visible');
+                }
+            });
+        }
+    });
+}
+
 function highlightNodes(nodeIds) {
-  nodeIds.forEach(id => {
-    const node = document.getElementById(id);
-    if (node) {
-      node.classList.remove('dimmed');
-      node.classList.add('highlighted');
-    }
-  });
-}
-
-function dimNodes(nodeIds) {
-  nodeIds.forEach(id => {
-    const node = document.getElementById(id);
-    if (node) {
-      node.classList.remove('highlighted');
-      node.classList.add('dimmed');
-    }
-  });
-}
-
-// ============================================
-// PHASE SECTION ACTIVATION
-// ============================================
-function activatePhaseSection(phaseNum) {
-  document.querySelectorAll('.showcase-phase').forEach((section, index) => {
-    if (index === phaseNum) {
-      section.classList.add('active');
-    } else {
-      section.classList.remove('active');
-    }
-  });
-}
-
-// ============================================
-// EXTENSION HINTS
-// ============================================
-function showExtensionHint(hintId) {
-  const hint = document.getElementById(hintId);
-  if (hint) {
-    anime({
-      targets: hint,
-      opacity: [0, 0.6],
-      duration: 500,
-      easing: 'easeOutQuad'
+    qsa('.as-node').forEach(node => {
+        if (nodeIds.includes(node.id)) {
+            node.classList.add('as-highlighted');
+            node.classList.remove('as-dimmed');
+        } else {
+            node.classList.add('as-dimmed');
+            node.classList.remove('as-highlighted');
+        }
     });
-  }
 }
 
-function hideExtensionHint(hintId) {
-  const hint = document.getElementById(hintId);
-  if (hint) {
-    anime({
-      targets: hint,
-      opacity: 0,
-      duration: 300,
-      easing: 'easeOutQuad'
+function resetNodeStates() {
+    qsa('.as-node').forEach(node => {
+        node.classList.remove('as-dimmed', 'as-highlighted', 'as-hidden');
+        node.classList.add('as-visible');
+        node.style.opacity = '1';
     });
-  }
 }
 
 // ============================================
-// COMPLETION CHECKS
+// CONNECTION CONTROLS
 // ============================================
-function showCompletionChecks() {
-  const checks = document.querySelectorAll('.completion-check');
-  anime({
-    targets: checks,
-    opacity: [0, 1],
-    scale: [0, 1],
-    delay: anime.stagger(200),
-    duration: 500,
-    easing: 'easeOutBack'
-  });
+function activateConnections(connectionIds) {
+    connectionIds.forEach(connId => {
+        const conn = document.getElementById(connId);
+        if (conn) {
+            conn.classList.add('as-active');
+            conn.classList.remove('as-dimmed');
+        }
+    });
 }
 
-function hideCompletionChecks() {
-  const checks = document.querySelectorAll('.completion-check');
-  anime({
-    targets: checks,
-    opacity: 0,
-    scale: 0,
-    duration: 300,
-    easing: 'easeInQuad'
-  });
+function dimConnections(connectionIds) {
+    connectionIds.forEach(connId => {
+        const conn = document.getElementById(connId);
+        if (conn) {
+            conn.classList.add('as-dimmed');
+            conn.classList.remove('as-active');
+        }
+    });
+}
+
+function resetConnectionStates() {
+    qsa('.as-connection').forEach(conn => {
+        conn.classList.remove('as-dimmed', 'as-active', 'as-hidden');
+    });
+}
+
+function resetConnectionsToHidden() {
+    qsa('.as-connection').forEach(conn => {
+        conn.classList.add('as-hidden');
+        conn.classList.remove('as-drawn', 'as-active', 'as-dimmed');
+        conn.style.strokeDashoffset = '500';
+    });
+}
+
+// ============================================
+// PHASE SECTION CONTROL
+// ============================================
+function activatePhase(phaseNum) {
+    qsa('.as-phase').forEach((section, index) => {
+        if (index === phaseNum) {
+            section.classList.add('as-active');
+        } else {
+            section.classList.remove('as-active');
+        }
+    });
 }
 
 // ============================================
 // ANIMATIONS
 // ============================================
-function animateNodesAppearing() {
-  const nodes = document.querySelectorAll('.node');
-  
-  anime({
-    targets: nodes,
-    opacity: [0, 1],
-    translateY: [20, 0],
-    delay: anime.stagger(100, { start: 200 }),
-    duration: CONFIG.durations.nodeAppear,
-    easing: 'easeOutQuad',
-    begin: () => {
-      nodes.forEach(n => n.classList.add('visible'));
-    }
-  });
-}
-
-function animateConnectionsDrawing() {
-  const connections = document.querySelectorAll('.connection');
-  
-  anime({
-    targets: connections,
-    strokeDashoffset: [1000, 0],
-    delay: anime.stagger(150),
-    duration: CONFIG.durations.connectionDraw,
-    easing: 'easeInOutQuad',
-    begin: () => {
-      connections.forEach(c => c.classList.add('drawn'));
-    }
-  });
-}
-
-function animateDataFlowSegment(connectionIds) {
-  connectionIds.forEach((connId, index) => {
-    const connection = document.getElementById(connId);
-    if (connection) {
-      // Activate the connection visually
-      connection.classList.add('active');
-      
-      // Animate glow pulse along the line
-      anime({
-        targets: connection,
-        filter: ['url(#glow)', 'url(#data-glow)', 'url(#glow)'],
-        duration: 1000,
-        delay: index * 300,
-        easing: 'easeInOutQuad'
-      });
-    }
-  });
-}
-
-function animateFullDataFlow() {
-  // Get all connections in order
-  const connectionOrder = [
-    'conn-schedule-fetch',
-    'conn-email-fetch', 
-    'conn-fetch-ai',
-    'conn-ai-report',
-    'conn-ai-post'
-  ];
-  
-  // Get particles
-  const particles = document.querySelectorAll('.data-particle');
-  
-  // Animate particles along paths
-  const paths = [
-    document.getElementById('conn-schedule-fetch'),
-    document.getElementById('conn-fetch-ai'),
-    document.getElementById('conn-ai-report')
-  ];
-  
-  // Activate all connections
-  connectionOrder.forEach(connId => {
-    const conn = document.getElementById(connId);
-    if (conn) conn.classList.add('active');
-  });
-  
-  // Simple particle animation along first path
-  if (paths[0] && particles[0]) {
-    const pathLength = paths[0].getTotalLength();
+function animateNodesAppearing(config) {
+    const nodes = qsa('.as-node');
     
     anime({
-      targets: particles[0],
-      opacity: [0, 1, 1, 0],
-      duration: CONFIG.durations.dataFlow,
-      easing: 'linear',
-      update: function(anim) {
-        const progress = anim.progress / 100;
-        const point = paths[0].getPointAtLength(pathLength * progress);
-        particles[0].setAttribute('cx', point.x);
-        particles[0].setAttribute('cy', point.y);
-      }
+        targets: Array.from(nodes),
+        opacity: [0, 1],
+        duration: config.durations.nodeAppear,
+        delay: anime.stagger(80, { start: 100 }),
+        easing: 'easeOutQuad',
+        begin: () => {
+            nodes.forEach(n => n.classList.add('as-visible'));
+        }
     });
-  }
-  
-  // Second particle on second path
-  if (paths[1] && particles[1]) {
-    const pathLength = paths[1].getTotalLength();
-    
-    anime({
-      targets: particles[1],
-      opacity: [0, 1, 1, 0],
-      duration: CONFIG.durations.dataFlow,
-      delay: 400,
-      easing: 'linear',
-      update: function(anim) {
-        const progress = anim.progress / 100;
-        const point = paths[1].getPointAtLength(pathLength * progress);
-        particles[1].setAttribute('cx', point.x);
-        particles[1].setAttribute('cy', point.y);
-      }
-    });
-  }
-  
-  // Third particle on third path
-  if (paths[2] && particles[2]) {
-    const pathLength = paths[2].getTotalLength();
-    
-    anime({
-      targets: particles[2],
-      opacity: [0, 1, 1, 0],
-      duration: CONFIG.durations.dataFlow,
-      delay: 800,
-      easing: 'linear',
-      update: function(anim) {
-        const progress = anim.progress / 100;
-        const point = paths[2].getPointAtLength(pathLength * progress);
-        particles[2].setAttribute('cx', point.x);
-        particles[2].setAttribute('cy', point.y);
-      }
-    });
-  }
 }
+
+function animateConnectionsDrawing(config) {
+    const connections = qsa('.as-connection');
+    
+    connections.forEach(c => c.classList.remove('as-hidden'));
+    
+    anime({
+        targets: Array.from(connections),
+        strokeDashoffset: [500, 0],
+        duration: config.durations.connectionDraw,
+        delay: anime.stagger(120, { start: 100 }),
+        easing: 'easeInOutQuad',
+        begin: () => {
+            connections.forEach(c => c.classList.add('as-drawn'));
+        }
+    });
+}
+
+function animateDataFlow(pathId, particleId, delay, config) {
+    const path = document.getElementById(pathId);
+    const particle = document.getElementById(particleId);
+    
+    if (!path || !particle) return;
+    
+    const pathLength = path.getTotalLength();
+    
+    anime({
+        targets: particle,
+        opacity: [0, 1, 1, 0],
+        duration: config.durations.dataFlow,
+        delay: delay,
+        easing: 'linear',
+        update: function(anim) {
+            const progress = anim.progress / 100;
+            const point = path.getPointAtLength(pathLength * progress);
+            particle.setAttribute('cx', point.x);
+            particle.setAttribute('cy', point.y);
+        }
+    });
+}
+
+function animateFullDataFlow(config) {
+    animateDataFlow('as-conn-schedule-fetch', 'as-particle-1', 0, config);
+    animateDataFlow('as-conn-fetch-ai', 'as-particle-2', 400, config);
+    animateDataFlow('as-conn-ai-report', 'as-particle-3', 800, config);
+    animateDataFlow('as-conn-ai-post', 'as-particle-4', 900, config);
+}
+
+function showExtensionHints(type) {
+    if (type === 'triggers') {
+        anime({
+            targets: ['#as-hint-triggers', '#as-hint-triggers-text'],
+            opacity: [0, 1],
+            duration: 400,
+            easing: 'easeOutQuad'
+        });
+    } else if (type === 'outputs') {
+        anime({
+            targets: ['#as-hint-outputs', '#as-hint-outputs-text'],
+            opacity: [0, 1],
+            duration: 400,
+            easing: 'easeOutQuad'
+        });
+    }
+}
+
+function hideExtensionHints() {
+    anime({
+        targets: qsa('.as-hint-line, .as-hint-text'),
+        opacity: 0,
+        duration: 300,
+        easing: 'easeOutQuad'
+    });
+}
+
+// ============================================
+// DESKTOP PHASE HANDLERS
+// ============================================
+const desktopPhaseHandlers = {
+    0: {
+        enter() {
+            state.nodesVisible = false;
+            state.connectionsDrawn = false;
+            state.dataFlowPlayed = false;
+            
+            showCanvas();
+            setCanvasZoom('as-zoom-full');
+            setCanvasOpacity(1);
+            setCanvasBlur(0);
+            showProblemAndGoalNodes();
+            showTaskLabels();
+            hideNodeIcons();
+            resetConnectionsToHidden();
+            activatePhase(0);
+        },
+        update(progress) {
+            const localProgress = (progress - DESKTOP_CONFIG.phases[0].start) / 
+                                  (DESKTOP_CONFIG.phases[0].end - DESKTOP_CONFIG.phases[0].start);
+            if (localProgress > 0.5) {
+                const labelOpacity = 1 - ((localProgress - 0.5) * 2);
+                fadeTaskLabels(Math.max(0, labelOpacity));
+            }
+        },
+        exit() {
+            hideTaskLabels();
+        }
+    },
+    
+    1: {
+        enter() {
+            showCanvas();
+            setCanvasZoom('as-zoom-full');
+            activatePhase(1);
+            hideTaskLabels();
+            showNodeIcons();
+            
+            qsa('.as-connection').forEach(conn => {
+                conn.classList.remove('as-active', 'as-dimmed');
+            });
+        },
+        update(progress) {
+            const localProgress = (progress - DESKTOP_CONFIG.phases[1].start) / 
+                                  (DESKTOP_CONFIG.phases[1].end - DESKTOP_CONFIG.phases[1].start);
+            
+            if (localProgress > 0.4 && !state.nodesVisible) {
+                revealMiddleNodes(DESKTOP_CONFIG);
+                state.nodesVisible = true;
+            }
+            
+            if (localProgress > 0.6 && !state.connectionsDrawn) {
+                animateConnectionsDrawing(DESKTOP_CONFIG);
+                state.connectionsDrawn = true;
+            }
+        },
+        exit() {}
+    },
+    
+    2: {
+        enter() {
+            showCanvas();
+            setCanvasZoom('as-zoom-triggers');
+            activatePhase(2);
+            highlightNodes(['as-node-schedule', 'as-node-email']);
+            activateConnections(['as-conn-schedule-fetch', 'as-conn-email-fetch']);
+            dimConnections(['as-conn-fetch-ai', 'as-conn-ai-report', 'as-conn-ai-post']);
+            showExtensionHints('triggers');
+        },
+        update(progress) {},
+        exit() {
+            hideExtensionHints();
+        }
+    },
+    
+    3: {
+        enter() {
+            showCanvas();
+            setCanvasZoom('as-zoom-processing');
+            activatePhase(3);
+            highlightNodes(['as-node-fetch', 'as-node-ai']);
+            activateConnections(['as-conn-schedule-fetch', 'as-conn-email-fetch', 'as-conn-fetch-ai']);
+            dimConnections(['as-conn-ai-report', 'as-conn-ai-post']);
+            
+            setTimeout(() => {
+                animateDataFlow('as-conn-fetch-ai', 'as-particle-2', 0, DESKTOP_CONFIG);
+            }, 400);
+        },
+        update(progress) {},
+        exit() {}
+    },
+    
+    4: {
+        enter() {
+            showCanvas();
+            setCanvasZoom('as-zoom-outputs');
+            activatePhase(4);
+            highlightNodes(['as-node-report', 'as-node-post']);
+            activateConnections(['as-conn-schedule-fetch', 'as-conn-email-fetch', 'as-conn-fetch-ai', 'as-conn-ai-report', 'as-conn-ai-post']);
+            showExtensionHints('outputs');
+            
+            setTimeout(() => {
+                animateDataFlow('as-conn-ai-report', 'as-particle-3', 0, DESKTOP_CONFIG);
+                animateDataFlow('as-conn-ai-post', 'as-particle-4', 200, DESKTOP_CONFIG);
+            }, 400);
+        },
+        update(progress) {},
+        exit() {
+            hideExtensionHints();
+        }
+    },
+    
+    5: {
+        enter() {
+            showCanvas();
+            setCanvasZoom('as-zoom-full');
+            activatePhase(5);
+            resetNodeStates();
+            resetConnectionStates();
+            showAllNodes();
+            
+            if (!state.dataFlowPlayed) {
+                setTimeout(() => {
+                    animateFullDataFlow(DESKTOP_CONFIG);
+                }, 500);
+                state.dataFlowPlayed = true;
+            }
+        },
+        update(progress) {
+            // Fade canvas out towards end
+            const localProgress = (progress - DESKTOP_CONFIG.phases[5].start) / 
+                                  (DESKTOP_CONFIG.phases[5].end - DESKTOP_CONFIG.phases[5].start);
+            if (localProgress > 0.7) {
+                const canvasOpacity = Math.max(0, 1 - ((localProgress - 0.7) / 0.3));
+                setCanvasOpacity(canvasOpacity);
+            }
+        },
+        exit() {
+            setCanvasOpacity(1);
+        }
+    }
+};
+
+// ============================================
+// MOBILE-SPECIFIC HELPERS
+// ============================================
+function setMobileZoom(zoomLevel) {
+    const zoomClasses = ['as-zoom-start', 'as-zoom-mid', 'as-zoom-end', 'as-zoom-triggers', 'as-zoom-processing', 'as-zoom-outputs', 'as-zoom-full'];
+    zoomClasses.forEach(cls => dom.canvas?.classList.remove(cls));
+    
+    const svg = dom.canvas?.querySelector('.as-n8n-canvas');
+    if (svg) {
+        svg.style.transform = `scale(${zoomLevel})`;
+    }
+}
+
+function ensureMiddleNodesVisible() {
+    const middleNodes = ['as-node-fetch', 'as-node-ai'];
+    middleNodes.forEach(nodeId => {
+        const node = document.getElementById(nodeId);
+        if (node && !node.classList.contains('as-visible')) {
+            node.classList.remove('as-hidden');
+            node.classList.add('as-visible');
+            node.style.opacity = '1';
+        }
+    });
+}
+
+function ensureConnectionsDrawn() {
+    qsa('.as-connection').forEach(conn => {
+        if (!conn.classList.contains('as-drawn')) {
+            conn.classList.remove('as-hidden');
+            conn.classList.add('as-drawn');
+            conn.style.strokeDashoffset = '0';
+        }
+    });
+}
+
+// ============================================
+// MOBILE PHASE HANDLERS
+// ============================================
+const mobilePhaseHandlers = {
+    0: {
+        enter() {
+            state.nodesVisible = false;
+            state.connectionsDrawn = false;
+            state.dataFlowPlayed = false;
+            
+            showCanvas();
+            setMobileZoom(MOBILE_CONFIG.zoom.phase0);
+            setCanvasOpacity(MOBILE_CONFIG.canvasOpacity);
+            setCanvasBlur(0);
+            showProblemAndGoalNodes();
+            showNodeIcons();
+            resetConnectionsToHidden();
+            hideTaskLabels();
+            activatePhase(0);
+        },
+        update(progress) {},
+        exit() {}
+    },
+    
+    1: {
+        enter() {
+            showCanvas();
+            setMobileZoom(MOBILE_CONFIG.zoom.phase1);
+            setCanvasOpacity(MOBILE_CONFIG.canvasOpacity);
+            setCanvasBlur(0);
+            activatePhase(1);
+            
+            if (!state.nodesVisible) {
+                revealMiddleNodes(MOBILE_CONFIG);
+                state.nodesVisible = true;
+            }
+        },
+        update(progress) {},
+        exit() {}
+    },
+    
+    2: {
+        enter() {
+            showCanvas();
+            setMobileZoom(MOBILE_CONFIG.zoom.phase2);
+            setCanvasOpacity(MOBILE_CONFIG.canvasOpacity);
+            setCanvasBlur(0);
+            activatePhase(2);
+            
+            ensureMiddleNodesVisible();
+            
+            if (!state.connectionsDrawn) {
+                animateConnectionsDrawing(MOBILE_CONFIG);
+                state.connectionsDrawn = true;
+            }
+        },
+        update(progress) {},
+        exit() {}
+    },
+    
+    3: {
+        enter() {
+            showCanvas();
+            setMobileZoom(MOBILE_CONFIG.zoom.phase3);
+            setCanvasOpacity(MOBILE_CONFIG.canvasOpacity);
+            setCanvasBlur(0);
+            activatePhase(3);
+            
+            ensureMiddleNodesVisible();
+            ensureConnectionsDrawn();
+            
+            activateConnections(['as-conn-schedule-fetch', 'as-conn-email-fetch', 'as-conn-fetch-ai', 'as-conn-ai-report', 'as-conn-ai-post']);
+            
+            if (!state.dataFlowPlayed) {
+                setTimeout(() => {
+                    animateFullDataFlow(MOBILE_CONFIG);
+                }, 300);
+                state.dataFlowPlayed = true;
+            }
+        },
+        update(progress) {},
+        exit() {}
+    },
+    
+    4: {
+        enter() {
+            showCanvas();
+            setMobileZoom(MOBILE_CONFIG.zoom.phase4);
+            setCanvasOpacity(MOBILE_CONFIG.canvasOpacity);
+            setCanvasBlur(MOBILE_CONFIG.canvasBlurAmount);
+            activatePhase(4);
+            
+            ensureMiddleNodesVisible();
+            ensureConnectionsDrawn();
+        },
+        update(progress) {},
+        exit() {}
+    },
+    
+    5: {
+        enter() {
+            activatePhase(5);
+            setCanvasBlur(MOBILE_CONFIG.canvasBlurAmount);
+        },
+        update(progress) {
+            const localProgress = (progress - MOBILE_CONFIG.phases[5].start) / 
+                                  (MOBILE_CONFIG.phases[5].end - MOBILE_CONFIG.phases[5].start);
+            const canvasOpacity = Math.max(0, MOBILE_CONFIG.canvasOpacity - (localProgress * MOBILE_CONFIG.canvasOpacity));
+            setCanvasOpacity(canvasOpacity);
+        },
+        exit() {
+            setCanvasOpacity(MOBILE_CONFIG.canvasOpacity);
+        }
+    }
+};
 
 // ============================================
 // SCROLL HANDLER
 // ============================================
 function handleScroll() {
-  state.scrollProgress = getScrollProgress();
-  const newPhase = getCurrentPhase(state.scrollProgress);
-  
-  // Phase changed
-  if (newPhase !== state.currentPhase) {
-    // Exit old phase
-    if (state.currentPhase >= 0 && phaseHandlers[state.currentPhase]?.exit) {
-      phaseHandlers[state.currentPhase].exit();
+    // Only process if showcase is in or near viewport
+    const rect = dom.scrollContainer.getBoundingClientRect();
+    const viewH = window.innerHeight;
+    
+    // Skip if showcase is completely above or below viewport
+    if (rect.bottom < -viewH || rect.top > viewH * 2) return;
+    
+    state.scrollProgress = getScrollProgress();
+    
+    const config = state.isMobile ? MOBILE_CONFIG : DESKTOP_CONFIG;
+    const handlers = state.isMobile ? mobilePhaseHandlers : desktopPhaseHandlers;
+    
+    const newPhase = getCurrentPhase(state.scrollProgress, config);
+    
+    if (newPhase !== state.currentPhase) {
+        const goingBack = newPhase < state.currentPhase;
+        
+        if (goingBack && state.isMobile) {
+            if (newPhase < 2) state.connectionsDrawn = false;
+            if (newPhase < 1) state.nodesVisible = false;
+            if (newPhase < 3) state.dataFlowPlayed = false;
+        }
+        
+        if (goingBack && !state.isMobile) {
+            if (newPhase < 1) {
+                state.nodesVisible = false;
+                state.connectionsDrawn = false;
+                state.dataFlowPlayed = false;
+            }
+        }
+        
+        // Exit old phase
+        if (state.currentPhase >= 0 && handlers[state.currentPhase]?.exit) {
+            handlers[state.currentPhase].exit();
+        }
+        
+        // Enter new phase
+        if (handlers[newPhase]?.enter) {
+            handlers[newPhase].enter();
+        }
+        
+        state.currentPhase = newPhase;
     }
     
-    // Enter new phase
-    if (phaseHandlers[newPhase]?.enter) {
-      phaseHandlers[newPhase].enter();
+    // Continuous update
+    if (handlers[state.currentPhase]?.update) {
+        handlers[state.currentPhase].update(state.scrollProgress);
+    }
+}
+
+// ============================================
+// RESET STATE
+// ============================================
+function resetAllState() {
+    state.currentPhase = -1;
+    state.scrollProgress = 0;
+    state.nodesVisible = false;
+    state.connectionsDrawn = false;
+    state.dataFlowPlayed = false;
+    
+    setCanvasOpacity(1);
+    setCanvasBlur(0);
+    setCanvasZoom(null);
+    hideCanvas();
+    hideTaskLabels();
+    hideExtensionHints();
+    
+    const svg = dom.canvas?.querySelector('.as-n8n-canvas');
+    if (svg) {
+        svg.style.transform = '';
     }
     
-    state.currentPhase = newPhase;
-  }
-  
-  // Update current phase
-  if (phaseHandlers[state.currentPhase]?.update) {
-    phaseHandlers[state.currentPhase].update(state.scrollProgress);
-  }
+    qsa('.as-node').forEach(node => {
+        node.classList.remove('as-visible', 'as-hidden', 'as-dimmed', 'as-highlighted');
+        node.style.opacity = '';
+    });
+    
+    qsa('.as-connection').forEach(conn => {
+        conn.classList.remove('as-drawn', 'as-active', 'as-dimmed', 'as-hidden');
+        conn.style.strokeDashoffset = '';
+    });
+    
+    qsa('.as-node-icon').forEach(icon => {
+        icon.style.opacity = '';
+    });
+    
+    qsa('.as-data-particle').forEach(particle => {
+        particle.setAttribute('opacity', '0');
+    });
+}
+
+// ============================================
+// VIEW MODE HANDLING
+// ============================================
+function applyViewMode() {
+    const wasMobile = state.isMobile;
+    state.isMobile = isMobileView();
+    
+    const config = state.isMobile ? MOBILE_CONFIG : DESKTOP_CONFIG;
+    dom.scrollContainer.style.height = config.scrollHeight;
+    
+    dom.root.classList.toggle('as-mobile-view', state.isMobile);
+    dom.root.classList.toggle('as-desktop-view', !state.isMobile);
+    
+    if (wasMobile !== state.isMobile && state.initialized) {
+        resetAllState();
+        handleScroll();
+    }
 }
 
 // ============================================
 // INITIALIZATION
 // ============================================
 function init() {
-  console.log('🎬 Initializing Automation Showcase...');
-  
-  // Detect language
-  state.language = detectLanguage();
-  console.log('🌐 Language:', state.language);
-  
-  // Cache DOM references
-  dom.scrollContainer = document.getElementById('showcase-container');
-  dom.canvas = document.getElementById('n8n-canvas');
-  dom.phases = document.querySelectorAll('.showcase-phase');
-  
-  if (!dom.scrollContainer) {
-    console.error('❌ Showcase container not found');
-    return;
-  }
-  
-  // Apply translations
-  applyTranslations();
-  
-  // Set initial state
-  state.currentPhase = 0;
-  activatePhaseSection(0);
-  
-  // Add scroll listener with throttling
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        handleScroll();
-        ticking = false;
-      });
-      ticking = true;
+    // Cache DOM - scoped to the showcase container
+    dom.root = document.getElementById('automation-showcase');
+    dom.scrollContainer = document.getElementById('as-showcase-container');
+    dom.canvas = document.getElementById('as-n8n-canvas');
+    
+    if (!dom.scrollContainer || !dom.root) {
+        // Showcase not on this page, skip
+        return;
     }
-  }, { passive: true });
-  
-  // Initial scroll check
-  handleScroll();
-  
-  // Handle resize
-  window.addEventListener('resize', () => {
-    // Recalculate on resize
+    
+    // Detect initial view mode
+    applyViewMode();
+    
+    // Scroll listener
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Resize listener
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            applyViewMode();
+        }, 150);
+    }, { passive: true });
+    
+    // Initial state
     handleScroll();
-  }, { passive: true });
-  
-  console.log('✅ Automation Showcase initialized!');
+    
+    state.initialized = true;
 }
 
 // ============================================
 // START
 // ============================================
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', init);
 } else {
-  init();
+    init();
 }
 
 })();

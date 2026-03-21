@@ -1,5 +1,6 @@
 {{/* JavaScript Files */}}
 
+
 <script defer src="{{ "assets/js/plugins/jquery.js" | relURL }}"></script>
 <script defer src="{{ "assets/js/plugins/odometer.js" | relURL }}"></script>
 <script defer src="{{ "assets/js/plugins/jquery-appear.js" | relURL }}"></script>
@@ -19,10 +20,3 @@
 <script defer src="{{ "assets/js/automation-demo-calendar.js" | relURL }}"></script>
 <script defer src="{{ "assets/js/automation-showcase.js" | relURL }}"></script>
 
-{{/* GTM Noscript fallback */}}
-{{- if .Site.Params.enableAnalytics }}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.gtmId }}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{{- end }}
