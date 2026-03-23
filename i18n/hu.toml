@@ -359,7 +359,7 @@ other = "A rendszerezett feladatok és célok egy automatizálási rendszer csom
 other = "Ugyanaz a rendszer, a munka töredékével"
 
 [phase3_title]
-other = "Munkafolyamatod autopilótán fut"
+other = "Munkafolyamatod automatán fut"
 
 [phase3_body]
 other = "A triggerek elindulnak. Az adatok feldolgozásra, a riportok elküldésre kerülnek, a bejegyzések megjelennek, a csapatod értesítést kap — mindezt anélkül, hogy egy ujjadat is mozdítanád. Egyszer beállítjuk közösen, és megbízhatóan működik, minden egyes nap."
