@@ -113,7 +113,7 @@ html {
   font-size: 10px;
   overflow: hidden;
   overflow-y: auto;
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth !important;
 }
 
 body {
@@ -29913,4 +29913,24 @@ a:hover {
 
 .pricing-cta-link {
   width: 200px !important;
+}
+
+.legalfooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.footeritem {
+  display: flex;
+  justify-content: center;
+}
+
+.footerright {
+  flex-direction: column;
+}
+
+.footeritem > ul {
+  align-items: center;
+  justify-content: center;
 }

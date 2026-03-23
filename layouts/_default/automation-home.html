@@ -9,9 +9,8 @@
 {{ define "main" }}
 
 {{/* Page-specific CSS */}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fonts.coollabs.io">
+<link href="https://api.fonts.coollabs.io/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "assets/css/automation-home.css" | relURL }}">
 
 {{/* Full-page canvas (behind everything, always present) */}}
@@ -89,7 +88,7 @@
         {{/* Phase 3: Results */}}
         <section class="phase" data-phase="3">
             <div class="phase-inner" style="width:100%;">
-                <div class="text-card centered" style="max-width:650px; margin:0 auto;">
+                <div class="text-card" style="max-width:650px; margin:0 auto;">
                     <h2 class="text-title">{{ i18n "phase3_title" | default "Your workflow, running on autopilot" }}</h2>
                     <p class="text-body">{{ i18n "phase3_body" | default "Triggers fire. Data flows through AI. Reports get sent, posts go live, your team gets notified — all without you lifting a finger. You set it up once with us, and it runs reliably, every single day." }}</p>
                     <p class="text-accent">{{ i18n "phase3_accent" | default "You focus on what only you can do — we automate the rest" }}</p>

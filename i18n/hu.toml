@@ -313,3 +313,114 @@ other = "megbízható"
 # CTA
 [cta_button]
 other = "Érdekel az automatizáció"
+
+# ── Automatizálás Kezdőlap: Hero ──
+[automation_eyebrow]
+other = "n8n és AI-alapú munkafolyamat-automatizálás"
+
+[automation_headline]
+other = "AI Automatizálási<br>Megoldások"
+
+[automation_sub]
+other = "Egyedi munkafolyamatok, amelyek elvégzik az ismétlődő feladatokat <br> "
+
+[month]
+other = "hó-tól"
+
+[automation_proof]
+other = "7 év tapasztalat&ensp;·&ensp;50+ projekt&ensp;·&ensp;EU&#8209;központ"
+
+[see_how]
+other = "Nézd meg, hogyan működik"
+
+# ── Automatizálás Kezdőlap: Showcase fázisok ──
+[phase0_title]
+other = "Milyen ismétlődő feladat emészti fel az idődet?"
+
+[phase0_sub]
+other = "Görgess, és fedezd fel, hogyan segíti ezt az automatizáció"
+
+[phase1_title]
+other = "Először rendszerezzük a munkafolyamataid"
+
+[phase1_body]
+other = "Minden feladatnak megvan a helye és az ideje. Feltérképezzük a triggereket, folyamatokat és célokat — megértjük a Te munkád prioritásait és sorrendjét."
+
+[phase1_accent]
+other = "Az Te rendszered, dokumentálva és strukturálva"
+
+[phase2_title]
+other = "Ezután az automatizálható folyamatokat munkafolyamattá alakítjuk"
+
+[phase2_body]
+other = "A rendszerezett feladatok és célok egy automatizálási rendszer csomópontjaivá válnak. Az AI összeköti a pontokat — kezeli a logikát, a döntéseket és az útvonalakat pontosan úgy, ahogy a Te igényeid megkívánják."
+
+[phase2_accent]
+other = "Ugyanaz a rendszer, a munka töredékével"
+
+[phase3_title]
+other = "Munkafolyamatod autopilótán fut"
+
+[phase3_body]
+other = "A triggerek elindulnak. Az adatok feldolgozásra, a riportok elküldésre kerülnek, a bejegyzések megjelennek, a csapatod értesítést kap — mindezt anélkül, hogy egy ujjadat is mozdítanád. Egyszer beállítjuk közösen, és megbízhatóan működik, minden egyes nap."
+
+[phase3_accent]
+other = "Te arra fókuszálsz, amit csak Te tudsz — a többit mi automatizáljuk"
+
+# ── Automatizálás Kezdőlap: CTA és Árazás ──
+[phase4_title]
+other = "Építsük meg a Tiédet"
+
+[phase4_body]
+other = "Foglalj egy ingyenes konzultációt. Megkeressük az automatizálásra érdemes ismétlődő feladatokat, és munkafolyamatot tervezünk a meglévő eszközeid köré."
+
+[book_consultation]
+other = "Ingyenes konzultáció foglalása"
+
+[step1]
+other = "Konzultáció — 30 perc"
+
+[step2]
+other = "Fejlesztés — 1 hét"
+
+[step3]
+other = "Tesztelés — 1 hét"
+
+[step4]
+other = "Indítás — automatikusan fut"
+
+[pricing_consult]
+other = "Konzultáció"
+
+[pricing_setup]
+other = "Rendszer beállítása"
+
+[pricing_testing]
+other = "Tesztelés"
+
+[pricing_training]
+other = "Betanítás"
+
+[one_time]
+other = "Egyszeri díj"
+
+[per_month]
+other = "/hó"
+
+[monthly_plan]
+other = "Havi csomag"
+
+[pricing_hosting]
+other = "Tárhely"
+
+[pricing_maintenance]
+other = "Karbantartás"
+
+[pricing_updates]
+other = "Platform frissítések"
+
+[pricing_support]
+other = "Támogatás"
+
+[pricing_monitoring]
+other = "Havi monitoring"

@@ -1,8 +1,8 @@
 ---
 title: "MKB Oplossingen"
 description: "Professionele webontwikkeling, responsive webdesign, SEO basis, digitale oplossingen voor MKB en particulieren."
-translationKey: "development"
-layout: "home"
+translationKey: "sme-solutions"
+layout: "sme-solutions"
 
 # Hero Section
 hero:

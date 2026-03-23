@@ -33,28 +33,27 @@
 </div>
 <!-- banner area end -->
 
-<!-- AI automation cost comparison area start -->
+<!-- about area start -->
 <div class="rts-about-area about-bg-four bg_image rts-section-gap">
     <div class="container pt--50">
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="about-content-four-left">
-                    <div class="title-style-four center">
-                        <span class="pre">{{ .Params.ai.pre }}</span>
-                        <h2 class="title rts-text-anime-style-1">{{ .Params.ai.title | safeHTML }}</h2>
+                    <div class="title-style-four left">
+                        <span class="pre">{{ .Params.about.pre }}</span>
+                        <h2 class="title rts-text-anime-style-1">{{ .Params.about.title | safeHTML }}</h2>
                     </div>
-                    <p class="disc ai-disc">
-                        {{ .Params.ai.description | safeHTML }}
+                    <p class="disc">
+                        {{ .Params.about.description }}
                     </p>
                     <div class="progress-wrapper-about-4">
-                        {{ range .Params.ai.stats }}
+                        {{ range .Params.about.stats }}
                         <div class="single-progress">
                             <h6 class="title">{{ .label }}</h6>
-                            <div class="progress progress-bar-container ">
+                            <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s"
-                                    data-wow-delay=".3s" role="progressbar" aria-valuenow="50"
-                                    data-progress="{{ .progress }}"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: {{ .progress }}%;">
+                                    data-wow-delay=".3s" role="progressbar" style="width: 100%" aria-valuenow="100"
+                                    aria-valuemin="0" aria-valuemax="100">
                                 </div>
                                 <span class="progress-number">{{ .value }}</span>
                             </div>
@@ -79,69 +78,48 @@
         </div>
     </div>
 </div>
-<!-- AI automation cost comparison area end -->
+<!-- about area end -->
 
-<!-- Automation Showcase (scroll-driven n8n workflow animation) -->
-{{ partial "automation-showcase.html" . }}
-
-<!-- faq / process area start -->
-{{ partial "faq-section.html" . }}
-<!-- faq area end -->
-
-<!-- pricing area start -->
-<div class="rts-pricing-area-one rts-section-gap">
+<!-- why choose us area start -->
+<div class="why-choose-us-area rts-section-gapBottom rts_jump_animation-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div>
-                    <div class="title-style-four center">
-                        <span class="pre">{{ .Params.pricing.pre }}</span>
-                        <h2 class="title rts-text-anime-style-1">{{ .Params.pricing.title | safeHTML }}</h2>
-                        <p>{{ .Params.pricing.note }}</p>
-                    </div>
+                <div class="title-style-four center services">
+                    <span class="pre">{{ .Params.services.pre }}</span>
+                    <h2 class="title rts-text-anime-style-1">{{ .Params.services.title | safeHTML }}</h2>
                 </div>
             </div>
         </div>
-        <div class="row mt--100">
-            <div class="col-12">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row g-5 justify-content-center">
-                            {{ range $index, $package := .Params.pricing.packages }}
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-12{{ if ne $index 0 }} mt_sm--80{{ end }}{{ if eq $index 2 }} mt_md--80{{ end }}">
-                                <div class="pricing-wrapper-one">
-                                    <div class="plane-process">
-                                        <h3 class="title">{{ $package.price }}</h3>
-                                    </div>
-                                    <div class="pricing-header-start">
-                                        <h4 class="title">
-                                            {{ $package.name }}
-                                        </h4>
-                                    </div>
-                                    <div class="pricing-body">
-                                        {{ range $package.features }}
-                                        <div class="single-pricing available">
-                                            <div class="icon">
-                                                <i class="far fa-check"></i>
-                                            </div>
-                                            <span class="price-details">{{ . }}</span>
-                                        </div>
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                            {{ end }}
+        <div class="row g-5 mt--10">
+            {{ range $index, $service := .Params.services.items }}
+            <div class="col-lg-4 col-md-6 col-sm-12 rts-jump__item">
+                <div class="single-why-choose-four">
+                    <a href="#" class="thumbnail disabled">
+                        <img src="{{ $service.image | relURL }}" alt="{{ $service.title }}">
+                    </a>
+                    <div class="inner-content">
+                        <div class="icon">
+                            <img src="{{ $service.icon | relURL }}" alt="why-choose">
                         </div>
+                        <a href="#" class="disabled">
+                            <h5 class="title">{{ $service.title }}</h5>
+                        </a>
+                        <p class="disc">
+                            {{ $service.description }}
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="pricing-cta cta-btn">
-                <a class="rts-btn btn-primary pricing-cta-link" href="{{ .Params.pricing.cta.url | relLangURL }}">{{ .Params.pricing.cta.text | safeHTML }}</a>
-            </div>
+            {{ end }}
         </div>
     </div>
 </div>
-<!-- pricing area end -->
+<!-- why choose us area end -->
+
+<!-- faq / process area start -->
+
+<!-- faq area end -->
 
 <!-- business solution / contact area start -->
 <div class="business-solution-area rts-section-gap">

@@ -32,16 +32,7 @@
 }
 body.hero-active #main-canvas { pointer-events: all; }
 
-/* ── Dark overlay (for CTA focus) ── */
-#dark-overlay {
-    position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    z-index: 1;
-    background: var(--auto-bg-deep);
-    opacity: 0;
-    pointer-events: none;
-    transition: none;
-}
+
 
 /* ── Hero ── */
 .auto-hero {
@@ -62,7 +53,7 @@ body.hero-active #main-canvas { pointer-events: all; }
 
 .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--auto-font-mono); font-size: 0.975rem; letter-spacing: 0.6px;
+    font-family: var(--auto-font-mono); font-size: 1.4rem; letter-spacing: 0.6px;
     color: var(--auto-text-muted); text-transform: uppercase; margin-bottom: 36px;
     padding: 8px 21px 8px 13px; background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06); border-radius: 100px;
@@ -70,17 +61,17 @@ body.hero-active #main-canvas { pointer-events: all; }
 .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--auto-accent-green); animation: autoDotPulse 2s ease-in-out infinite; }
 @keyframes autoDotPulse { 0%,100%{opacity:.5;box-shadow:0 0 0 0 rgba(16,185,129,.4)} 50%{opacity:1;box-shadow:0 0 0 5px rgba(16,185,129,0)} }
 
-.hero-headline { font-size: clamp(3.9rem,9vw,7.15rem); font-weight: 700; line-height: 1.05; letter-spacing: -3px; margin-bottom: 32px; color: var(--auto-text-primary) !important; }
-.hero-sub { font-size: clamp(1.35rem,2vw,1.56rem); color: var(--auto-text-secondary) !important; margin-bottom: 20px; max-width: 680px; margin-left: auto; margin-right: auto; }
+.hero-headline { font-size: clamp(4.2rem,10vw,7.65rem); font-weight: 700; line-height: 1.05; letter-spacing: -3px; margin-bottom: 32px; color: var(--auto-text-primary) !important; }
+.hero-sub { font-size: clamp(1.45rem,3vw,1.96rem); color: var(--auto-text-secondary) !important; margin-bottom: 20px; max-width: 680px; margin-left: auto; margin-right: auto; }
 .price-highlight { color: var(--auto-accent-green) !important; font-weight: 600; font-family: var(--auto-font-mono); font-size: 1.24em; }
-.hero-proof { font-family: var(--auto-font-mono); font-size: 0.94rem; letter-spacing: 1px; color: var(--auto-text-dim) !important; text-transform: uppercase; margin-bottom: 56px; }
+.hero-proof { font-family: var(--auto-font-mono); font-size: 1.24rem; letter-spacing: 1px; color: var(--auto-text-dim) !important; text-transform: uppercase; margin-bottom: 56px; }
 .hero-actions { display: flex; align-items: center; justify-content: center; gap: 26px; }
 
 /* ── Buttons ── */
 .btn-primary-auto {
     display: inline-flex; align-items: center; gap: 13px; padding: 18px 36px;
     background: linear-gradient(135deg, var(--auto-accent-blue), var(--auto-accent-purple)) !important;
-    color: white !important; font-family: var(--auto-font-body); font-size: 1.24rem; font-weight: 600;
+    color: white !important; font-family: var(--auto-font-body); font-size: 1.64rem; font-weight: 600;
     text-decoration: none; border-radius: 13px; border: none; cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     box-shadow: 0 5px 30px rgba(59,130,246,0.25);
@@ -138,10 +129,10 @@ body.hero-active #main-canvas { pointer-events: all; }
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .text-title { font-size: clamp(1.95rem,3.9vw,2.93rem); font-weight: 700; margin-bottom: 26px; letter-spacing: -1px; color: var(--auto-text-primary) !important; }
-.text-body { font-size: clamp(1.3rem,2vw,1.37rem); line-height: 1.7; color: var(--auto-text-secondary) !important; margin-bottom: 26px; }
+.text-body { font-size: clamp(1.6rem,3vw,1.7rem); line-height: 1.7; color: var(--auto-text-secondary) !important; margin-bottom: 26px; }
 .text-sub { font-size: clamp(1.3rem,2.6vw,1.5rem); color: var(--auto-text-secondary) !important; margin-bottom: 52px; }
 .text-accent {
-    font-size: 1.1rem; font-family: var(--auto-font-mono); color: var(--auto-accent-blue) !important;
+    font-size: 1.7rem; font-family: var(--auto-font-mono); color: var(--auto-accent-blue) !important;
     padding: 16px 21px; background: rgba(59,130,246,0.08);
     border-left: 3px solid var(--auto-accent-blue); border-radius: 0 10px 10px 0;
 }
@@ -167,7 +158,7 @@ body.hero-active #main-canvas { pointer-events: all; }
 .final-right-cards {
     display: flex; gap: 26px;
 }
-/* Smaller, secondary-style CTA under pricing — not the giant primary button */
+/* Smaller, secondary-style CTA under pricing */
 .final-right-cta {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 14px 32px;
@@ -193,7 +184,7 @@ body.hero-active #main-canvas { pointer-events: all; }
 
 /* Workflow steps */
 .cta-workflow { display: flex; flex-direction: column; gap: 13px; margin-top: 32px; }
-.workflow-step { display: flex; align-items: center; gap: 16px; font-size: 1.17rem; color: var(--auto-text-secondary); }
+.workflow-step { display: flex; align-items: center; gap: 16px; font-size: 1.5rem; color: var(--auto-text-secondary); }
 .step-num {
     width: 34px; height: 34px; border-radius: 50%;
     background: rgba(59,130,246,0.12); color: var(--auto-accent-blue);
@@ -223,7 +214,7 @@ body.hero-active #main-canvas { pointer-events: all; }
     color: var(--auto-accent-blue) !important; margin-bottom: 26px;
 }
 .pricing-features-auto { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin: 0; }
-.pricing-features-auto li { font-size: 1.1rem; color: var(--auto-text-secondary) !important; padding-left: 21px; position: relative; }
+.pricing-features-auto li { font-size: 1.3rem; color: var(--auto-text-secondary) !important; padding-left: 21px; position: relative; }
 .pricing-features-auto li::before { content: '✓'; position: absolute; left: 0; color: var(--auto-accent-green); font-size: 1.04rem; }
 .pricing-note-auto {
     margin-top: 21px; padding-top: 16px;
@@ -237,6 +228,8 @@ body.hero-active #main-canvas { pointer-events: all; }
 @keyframes autoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(12px)} }
 .scroll-arrow { width: 57px; height: 57px; border: 2px solid var(--auto-text-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--auto-text-dim); }
 .scroll-label { font-family: var(--auto-font-mono); font-size: 0.845rem; text-transform: uppercase; letter-spacing: 4px; color: var(--auto-text-dim); }
+
+
 
 /* ============================================
    TABLET (757px – 1100px)
@@ -255,7 +248,9 @@ body.hero-active #main-canvas { pointer-events: all; }
     .final-right-cta { width: auto; }
     .pricing-card-auto { flex: 1; max-width: 340px; }
     .hero-headline { font-size: clamp(3.25rem, 7.8vw, 5.2rem); }
+    .pricing-features-auto li { font-size: 1.84rem; }
 }
+
 
 /* ============================================
    MOBILE (≤756px)
@@ -268,9 +263,9 @@ body.hero-active #main-canvas { pointer-events: all; }
 
     .auto-hero { padding-top: 80px; }
     .hero-content { max-width: 100%; padding: 0 20px; }
-    .hero-headline { font-size: clamp(2.6rem, 10vw, 3.9rem); letter-spacing: -1.5px; }
-    .hero-sub { font-size: 1.24rem; }
-    .hero-proof { font-size: 0.845rem; margin-bottom: 42px; }
+    .hero-headline { font-size: clamp(3rem, 14vw, 4.2rem); letter-spacing: -1.5px; }
+    .hero-sub { font-size: 1.64rem; }
+    .hero-proof { font-size: 1rem; margin-bottom: 42px; }
     .hero-actions { flex-direction: column; gap: 16px; }
     .hero-actions .btn-primary-auto,
     .hero-actions .btn-ghost-auto { width: 100%; justify-content: center; }
@@ -285,10 +280,10 @@ body.hero-active #main-canvas { pointer-events: all; }
     .final-right { width: 100%; flex-direction: column; align-items: center; gap: 20px; }
     .final-right-cards { flex-direction: row; justify-content: center; gap: 16px; }
     .final-right-cta { width: auto; padding: 12px 28px; font-size: 1rem; }
-    .pricing-card-auto { flex: 1; width: auto; min-width: 0; max-width: 260px; padding: 32px 21px; }
+    .pricing-card-auto { flex: 1; width: 200px; min-width: 0; max-width: 460px; padding: 32px 21px; }
     .pricing-amount { font-size: 2.34rem; }
     .pricing-label-auto { font-size: 0.845rem; margin-bottom: 18px; }
-    .pricing-features-auto li { font-size: 1.04rem; }
+    .pricing-features-auto li { font-size: 1.44rem; }
 
     .text-hero { font-size: clamp(2.08rem, 7.8vw, 2.86rem); }
     .text-title { font-size: clamp(1.69rem, 5.2vw, 2.34rem); }

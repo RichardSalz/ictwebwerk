@@ -10,15 +10,15 @@
    ║  Tweak each breakpoint independently.                    ║
    ╚═══════════════════════════════════════════════════════════╝ */
 const TEXT_DESKTOP = {  // > 1100px
-    phaseHeights: [70, 65, 105, 90, 80],
-    fadeInZone: 20, fadeOutZone: 12, slideDistance: 25,
+    phaseHeights: [70, 65, 105, 90, 50],
+    fadeInZone: 17, fadeOutZone: 12, slideDistance: 25,
 };
 const TEXT_TABLET = {   // 757px–1100px
-    phaseHeights: [65, 60, 95, 85, 75],
+    phaseHeights: [65, 60, 95, 60, 80],
     fadeInZone: 22, fadeOutZone: 14, slideDistance: 20,
 };
 const TEXT_MOBILE = {   // ≤756px
-    phaseHeights: [55, 50, 80, 70, 65],
+    phaseHeights: [55, 40, 60, 60, 85],
     fadeInZone: 25, fadeOutZone: 16, slideDistance: 15,
 };
 
@@ -109,7 +109,7 @@ const ANIM_PHASES_MOBILE={
     0:{s:0.00,e:0.20},  // floating → gentle drift
     1:{s:0.20,e:0.50},  // workflow + connections
     2:{s:0.50,e:0.80},  // full picture + data flow
-    3:{s:0.80,e:1.00},  // fade
+    3:{s:0.90,e:0.90},  // fade
 };
 
 function getAnimPhases(){return S.W<=756?ANIM_PHASES_MOBILE:ANIM_PHASES;}

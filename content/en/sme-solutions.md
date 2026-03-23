@@ -1,8 +1,8 @@
 ---
 title: "SME Solutions"
 description: "Professional web development, responsive web design, SEO basics, digital solutions for SMEs and individuals."
-translationKey: "development"
-layout: "single"
+translationKey: "sme-solutions"
+layout: "sme-solutions"
 
 # Hero Section
 hero:

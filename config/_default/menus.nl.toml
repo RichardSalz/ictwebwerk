@@ -1,9 +1,15 @@
 # Dutch Menu
 
 [[main]]
+  identifier = "Automatiseringen"
+  name = "Automatizáció"
+  url = "/"
+  weight = 1
+
+[[main]]
   identifier = "development"
   name = "MKB Oplossingen"
-  url = "/"
+  url = "/sme-solutions"
   weight = 2
 
 [[main]]
@@ -11,12 +17,6 @@
   name = "Enterprise Oplossingen"
   url = "/business/"
   weight = 3
-
-#  [[main]]
-#  identifier = "automations"
-#  name = "AI-automatisering"
-#  url = "/automation/"
-#  weight = 3
 
 [[main]]
   identifier = "contact"

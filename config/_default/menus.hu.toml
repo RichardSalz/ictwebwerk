@@ -7,6 +7,12 @@
   weight = 1
 
 [[main]]
+  identifier = "KKV megoldások"
+  name = "KKV megoldások"
+  url = "/sme-solutions/"
+  weight = 2
+
+[[main]]
   identifier = "business"
   name = "Nagyvállalati megoldások"
   url = "/business/"

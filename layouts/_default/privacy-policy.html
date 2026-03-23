@@ -1,0 +1,22 @@
+{{/*
+  Privacy Policy page layout
+  Uses baseof.html for header/footer.
+*/}}
+
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "css/legal.css" | relURL }}">
+
+<div class="legal-page">
+    <div class="legal-container">
+        <h1 class="legal-title">{{ .Title }}</h1>
+        {{ with .Params.subtitle }}<p class="legal-subtitle">{{ . }}</p>{{ end }}
+        {{ with .Params.last_updated }}<p class="legal-date">{{ . }}</p>{{ end }}
+
+        <div class="legal-content">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+
+{{ end }}

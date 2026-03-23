@@ -1,9 +1,15 @@
 # English Menu
 
 [[main]]
-  identifier = "home"
-  name = "SME Solutions"
+  identifier = "automation-home"
+  name = "AI Automation"
   url = "/"
+  weight = 1
+
+[[main]]
+  identifier = "sme-solutions"
+  name = "SME Solutions"
+  url = "/sme-solutions"
   weight = 2
 
 [[main]]
@@ -11,12 +17,6 @@
   name = "Enterprise Solutions"
   url = "/business/"
   weight = 3
-
-#  [[main]]
-#  identifier = "automations"
-# name = "AI Automation"
-#  url = "/automation/"
-#  weight = 4
 
 [[main]]
   identifier = "contact"

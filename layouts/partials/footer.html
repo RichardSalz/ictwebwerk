@@ -16,25 +16,37 @@
                             </p>
                         </div>
                     </div>
-                    <!-- footer right -->
-                    <div class="col-lg-6">
-                        <!-- Additional footer content can go here -->
-                    </div>
                 </div>
             </div>
             <!-- footer social -->
-            <div class="col-xl-4 col-lg-6">
-                <div class="footer-three-single-wized right">
-                    <a href="{{ .Site.Home.RelPermalink }}" class="logo_footer"></a>
+            <div class="col-xl-4 col-lg-6 legalfooter">
+                <div class="footer-three-single-wized footeritem">
                     <ul class="social-three-wrapper">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class=" footer-three-single-wized footeritem ">
+                    <ul class="social-three-wrapper footerright">
+                        {{ if eq .Language.Lang "hu" }}
+                            <a href="/hu/adatvedelmi-tajekoztato/">Adatvédelmi Tájékoztató</a> <br>
+                            <a href="/hu/felhasznalasi-feltetelek/">Felhasználási Feltételek</a>
+                            {{ else if eq .Language.Lang "nl" }}
+                            <a href="/nl/privacybeleid/">Privacybeleid</a> <br>
+                            <a href="/nl/gebruiksvoorwaarden/">Gebruiksvoorwaarden</a>
+                            {{ else }}
+                            <a href="/en/privacy-policy/">Privacy Policy</a> <br>
+                            <a href="/en/terms-of-use/">Terms of Use</a>
+                        {{ end }}
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Progress/scroll to top -->
 <div class="progress-wrap">

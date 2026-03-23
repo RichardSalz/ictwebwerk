@@ -313,3 +313,114 @@ other = "betrouwbaar"
 # CTA
 [cta_button]
 other = "Geïnteresseerd in automatisering"
+
+# ── Automatisering Startpagina: Hero ──
+[automation_eyebrow]
+other = "n8n & AI-gestuurde workflow-automatisering"
+
+[automation_headline]
+other = "AI Automatiserings<br>oplossingen"
+
+[automation_sub]
+other = "Op maat gemaakte workflows die uw repetitieve taken afhandelen — vanaf"
+
+[month]
+other = "maand"
+
+[automation_proof]
+other = "7 jaar ervaring&ensp;·&ensp;50+ projecten&ensp;·&ensp;EU&#8209;gevestigd"
+
+[see_how]
+other = "Bekijk hoe het werkt"
+
+# ── Automatisering Startpagina: Showcase fasen ──
+[phase0_title]
+other = "Welke repetitieve taak vreet uw tijd op?"
+
+[phase0_sub]
+other = "Scroll om te ontdekken hoe automatisering dit voor u afhandelt"
+
+[phase1_title]
+other = "Eerst organiseren we uw workflow"
+
+[phase1_body]
+other = "Elke taak heeft zijn eigen plek en tijd. We brengen uw triggers, processen en doelen in kaart — en begrijpen de prioriteit en volgorde van alles wat u doet."
+
+[phase1_accent]
+other = "Uw systeem, gedocumenteerd en gestructureerd"
+
+[phase2_title]
+other = "Daarna maken we er een geautomatiseerde workflow van"
+
+[phase2_body]
+other = "Uw georganiseerde taken en doelen worden knooppunten in een automatiseringssysteem. AI verbindt de punten — en regelt de logica, beslissingen en routing precies zoals uw bedrijf werkt."
+
+[phase2_accent]
+other = "Hetzelfde systeem, nul handmatig werk"
+
+[phase3_title]
+other = "Uw workflow draait op de automatische piloot"
+
+[phase3_body]
+other = "Triggers worden geactiveerd. Data stroomt door AI. Rapporten worden verstuurd, berichten gaan live, uw team wordt geïnformeerd — allemaal zonder dat u een vinger hoeft uit te steken. U stelt het één keer met ons in, en het draait betrouwbaar, elke dag."
+
+[phase3_accent]
+other = "U focust op wat alleen u kunt doen — wij automatiseren de rest"
+
+# ── Automatisering Startpagina: CTA & Prijzen ──
+[phase4_title]
+other = "Laten we de uwe bouwen"
+
+[phase4_body]
+other = "Boek een gratis adviesgesprek. We zoeken de repetitieve taken die het automatiseren waard zijn en ontwerpen een workflow rondom uw bestaande tools."
+
+[book_consultation]
+other = "Gratis adviesgesprek boeken"
+
+[step1]
+other = "Adviesgesprek — 30 min"
+
+[step2]
+other = "Ontwikkeling — 1 week"
+
+[step3]
+other = "Testen — 1 week"
+
+[step4]
+other = "Lancering — draait automatisch"
+
+[pricing_consult]
+other = "Adviesgesprek"
+
+[pricing_setup]
+other = "Systeeminrichting"
+
+[pricing_testing]
+other = "Testen"
+
+[pricing_training]
+other = "Training"
+
+[one_time]
+other = "Eenmalige kosten"
+
+[per_month]
+other = "/maand"
+
+[monthly_plan]
+other = "Maandelijks abonnement"
+
+[pricing_hosting]
+other = "Hosting"
+
+[pricing_maintenance]
+other = "Onderhoud"
+
+[pricing_updates]
+other = "Platformupdates"
+
+[pricing_support]
+other = "Ondersteuning"
+
+[pricing_monitoring]
+other = "Maandelijkse monitoring"

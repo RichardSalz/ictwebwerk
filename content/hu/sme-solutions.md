@@ -1,8 +1,8 @@
 ---
 title: "KKV Megoldások"
 description: "Professzionális webfejlesztés, reszponzív webdesign, SEO alapok, digitális megoldások KKV-k és magánszemélyek számára."
-translationKey: "development"
-layout: "home"
+translationKey: "sme-solutions"
+layout: "sme-solutions"
 
 # Hero Section
 hero:

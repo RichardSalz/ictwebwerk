@@ -314,3 +314,113 @@ other = "reliable"
 [cta_button]
 other = "Interested in automation"
 
+# ── Automation Homepage: Hero ──
+[automation_eyebrow]
+other = "n8n & AI-powered workflow automation"
+
+[automation_headline]
+other = "AI Automation<br>Solutions"
+
+[automation_sub]
+other = "Custom workflows that handle your repetitive tasks — from"
+
+[month]
+other = "month"
+
+[automation_proof]
+other = "7 years&ensp;·&ensp;50+ projects&ensp;·&ensp;EU&#8209;based"
+
+[see_how]
+other = "See how it works"
+
+# ── Automation Homepage: Showcase Phases ──
+[phase0_title]
+other = "What repetitive task is eating your time?"
+
+[phase0_sub]
+other = "Scroll to discover how automation handles it for you"
+
+[phase1_title]
+other = "First, we organize your workflow"
+
+[phase1_body]
+other = "Every task has its place and time. We map out your triggers, processes, and goals — understanding the priority and order of everything you do."
+
+[phase1_accent]
+other = "Your system, documented and structured"
+
+[phase2_title]
+other = "Then we turn it into an automated workflow"
+
+[phase2_body]
+other = "Your organized tasks and goals become nodes in an automation system. AI connects the dots — handling the logic, decisions, and routing based on exactly how your business works."
+
+[phase2_accent]
+other = "Same system, zero manual work"
+
+[phase3_title]
+other = "Your workflow, running on autopilot"
+
+[phase3_body]
+other = "Triggers fire. Data flows through AI. Reports get sent, posts go live, your team gets notified — all without you lifting a finger. You set it up once with us, and it runs reliably, every single day."
+
+[phase3_accent]
+other = "You focus on what only you can do — we automate the rest"
+
+# ── Automation Homepage: CTA & Pricing ──
+[phase4_title]
+other = "Let's build yours"
+
+[phase4_body]
+other = "Book a free consultation. We'll find the repetitive tasks worth automating and design a workflow around your existing tools."
+
+[book_consultation]
+other = "Book Free Consultation"
+
+[step1]
+other = "Consultation — 30 min"
+
+[step2]
+other = "Development — 1 week"
+
+[step3]
+other = "Testing — 1 week"
+
+[step4]
+other = "Launch — runs automatically"
+
+[pricing_consult]
+other = "Consultation"
+
+[pricing_setup]
+other = "System setup"
+
+[pricing_testing]
+other = "Testing"
+
+[pricing_training]
+other = "Training"
+
+[one_time]
+other = "One-time fee"
+
+[per_month]
+other = "/month"
+
+[monthly_plan]
+other = "Monthly Plan"
+
+[pricing_hosting]
+other = "Hosting"
+
+[pricing_maintenance]
+other = "Maintenance"
+
+[pricing_updates]
+other = "Platform updates"
+
+[pricing_support]
+other = "Support"
+
+[pricing_monitoring]
+other = "Monthly monitoring"
