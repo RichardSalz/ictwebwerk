@@ -64,14 +64,14 @@ body.hero-active #main-canvas { pointer-events: all; }
 .hero-headline { font-size: clamp(4.2rem,10vw,7.65rem); font-weight: 700; line-height: 1.05; letter-spacing: -3px; margin-bottom: 32px; color: var(--auto-text-primary) !important; }
 .hero-sub { font-size: clamp(1.45rem,3vw,1.96rem); color: var(--auto-text-secondary) !important; margin-bottom: 20px; max-width: 680px; margin-left: auto; margin-right: auto; }
 .price-highlight { color: var(--auto-accent-green) !important; font-weight: 600; font-family: var(--auto-font-mono); font-size: 1.24em; }
-.hero-proof { font-family: var(--auto-font-mono); font-size: 1.24rem; letter-spacing: 1px; color: var(--auto-text-dim) !important; text-transform: uppercase; margin-bottom: 56px; }
-.hero-actions { display: flex; align-items: center; justify-content: center; gap: 26px; }
+.hero-proof { font-family: var(--auto-font-mono); font-size: 1.44rem; letter-spacing: 1px; color: var(--auto-text-dim) !important; text-transform: uppercase; margin-bottom: 56px; }
+.hero-actions { display: flex; align-items: center; font-size: 1.44rem; justify-content: center; gap: 26px; }
 
 /* ── Buttons ── */
 .btn-primary-auto {
     display: inline-flex; align-items: center; gap: 13px; padding: 18px 36px;
     background: linear-gradient(135deg, var(--auto-accent-blue), var(--auto-accent-purple)) !important;
-    color: white !important; font-family: var(--auto-font-body); font-size: 1.64rem; font-weight: 600;
+    color: white !important; font-family: var(--auto-font-body); font-size: 1.74rem; font-weight: 600;
     text-decoration: none; border-radius: 13px; border: none; cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     box-shadow: 0 5px 30px rgba(59,130,246,0.25);
@@ -82,7 +82,7 @@ body.hero-active #main-canvas { pointer-events: all; }
 
 .btn-ghost-auto {
     display: inline-flex; align-items: center; gap: 10px; padding: 18px 32px;
-    color: var(--auto-text-secondary) !important; font-size: 1.17rem; font-weight: 500;
+    color: var(--auto-text-secondary) !important; font-size: 1.64rem; font-weight: 500;
     text-decoration: none; border-radius: 13px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.25s;
 }
 .btn-ghost-auto:hover { color: var(--auto-text-primary) !important; border-color: rgba(255,255,255,0.16); background: rgba(255,255,255,0.03); }
@@ -165,7 +165,7 @@ body.hero-active #main-canvas { pointer-events: all; }
     background: linear-gradient(135deg, var(--auto-accent-blue), var(--auto-accent-purple)) !important;
     color: white !important;
     font-family: var(--auto-font-body);
-    font-size: 1.05rem; font-weight: 600;
+    font-size: 1.74rem; font-weight: 600;
     text-decoration: none;
     border-radius: 12px; border: none; cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -209,17 +209,17 @@ body.hero-active #main-canvas { pointer-events: all; }
 .pricing-amount { font-size: 3.12rem; font-weight: 700; letter-spacing: -1.3px; color: var(--auto-text-primary) !important; margin-bottom: 8px; }
 .pricing-period { font-size: 1.3rem; font-weight: 500; color: var(--auto-text-muted) !important; letter-spacing: 0; }
 .pricing-label-auto {
-    font-family: var(--auto-font-mono); font-size: 0.975rem;
-    text-transform: uppercase; letter-spacing: 1.3px;
+    font-family: var(--auto-font-mono); font-size: 1.1rem;
+    text-transform: uppercase; letter-spacing: 1.5px;
     color: var(--auto-accent-blue) !important; margin-bottom: 26px;
 }
 .pricing-features-auto { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin: 0; }
-.pricing-features-auto li { font-size: 1.3rem; color: var(--auto-text-secondary) !important; padding-left: 21px; position: relative; }
+.pricing-features-auto li { font-size: 1.74rem; color: var(--auto-text-secondary) !important; padding-left: 21px; position: relative; }
 .pricing-features-auto li::before { content: '✓'; position: absolute; left: 0; color: var(--auto-accent-green); font-size: 1.04rem; }
 .pricing-note-auto {
     margin-top: 21px; padding-top: 16px;
     border-top: 1px solid rgba(255,255,255,0.06);
-    font-size: 0.975rem; color: var(--auto-text-dim) !important;
+    font-size: 1.1rem; color: var(--auto-text-dim) !important;
     font-family: var(--auto-font-mono); text-transform: uppercase; letter-spacing: 0.65px;
 }
 
@@ -265,31 +265,32 @@ body.hero-active #main-canvas { pointer-events: all; }
     .hero-content { max-width: 100%; padding: 0 20px; }
     .hero-headline { font-size: clamp(3rem, 14vw, 4.2rem); letter-spacing: -1.5px; }
     .hero-sub { font-size: 1.64rem; }
-    .hero-proof { font-size: 1rem; margin-bottom: 42px; }
+    .hero-proof { font-size: 1.2rem; margin-bottom: 42px; }
     .hero-actions { flex-direction: column; gap: 16px; }
     .hero-actions .btn-primary-auto,
     .hero-actions .btn-ghost-auto { width: 100%; justify-content: center; }
-    .hero-eyebrow { font-size: 0.845rem; padding: 7px 16px 7px 10px; }
+    .hero-eyebrow { font-size: 1.2rem; padding: 7px 16px 7px 10px; }
 
     .split-final {
         flex-direction: column; align-items: stretch; gap: 32px;
         padding: 0 20px; max-width: 100%;
     }
-    .final-left { width: 100%; }
+    .final-left { width: 100%;  }
     .final-left .text-card { max-width: 100%; }
-    .final-right { width: 100%; flex-direction: column; align-items: center; gap: 20px; }
-    .final-right-cards { flex-direction: row; justify-content: center; gap: 16px; }
-    .final-right-cta { width: auto; padding: 12px 28px; font-size: 1rem; }
+    .final-right { width: 100%; flex-direction: column; align-items: center; gap: 18px; }
+    .final-right-cards { flex-direction: row; justify-content: center; gap: 20px; }
+    .final-right-cta { width: auto; padding: 12px 28px; font-size: 1rem; display: none; }
     .pricing-card-auto { flex: 1; width: 200px; min-width: 0; max-width: 460px; padding: 32px 21px; }
     .pricing-amount { font-size: 2.34rem; }
     .pricing-label-auto { font-size: 0.845rem; margin-bottom: 18px; }
     .pricing-features-auto li { font-size: 1.44rem; }
 
-    .text-hero { font-size: clamp(2.08rem, 7.8vw, 2.86rem); }
-    .text-title { font-size: clamp(1.69rem, 5.2vw, 2.34rem); }
-    .text-body { font-size: 1.17rem; }
-    .text-sub { font-size: 1.17rem; margin-bottom: 32px; }
-    .text-accent { font-size: 1.04rem; padding: 13px 16px; }
+
+    .text-hero { font-size: clamp(4rem, 9vw, 5rem); }
+    .text-title { font-size: clamp(2.4rem, 7vw, 3.2rem); }
+    .text-body { font-size: 1.6rem; }
+    .text-sub { font-size: 1.6rem; margin-bottom: 32px; }
+    .text-accent { font-size: 1.4rem; padding: 13px 16px; }
     .text-cta { font-size: clamp(2.08rem, 6.5vw, 2.6rem); }
     .workflow-step { font-size: 1.1rem; }
     .step-num { width: 29px; height: 29px; font-size: 0.91rem; }

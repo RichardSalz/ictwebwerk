@@ -14,8 +14,8 @@ const TEXT_DESKTOP = {  // > 1100px
     fadeInZone: 17, fadeOutZone: 12, slideDistance: 25,
 };
 const TEXT_TABLET = {   // 757px–1100px
-    phaseHeights: [65, 60, 95, 60, 80],
-    fadeInZone: 22, fadeOutZone: 14, slideDistance: 20,
+    phaseHeights: [65, 60, 95, 60, 120],
+    fadeInZone: 20, fadeOutZone: 14, slideDistance: 20,
 };
 const TEXT_MOBILE = {   // ≤756px
     phaseHeights: [55, 40, 60, 60, 85],

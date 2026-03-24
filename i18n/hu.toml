@@ -324,8 +324,14 @@ other = "AI Automatizálási<br>Megoldások"
 [automation_sub]
 other = "Egyedi munkafolyamatok, amelyek elvégzik az ismétlődő feladatokat <br> "
 
+[pricing_200]
+other = "70.000Ft"
+
+[pricing_50]
+other = "20.000Ft"
+
 [month]
-other = "hó-tól"
+other = "20.000FT/hónap-tól"
 
 [automation_proof]
 other = "7 év tapasztalat&ensp;·&ensp;50+ projekt&ensp;·&ensp;EU&#8209;központ"

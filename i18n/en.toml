@@ -322,10 +322,10 @@ other = "n8n & AI-powered workflow automation"
 other = "AI Automation<br>Solutions"
 
 [automation_sub]
-other = "Custom workflows that handle your repetitive tasks — from"
+other = "Custom workflows that handle your repetitive tasks — from <br> "
 
 [month]
-other = "month"
+other = "€50/month"
 
 [automation_proof]
 other = "7 years&ensp;·&ensp;50+ projects&ensp;·&ensp;EU&#8209;based"
@@ -400,6 +400,12 @@ other = "Testing"
 
 [pricing_training]
 other = "Training"
+
+[pricing_200]
+other = "€200"
+
+[pricing_50]
+other = "€50"
 
 [one_time]
 other = "One-time fee"

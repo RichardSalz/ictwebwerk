@@ -21,7 +21,7 @@
         </div>
         <h1 class="hero-headline">{{ i18n "automation_headline" | default "AI Automation<br>Solutions" | safeHTML }}</h1>
         <p class="hero-sub">
-            {{ i18n "automation_sub" | default "Custom workflows that handle your repetitive tasks — from" | safeHTML }} <span class="price-highlight">€50/{{ i18n "month" | default "month" }}</span>
+            {{ i18n "automation_sub" | default "Custom workflows that handle your repetitive tasks — from" | safeHTML }} <span class="price-highlight">{{ i18n "month" | default "month" }}</span>
         </p>
         <div class="hero-proof">{{ i18n "automation_proof" | default "7 years&ensp;·&ensp;50+ projects&ensp;·&ensp;EU&#8209;based" | safeHTML }}</div>
         <div class="hero-actions">
@@ -110,7 +110,7 @@
                 <div class="final-right">
                     <div class="final-right-cards">
                         <div class="pricing-card-auto">
-                            <div class="pricing-amount">€200</div>
+                            <div class="pricing-amount">{{ i18n "pricing_200" | default "€200" }}</div>
                             <div class="pricing-label-auto">Setup</div>
                             <ul class="pricing-features-auto">
                                 <li>{{ i18n "pricing_consult" | default "Consultation" }}</li>
@@ -121,7 +121,7 @@
                             <div class="pricing-note-auto">{{ i18n "one_time" | default "One-time fee" }}</div>
                         </div>
                         <div class="pricing-card-auto pricing-highlight-auto">
-                            <div class="pricing-amount">€50<span class="pricing-period">{{ i18n "per_month" | default "/month" }}</span></div>
+                            <div class="pricing-amount">{{ i18n "pricing_50" | default "€50" }}<span class="pricing-period">{{ i18n "per_month" | default "/month" }}</span></div>
                             <div class="pricing-label-auto">{{ i18n "monthly_plan" | default "Monthly Plan" }}</div>
                             <ul class="pricing-features-auto">
                                 <li>{{ i18n "pricing_hosting" | default "Hosting" }}</li>
