@@ -407,6 +407,12 @@ other = "Eenmalige kosten"
 [per_month]
 other = "/maand"
 
+[pricing_200]
+other = "€200"
+
+[pricing_50]
+other = "€50"
+
 [monthly_plan]
 other = "Maandelijks abonnement"
 
